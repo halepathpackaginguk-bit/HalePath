@@ -453,11 +453,11 @@ footer ul li a span.marker {
   @apply font-medium text-white text-base md:text-[27px] mb-6 mt-2 leading-normal;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .slick-slide {
     max-height: 240px;
   }
-}
+} */
 
 .maskimage {
   mask-image: url("/images/masking.png");
