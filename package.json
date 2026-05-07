@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "sitemap": "tsx scripts/generate-sitemap.ts",
-    "postbuild": "npm run sitemap"
+    "lint": "eslint"
+    
   },
   "dependencies": {
     "@apollo/client": "^4.1.7",
