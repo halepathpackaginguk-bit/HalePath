@@ -9,11 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 const CenterSlider = ({ data }: any) => {
 
-  console.log("CenterSlider Data:", data); // Debugging log
+  // console.log("CenterSlider Data:", data); // Debugging log
 
   const settings = useMemo(() => ({
-    className: "center",
-    centerMode: true,
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 5,
@@ -47,13 +45,13 @@ const CenterSlider = ({ data }: any) => {
   }), []);
 
   return (
-    <section className="mt-10 overflow-x-hidden">
-      <Slider {...settings}>
+    <div className="mt-10 overflow-x-hidden w-full">
+      <Slider {...settings} className="!w-full">
         {data?.map((item: any, idx: number) => (
           <MaskingImage key={idx} data={item} />
         ))}
       </Slider>
-    </section>
+    </div>
   );
 };
 

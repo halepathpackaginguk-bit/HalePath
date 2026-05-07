@@ -15,7 +15,7 @@ export default function CategorySlider({ categoriesRes }:any) {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 5,
-    autoplay: true,
+    autoplay: false,
     speed: 12000,
     cssEase: 'linear',
     pauseOnHover: true,
@@ -56,7 +56,7 @@ export default function CategorySlider({ categoriesRes }:any) {
       <div className="slider-container">
         <Slider {...settings}>
           {categoriesRes.map((item:any, idx:number) => {
-            const link = `/${item?.slug}`;
+            const link = `/category/${item?.slug}`;
 
             return (
               <div key={idx} className="w-full p-2">
