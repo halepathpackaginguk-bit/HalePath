@@ -150,7 +150,7 @@ export const GET_PRODUCTS_BY_CATEGORY = gql`
 ---------------------------- */
 export const GET_CATEGORIES = gql`
   query GetCategories {
-    productCategories(first: 50) {
+    productCategories(first: 20) {
       nodes {
         id
         name

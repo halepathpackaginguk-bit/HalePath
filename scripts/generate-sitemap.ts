@@ -136,7 +136,7 @@ const GET_PRODUCTS = gql`
     products(first: 1000) {
       nodes {
         slug
-      
+
         ... on SimpleProduct {
           date
         }
@@ -217,7 +217,6 @@ ${urlsXml}
   }
 }
 
-
 // Generate product sitemaps (split into multiple files if needed)
 async function generateProductSitemaps(): Promise<number> {
   console.log("  📦 Fetching products...");
@@ -235,7 +234,7 @@ async function generateProductSitemaps(): Promise<number> {
 
     const products: Product[] = data.products.nodes;
     console.log(`  📊 Found ${products.length} total products`);
-    
+
     const PRODUCTS_PER_SITEMAP = 1000;
     const numSitemaps = Math.ceil(products.length / PRODUCTS_PER_SITEMAP);
 
@@ -249,11 +248,13 @@ async function generateProductSitemaps(): Promise<number> {
       const urlsXml = chunk
         .map((product: Product) => {
           // Use date field since that's what's available
-          const lastmodDate = product.date ? new Date(product.date) : new Date();
-          
+          const lastmodDate = product.date
+            ? new Date(product.date)
+            : new Date();
+
           // Fix: Add /product/ prefix to URL
           const productUrl = `${SITE_URL}/${product.slug}`;
-          
+
           return `  <url>
     <loc>${escapeXml(productUrl)}</loc>
     <lastmod>${lastmodDate.toISOString()}</lastmod>
