@@ -23,25 +23,22 @@ import {
 import Image from "next/image";
 export default async function Home() {
   const homeInfo = await getHomeData();
-
-  const homePage = homeInfo.homePage;
-
-
-
-  
+  const homePage = homeInfo.homePage; 
 
 
 
-  const OffsetProducts = await getProductsByCategory("commercial-printing");
-  const Flexible = await getProductsByCategory("flexible-packaging");
-  const Corrugated = await getProductsByCategory("corrugated-packaging");
-  const Printadverstising = await getProductsByCategory("print-advertising");
+  const OffsetProducts =  homePage.offsetPrintingProducts.nodes
+  const Flexible = homePage.flexiblePackaging.nodes
+  const Corrugated = homePage.corrugatedPackaging.nodes;
+  const Printadverstising =homePage.printAdvertising.nodes;
   const productsRes = await getProductsData();
   const categoriesRes = await getCategoriesData();
   const testimonialsRes = await getTestimonails();
   const WhatweDo = homeInfo?.homeInfo?.workWeDo;
   const FAQS = homeInfo?.homeInfo?.faqsSections;
-   console.log("homePage", homePage);
+
+
+   
 
   return (
     <>
@@ -69,11 +66,11 @@ export default async function Home() {
         <SliderFull />
         <section className="bg-[#EAF6F9]">
           {/* Print & Advertising  */}
-          {/* <Packaging_Style
+          <Packaging_Style
             title="Print & Advertising & Office Supplies"
             subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
             data={Printadverstising}
-          /> */}
+          />
         </section>
         <WhatWeDo data={WhatweDo} />
         <Testimonials testimonialsRes={testimonialsRes} />

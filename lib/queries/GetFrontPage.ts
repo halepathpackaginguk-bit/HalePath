@@ -27,7 +27,6 @@ export const GET_HOME = gql`
             image {
               node {
                 mediaItemUrl
-                
               }
             }
           }
@@ -64,7 +63,6 @@ export const GET_HOME = gql`
               name
               image {
                 mediaItemUrl
-                  
               }
             }
           }
@@ -90,6 +88,12 @@ export const GET_HOME = gql`
       ... on SimpleProduct {
         id
         name
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
       }
     }
   }
