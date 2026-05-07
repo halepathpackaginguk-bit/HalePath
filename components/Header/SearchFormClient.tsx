@@ -3,13 +3,14 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { getSearchProductsData } from "@/lib/data/getProductsData";
 import { Product } from "./searchForm";
 
-
 interface SearchFormClientProps {
   initialProducts: Product[];
 }
 
-export default function SearchFormClient({ initialProducts }: SearchFormClientProps) {
-  const [searchTerm, setSearchTerm] = useState('');
+export default function SearchFormClient({
+  initialProducts,
+}: SearchFormClientProps) {
+  const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<Product[]>(initialProducts);
   const [loading, setLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -18,34 +19,40 @@ export default function SearchFormClient({ initialProducts }: SearchFormClientPr
   // Close results when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setShowResults(false);
       }
     }
-    
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const performSearch = useCallback(async (term: string) => {
-    if (!term.trim()) {
-      setResults(initialProducts);
-      setShowResults(false);
-      return;
-    }
+  const performSearch = useCallback(
+    async (term: string) => {
+      if (!term.trim()) {
+        setResults(initialProducts);
+        setShowResults(false);
+        return;
+      }
 
-    setLoading(true);
-    try {
-      const products = await getSearchProductsData(term);
-      setResults(products);
-      setShowResults(true);
-    } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
-    } finally {
-      setLoading(false);
-    }
-  }, [initialProducts]);
+      setLoading(true);
+      try {
+        const products = await getSearchProductsData(term);
+        setResults(products);
+        setShowResults(true);
+      } catch (error) {
+        console.error("Search error:", error);
+        setResults([]);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [initialProducts],
+  );
 
   // Debounce search
   useEffect(() => {
@@ -69,9 +76,11 @@ export default function SearchFormClient({ initialProducts }: SearchFormClientPr
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-secondary"
-        onFocus={() => (searchTerm || results.length > 0) && setShowResults(true)}
+        onFocus={() =>
+          (searchTerm || results.length > 0) && setShowResults(true)
+        }
       />
-      
+
       {/* Search Results Dropdown */}
       {showResults && (
         <div className="absolute top-full left-0 right-0 mt-2 bg-white border rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto z-100">
@@ -86,7 +95,9 @@ export default function SearchFormClient({ initialProducts }: SearchFormClientPr
                     className="block p-3 hover:bg-gray-50 transition-colors"
                     onClick={() => setShowResults(false)}
                   >
-                    <div className="font-medium text-gray-900">{product.name}</div>
+                    <div className="font-medium text-gray-900">
+                      {product.name}
+                    </div>
                   </a>
                 </li>
               ))}
