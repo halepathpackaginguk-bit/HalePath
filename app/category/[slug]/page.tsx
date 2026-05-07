@@ -30,13 +30,10 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params; // ✅ FIX
 
-
   const category = await getCategoryBySlug(slug);
   const products = await getProductsByCategory(slug);
 
   // console.log("Category Data:", category);
-
-
 
   if (!category) {
     return (
@@ -58,10 +55,7 @@ export default async function CategoryPage({
         <div className="hale_container grid items-center md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-[70px]">
           <div className="h-full">
             <img
-              src={
-                category?.image?.sourceUrl ||
-                "/images/placeholder.jpg"
-              }
+              src={category?.image?.sourceUrl || "/images/placeholder.jpg"}
               alt=""
               width={651}
               height={375}
@@ -76,7 +70,9 @@ export default async function CategoryPage({
         </div>
       </main>
       <CategoriesProducts productsRes={products} />
-      <Faqs data={category?.faqs} col={2} />
+      {category?.faqs?.faqsSections?.length > 0 && (
+        <Faqs data={category?.faqs} col={2} />
+      )}
     </>
   );
 }
