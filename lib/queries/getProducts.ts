@@ -124,6 +124,24 @@ export const GET_PRODUCTS = gql`
 `;
 
 /* ---------------------------
+   ALL PRODUCTS
+---------------------------- */
+export const GET_SEARCH_PRODUCTS = gql`
+query GetSearchProducts($search: String = "Test") {
+  products(first: 10, where: {search: $search}) {
+    nodes {
+      name
+      slug
+      ... on SimpleProduct {
+        id
+        name
+      }
+    }
+  }
+}
+`;
+
+/* ---------------------------
    PRODUCTS BY CATEGORY
 ---------------------------- */
 export const GET_PRODUCTS_BY_CATEGORY = gql`

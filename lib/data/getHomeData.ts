@@ -13,7 +13,7 @@ export async function getTestimonails(): Promise<any[]> {
   try {
     const { data } = await client.query<any>({
       query: GET_TESTIMONAILS,
-      variables: { first: 20 }, // optional
+      variables: { first: 10 }, // optional
     });
 
     // Ensure only valid posts are returned

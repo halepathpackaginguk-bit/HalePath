@@ -15,30 +15,17 @@ import SliderFull from "@/components/slider/slider-full";
 import Testimonials from "@/components/testimonial/testimonials";
 import WhatWeOffer from "@/components/what-we-offer/what-we-offer";
 import { getHomeData, getTestimonails } from "@/lib/data/getHomeData";
-import {
-  getCategoriesData,
-  getProductsByCategory,
-  getProductsData,
-} from "@/lib/data/getProductsData";
 import Image from "next/image";
 export default async function Home() {
   const homeInfo = await getHomeData();
-  const homePage = homeInfo.homePage; 
-
-
-
-  const OffsetProducts =  homePage.offsetPrintingProducts.nodes
-  const Flexible = homePage.flexiblePackaging.nodes
-  const Corrugated = homePage.corrugatedPackaging.nodes;
-  const Printadverstising =homePage.printAdvertising.nodes;
-  const productsRes = await getProductsData();
-  const categoriesRes = await getCategoriesData();
+  const homePage = homeInfo.homePage;
+  const OffsetProducts = homePage?.offsetPrintingProducts?.nodes;
+  const Flexible = homePage?.flexiblePackaging?.nodes;
+  const Corrugated = homePage?.corrugatedPackaging?.nodes;
+  const Printadverstising = homePage?.printAdvertising?.nodes;
   const testimonialsRes = await getTestimonails();
   const WhatweDo = homeInfo?.homeInfo?.workWeDo;
   const FAQS = homeInfo?.homeInfo?.faqsSections;
-
-
-   
 
   return (
     <>
