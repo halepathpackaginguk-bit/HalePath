@@ -1,97 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-          <loc>https://halepath.vercel.app/</loc>
-      </url>
-      <url>
-          <loc>https://halepath.vercel.app/blog</loc>
-      </url>
-      <url>
-          <loc>https://halepath.vercel.app/categories</loc>
-      </url>
-      <url>
-          <loc>https://halepath.vercel.app/contact</loc>
-      </url>
-       <url>
-          <loc>https://halepath.vercel.app/about-us</loc>
-      </url>
-      <url>
-          <loc>https://halepath.vercel.app/products</loc>
-      </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/our-best-boxes</loc>
-          <lastmod>2024-12-20T11:21:59Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-7</loc>
-          <lastmod>2024-12-20T10:46:18Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-2</loc>
-          <lastmod>2024-12-20T10:45:33Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-4</loc>
-          <lastmod>2024-12-20T10:38:08Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-3</loc>
-          <lastmod>2024-12-20T10:37:30Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-5</loc>
-          <lastmod>2024-12-20T10:45:26Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/test</loc>
-          <lastmod>2024-12-20T10:31:50Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/product-6</loc>
-          <lastmod>2024-12-20T10:45:57Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/cosmetic-boxes</loc>
-          <lastmod>2024-12-19T08:52:16Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/cbd-boxes</loc>
-          <lastmod>2024-12-19T08:49:02Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/display-boxes</loc>
-          <lastmod>2024-12-19T08:49:27Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-        <url>
-          <loc>https://halepath.vercel.app/blog/retail-boxes</loc>
-          <lastmod>2024-12-19T08:41:34Z</lastmod>
-          <priority>0.80</priority>
-        </url>
-      
-    </urlset>
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.halepathpackaging.com</loc>
+        <lastmod>2026-05-07T07:24:21.293Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://www.halepathpackaging.com/about-us</loc>
+        <lastmod>2026-05-07T07:24:21.293Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.halepathpackaging.com/contact-us</loc>
+        <lastmod>2026-05-07T07:24:21.293Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.halepathpackaging.com/shop</loc>
+        <lastmod>2026-05-07T07:24:21.293Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.halepathpackaging.com/blog</loc>
+        <lastmod>2026-05-07T07:24:21.293Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+  </url>
+</urlset>
