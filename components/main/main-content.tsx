@@ -108,7 +108,7 @@ const MainContent = () => {
           </div>
           <div className="sm:mt-10 mt-5 flex justify-center">
             <Link
-              href="#"
+              href="/about-us"
               className="btn_secondry"
             >
               About Us
