@@ -15,6 +15,22 @@ const nextConfig: NextConfig = {
      
     ],
   },
+   env: {
+    GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
+  },
+  async headers() {
+    return [
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
