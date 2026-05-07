@@ -163,12 +163,12 @@ export default function SearchFormClient({
                 <button
                   onClick={() =>
                     router.push(
-                      `/shop?search=${encodeURIComponent(searchTerm)}`,
+                      `/products?search=${encodeURIComponent(searchTerm)}`,
                     )
                   }
                   className="text-primary text-sm hover:underline"
                 >
-                  View all results ({searchResults.length}+)
+                  View all Products
                 </button>
               </div>
             </>
