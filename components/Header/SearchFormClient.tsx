@@ -91,7 +91,7 @@ export default function SearchFormClient({
               {results.slice(0, 10).map((product: Product) => (
                 <li key={product.id} className="border-b last:border-b-0">
                   <a
-                    href={`/product/${product.slug}`}
+                    href={`/${product.slug}`}
                     className="block p-3 hover:bg-gray-50 transition-colors"
                     onClick={() => setShowResults(false)}
                   >
