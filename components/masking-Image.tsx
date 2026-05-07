@@ -9,7 +9,7 @@ const MaskingImage = ({ data }: any) => {
   return (
     <div className="w-fit p-2">
       <Link href={link}>
-        <Image
+        <img
           src={
             data?.featuredImage?.node?.mediaItemUrl || "images/category1.png"
           }
