@@ -9,6 +9,7 @@ export const GET_PRODUCT_BY_SLUG = gql`
       id
       name
       slug
+       shortDescription
       featuredImage {
         node {
           mediaItemUrl

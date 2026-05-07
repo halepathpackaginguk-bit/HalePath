@@ -60,7 +60,7 @@ export default async function CategoryPage({
             <Image
               src={
                 category?.image?.sourceUrl ||
-                "https://via.placeholder.com/651x375?text=No+Image"
+                "/images/placeholder.jpg"
               }
               alt=""
               width={651}

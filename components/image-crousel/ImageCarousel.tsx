@@ -51,7 +51,7 @@ const ImageCarousel = ({ data }: any) => {
         {images.map((src: string, index: number) => (
           <div key={index} className="px-2">
             <figure className="rounded-2xl h-[450px]">
-              <Image
+              <img
                 src={src || "/images/placeholder.png"}
                 alt={`Slide ${index + 1}`}
                 width={350}
