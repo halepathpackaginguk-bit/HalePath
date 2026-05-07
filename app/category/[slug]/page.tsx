@@ -57,7 +57,7 @@ export default async function CategoryPage({
       <main className="py-10 lg:py-20">
         <div className="hale_container grid items-center md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-[70px]">
           <div className="h-full">
-            <Image
+            <img
               src={
                 category?.image?.sourceUrl ||
                 "/images/placeholder.jpg"
