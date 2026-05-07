@@ -127,18 +127,19 @@ export const GET_PRODUCTS = gql`
    ALL PRODUCTS
 ---------------------------- */
 export const GET_SEARCH_PRODUCTS = gql`
-query GetSearchProducts($search: String = "Test") {
-  products(first: 10, where: {search: $search}) {
-    nodes {
-      name
-      slug
-      ... on SimpleProduct {
-        id
+  query GetSearchProducts($search: String) {
+    products(first: 50, where: { search: $search }) {
+      nodes {
         name
+        slug
+        id
+        ... on SimpleProduct {
+          id
+          name
+        }
       }
     }
   }
-}
 `;
 
 /* ---------------------------

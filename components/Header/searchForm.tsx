@@ -1,6 +1,15 @@
-import SearchFormClient from "@/components/Header/SearchFormClient";
 import { getSearchProductsData } from "@/lib/data/getProductsData";
+import SearchFormClient from "./SearchFormClient";
+
+export interface Product {
+  id: string;
+  name: string;
+  slug: string;
+}
+
 export default async function SearchForm() {
-  const products = await getSearchProductsData();  
-  return <SearchFormClient initialProducts={products} />;
+  // Fetch initial products on the server
+  const initialProducts: Product[] = await getSearchProductsData();
+  
+  return <SearchFormClient initialProducts={initialProducts} />;
 }

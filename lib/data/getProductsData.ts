@@ -19,13 +19,21 @@ export async function getProductsData() {
   return data?.products?.nodes || [];
 }
 
+
 export async function getSearchProductsData(searchTerm?: string) {
-  const { data } = await client.query<any>({
-    query: GET_SEARCH_PRODUCTS,
-    variables: searchTerm ? { search: searchTerm } : {},
-  });
-  return data?.products?.nodes || [];
+  try {
+    const { data } = await client.query<any>({
+      query: GET_SEARCH_PRODUCTS,
+      variables: searchTerm ? { search: searchTerm } : {},
+    });
+    return data?.products?.nodes || [];
+  } catch (error) {
+    console.error("Search error:", error);
+    return [];
+  }
 }
+
+
 
 export async function getProductsByCategory(category: string) {
   const { data } = await client.query<any>({ query: GET_PRODUCTS_BY_CATEGORY, variables: { category } });
