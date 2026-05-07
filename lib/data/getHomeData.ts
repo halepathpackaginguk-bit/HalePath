@@ -6,7 +6,7 @@ import { GET_POST_BY_SLUG } from "../queries/getPostBySlug";
 
 export async function getHomeData() {
   const { data } = await client.query<any>({ query: GET_HOME });
-  return data.page.homeInfo || {};
+  return data.page || {};
 }
 
 export async function getTestimonails(): Promise<any[]> {

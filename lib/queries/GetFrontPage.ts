@@ -27,6 +27,7 @@ export const GET_HOME = gql`
             image {
               node {
                 mediaItemUrl
+                
               }
             }
           }
@@ -45,21 +46,50 @@ export const GET_HOME = gql`
             }
           }
         }
-           
-        faqsSections{
+
+        faqsSections {
           title
           description
         }
-          
       }
       homePage {
-        flexiblePackaging {
-          edges {
-            node {
-              date
+        latestCategories {
+          nodes {
+            name
+            databaseId
+            slug
+            databaseId
+            ... on ProductCategory {
+              id
+              name
+              image {
+                mediaItemUrl
+                  
+              }
             }
           }
         }
+        printAdvertising {
+          ...AcfContentNodeConnectionFragment
+        }
+        corrugatedPackaging {
+          ...AcfContentNodeConnectionFragment
+        }
+        flexiblePackaging {
+          ...AcfContentNodeConnectionFragment
+        }
+        offsetPrintingProducts {
+          ...AcfContentNodeConnectionFragment
+        }
+      }
+    }
+  }
+  fragment AcfContentNodeConnectionFragment on AcfContentNodeConnection {
+    nodes {
+      databaseId
+      ... on SimpleProduct {
+        id
+        name
       }
     }
   }

@@ -23,6 +23,15 @@ import {
 import Image from "next/image";
 export default async function Home() {
   const homeInfo = await getHomeData();
+
+  const homePage = homeInfo.homePage;
+
+
+
+  
+
+
+
   const OffsetProducts = await getProductsByCategory("commercial-printing");
   const Flexible = await getProductsByCategory("flexible-packaging");
   const Corrugated = await getProductsByCategory("corrugated-packaging");
@@ -30,16 +39,16 @@ export default async function Home() {
   const productsRes = await getProductsData();
   const categoriesRes = await getCategoriesData();
   const testimonialsRes = await getTestimonails();
-  const WhatweDo = homeInfo?.workWeDo;
-  const FAQS = homeInfo?.faqsSections;
-  // console.log("homeInfo", testimonialsRes);
+  const WhatweDo = homeInfo?.homeInfo?.workWeDo;
+  const FAQS = homeInfo?.homeInfo?.faqsSections;
+   console.log("homePage", homePage);
 
   return (
     <>
       <main className={``}>
         <MainSlider />
         <MainContent />
-        <CategorySlider categoriesRes={categoriesRes} />
+        <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
         <CTASECTION />
         {/* Off Set Printing  */}
         <ProductSlider productsRes={OffsetProducts} title="Offset Printing" />
