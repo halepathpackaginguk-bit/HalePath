@@ -204,6 +204,7 @@ export const GET_CATEGORY_BY_SLUG = gql`
       id
       name
       slug
+      description
       image {
         sourceUrl
         mediaItemUrl
