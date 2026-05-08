@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     domains: [
-      "backend.halepathpackaging.co.uk",
+      "api.halepathpackaging.co.uk",
       
     ],
     remotePatterns: [

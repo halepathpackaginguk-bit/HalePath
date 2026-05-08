@@ -1,2 +1,2 @@
 NEXT_PUBLIC_SITE_URL=https://www.halepathpackaging.com
-NEXT_PUBLIC_WORDPRESS_API_URL=https://backend.halepathpackaging.co.uk/graphql
+NEXT_PUBLIC_WORDPRESS_API_URL=https://api.halepathpackaging.co.uk/graphql
