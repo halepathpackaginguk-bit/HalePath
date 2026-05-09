@@ -263,7 +263,7 @@ export default function FormTabs({
                                 </div>
 
                                 <p style={{ marginTop: "20px", fontSize: "16px" }}>
-                                    <strong>Price:</strong> £{calculatedPrice} for {quantity} items
+                                    <strong>Price:</strong> ${calculatedPrice} for {quantity} items
                                 </p>
                             </div>
 

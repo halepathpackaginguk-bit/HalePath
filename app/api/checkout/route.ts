@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
                 <hr/>
 
-                <p><strong>Total Price:</strong> £${calculatedPrice}</p>
+                <p><strong>Total Price:</strong> $${calculatedPrice}</p>
             `,
         };
 
