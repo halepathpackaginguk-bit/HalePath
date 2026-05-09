@@ -26,7 +26,7 @@ const CategoriesProducts = ({ productsRes }: any) => {
         {productsRes?.map((item: any, idx: number) => (
           <div key={idx} className="p-3">
             <Link href={`/${item?.slug}`} className="inline-flex h-fit">
-              <Image
+              <img
                 src={
                   item?.featuredImage?.node?.mediaItemUrl ||
                   "/images/product-placeholder.jpg"
