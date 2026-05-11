@@ -1,79 +1,63 @@
-import nodemailer from "nodemailer";
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
+    const body = await request.json();
+    const { fullname, email, phone, product, message, acceptance } = body;
 
-    const {
-      fullname,
-      phone,
-      email,
-      product,
-      message,
-      acceptance,
-    } = body;
-
-    // ✅ Basic validation
-    if (!fullname || !email || !message) {
+    if (!fullname || !email || !phone || !product || !message) {
       return NextResponse.json(
-        { error: "Required fields missing" },
+        { error: 'Please fill all required fields' },
         { status: 400 }
       );
     }
 
-    // ✅ Check env
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    const host = process.env.EMAIL_HOST;
+    const port = Number(process.env.EMAIL_PORT);
+    const user = process.env.EMAIL_USER;
+    const pass = process.env.EMAIL_PASS;
+
+    // Optional: add a safety check (remove after confirming it works)
+    if (!host || !port || !user || !pass) {
+      console.error('Missing env vars:', { host, port, user: !!user, pass: !!pass });
       return NextResponse.json(
-        { error: "Email config missing" },
+        { error: 'Email configuration missing on server' },
         { status: 500 }
       );
     }
 
-    // ✅ Transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
+      host,
+      port,
+      secure: port === 465, // true for 465, false for 587
+      auth: { user, pass },
     });
 
-    // ✅ Email content
+    await transporter.verify();
+    console.log('SMTP connection successful');
+
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: `${process.env.EMAIL_USER}, ${email}`, // send to admin + user
-      subject: `New Contact from ${fullname}`,
-      text: `${message} | Email: ${email}`,
+      from: `"Contact Form" <${user}>`,
+      to: 'sales@halepathpackaging.com', // change if needed
+      subject: `New Quote Request from ${fullname}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Full Name:</strong> ${fullname}</p>
+        <p><strong>Name:</strong> ${fullname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-        <p><strong>Product:</strong> ${product || "N/A"}</p>
-        <hr/>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        <hr/>
-        <p><strong>Accepted Terms:</strong> ${
-          acceptance ? "Yes" : "No"
-        }</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Product:</strong> ${product}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
+        <p><strong>Consent:</strong> ${acceptance ? 'Yes' : 'No'}</p>
       `,
     };
 
-    // ✅ Send email
     await transporter.sendMail(mailOptions);
-
+    return NextResponse.json({ success: true, message: 'Email sent' });
+  } catch (error) {
+    console.error('SMTP error:', error);
     return NextResponse.json(
-      { message: "Email sent successfully" },
-      { status: 200 }
-    );
-
-  } catch (error: any) {
-    console.error("CONTACT API ERROR 👉", error);
-
-    return NextResponse.json(
-      { error: error.message || "Internal Server Error" },
+      { error: error instanceof Error ? error.message : 'Failed to send email' },
       { status: 500 }
     );
   }

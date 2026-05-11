@@ -2,38 +2,38 @@ import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    try {
-        const body = await req.json();
+  try {
+    const body = await req.json();
 
-        const {
-            name,
-            email,
-            phone,
-            product,
-            colors,
-            unit,
-            width,
-            depth,
-            length,
-            message,
-        } = body;
+    const {
+      name,
+      email,
+      phone,
+      product,
+      colors,
+      unit,
+      width,
+      depth,
+      length,
+      message,
+    } = body;
 
-        const transporter = nodemailer.createTransport({
-            port: 465,
-            host: "smtp.gmail.com",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-            secure: true,
-        });
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST, // e.g., smtp.hostinger.com
+      port: Number(process.env.EMAIL_PORT), // 465 or 587
+      secure: process.env.EMAIL_PORT === "465", // true for 465, false for other ports
+      auth: {
+        user: process.env.EMAIL_USER, // your Hostinger email address
+        pass: process.env.EMAIL_PASS, // your Hostinger email password
+      },
+    });
 
-        const mailData = {
-            from: process.env.EMAIL_USER,
-            to: `mufaqar@gmail.com, sales@halepathpackaging.com, ${email}`,
-            subject: `New Quote Request from ${name}`,
-            text: message,
-            html: `
+    const mailData = {
+      from: process.env.EMAIL_USER,
+      to: `mufaqar@gmail.com, ${email}`,
+      subject: `New Quote Request from ${name}`,
+      text: message,
+      html: `
                 <h2>New Quote Request</h2>
 
                 <p><strong>Name:</strong> ${name}</p>
@@ -55,20 +55,20 @@ export async function POST(req: Request) {
                 <p><strong>Message:</strong></p>
                 <p>${message}</p>
             `,
-        };
+    };
 
-        await transporter.sendMail(mailData);
+    await transporter.sendMail(mailData);
 
-        return NextResponse.json(
-            { message: "Quote email sent successfully!" },
-            { status: 200 }
-        );
-    } catch (error) {
-        console.error(error);
+    return NextResponse.json(
+      { message: "Quote email sent successfully!" },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error(error);
 
-        return NextResponse.json(
-            { error: "Failed to send quote email" },
-            { status: 500 }
-        );
-    }
+    return NextResponse.json(
+      { error: "Failed to send quote email" },
+      { status: 500 },
+    );
+  }
 }
