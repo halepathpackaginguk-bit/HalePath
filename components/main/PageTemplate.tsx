@@ -3,9 +3,10 @@ import PageBanner from "../page-banner";
 
 const PageTemplate = ({ data }: any) => {
   const page = data.data;
+  
   return (
     <>
-      <PageBanner title={page.title} />
+      <PageBanner data={page} />
       <section className="py-[60px]">
         <div className="hale_container page_content">
           <div dangerouslySetInnerHTML={{ __html: page.content }} />
