@@ -6,7 +6,7 @@ const PageTemplate = ({ data }: any) => {
   
   return (
     <>
-      <PageBanner data={page} />
+      <PageBanner page_info={page} />
       <section className="py-[60px]">
         <div className="hale_container page_content">
           <div dangerouslySetInnerHTML={{ __html: page.content }} />
