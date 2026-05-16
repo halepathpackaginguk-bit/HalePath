@@ -31,6 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <meta name="google-site-verification" content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E" />
       <body className="min-h-full flex flex-col">
         <Header />
         {children} 
@@ -52,6 +53,9 @@ export default function RootLayout({
             })();
           `}
         </Script>
+
+        
+ 
         
         <Footer />
       </body>
