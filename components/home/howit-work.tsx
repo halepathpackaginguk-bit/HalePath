@@ -31,7 +31,7 @@ function HowIt_work() {
                     <div className="count_box">
                         <span></span>
                         <h3>
-                            35,000+
+                            50,000+
                         </h3>
                         <p>
                             Projects Delivered
