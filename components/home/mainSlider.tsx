@@ -10,7 +10,7 @@ export default function MainSlider() {
         <div className="w-full relative 2xl:h-[705px] md:h-[605px] flex items-center justify-center overflow-hidden">
           <iframe
             className="absolute md:top-1/2 top-[28%] left-1/2 sm:w-[120vw] sm:h-[120vh] w-[468vw] h-[220vh] -translate-x-1/2 -translate-y-1/2"
-            src="https://www.youtube.com/embed/dfViGz8LoZE?autoplay=1&mute=1&controls=0&loop=1&playlist=dfViGz8LoZE"
+            src="https://www.youtube.com/embed/t9cQKmu4TGI?autoplay=1&mute=1&controls=0&loop=1&playlist=t9cQKmu4TGI"
             allow="autoplay; fullscreen"
             frameBorder="0"
           ></iframe>
