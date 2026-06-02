@@ -74,22 +74,22 @@ function Footer() {
           </h6>
           <ul id="menu-innovation" className="flex flex-col gap-2.5">
             <li className="">
-              <Link href="/innovation/" className="footer_link">
+              <Link href="/category/innovation" className="footer_link">
                 <span className="marker"></span>Approch to innovation
               </Link>
             </li>
             <li className="">
-              <Link href="/uv-printing-technology/" className="footer_link">
+              <Link href="/category/uv-printing-technology" className="footer_link">
                 <span className="marker"></span>UV Printing Technology
               </Link>
             </li>
             <li className="">
-              <Link href="/foil-printing-solutions/" className="footer_link">
+              <Link href="/category/foil-printing-solutions/" className="footer_link">
                 <span className="marker"></span>Foil Printing Solutions
               </Link>
             </li>
             <li className="">
-              <Link href="/privacy-printing/" className="footer_link">
+              <Link href="/category/privacy-printing" className="footer_link">
                 <span className="marker"></span>Privacy Printing
               </Link>
             </li>
