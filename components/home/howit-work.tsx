@@ -31,7 +31,7 @@ function HowIt_work() {
                     <div className="count_box">
                         <span></span>
                         <h3>
-                            50,000+
+                            500,000+
                         </h3>
                         <p>
                             Projects Delivered
@@ -40,7 +40,7 @@ function HowIt_work() {
                     <div className="count_box">
                         <span></span>
                         <h3>
-                            350+
+                            50,000+
                         </h3>
                         <p>
                             Active Brand Partners
