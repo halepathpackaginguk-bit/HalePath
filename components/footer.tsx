@@ -112,27 +112,27 @@ function Footer() {
           </h6>
           <ul id="menu-packaging-products" className="flex flex-col gap-2.5">
             <li className="">
-              <Link href="/custom-rigid-boxes/" className="footer_link">
+              <Link href="/category/custom-rigid-boxes/" className="footer_link">
                 <span className="marker"></span>Rigid Boxes
               </Link>
             </li>
             <li className="">
-              <Link href="/kraft-boxes/" className="footer_link">
+              <Link href="/category/kraft-boxes/" className="footer_link">
                 <span className="marker"></span>Kraft Boxes
               </Link>
             </li>
             <li className="">
-              <Link href="/cardboard-boxes/" className="footer_link">
+              <Link href="/category/cardboard-boxes/" className="footer_link">
                 <span className="marker"></span>Cardboard Boxes
               </Link>
             </li>
             <li className="">
-              <Link href="/corrugated-boxes/" className="footer_link">
+              <Link href="/category/corrugated-boxes/" className="footer_link">
                 <span className="marker"></span>Corrugated Boxes
               </Link>
             </li>
             <li className="">
-              <Link href="/cosmetic-boxes">
+              <Link href="/category/cosmetic-boxes/" className="footer_link">
                 <span className="marker"></span>Product Boxes
               </Link>
             </li>
@@ -150,17 +150,17 @@ function Footer() {
           </h6>
           <ul id="menu-services" className="flex flex-col gap-2.5">
             <li className="">
-              <Link href="/commercial-printing/" className="footer_link">
+              <Link href="/category/commercial-printing/" className="footer_link">
                 <span className="marker"></span>Commercial Printing
               </Link>
             </li>
             <li className="">
-              <Link href="/foil-printing-solutions/" className="footer_link">
+              <Link href="/category/foil-printing-solutions/" className="footer_link">
                 <span className="marker"></span>Custom Printing Solutions
               </Link>
             </li>
             <li className="">
-              <Link href="/structural-innovation/" className="footer_link">
+              <Link href="/category/structural-innovation/" className="footer_link">
                 <span className="marker"></span>Structural Design Support
               </Link>
             </li>

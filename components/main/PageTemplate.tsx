@@ -3,6 +3,8 @@ import PageBanner from "../page-banner";
 
 const PageTemplate = ({ data }: any) => {
   const page = data.data;
+
+  console.log("page", page);
   
   return (
     <>
