@@ -46,7 +46,7 @@ export default async function Single
           {headings.length > 0 && (
             <aside className='md:col-span-1'>
               <div className='bg-[#f5f5f5] p-4 rounded-lg sticky top-20'>
-                <h2 className='font-bold mb-3'>Table of Contents</h2>
+                <h2 className='text-xl font-bold mb-4'>Table of Contents</h2>
 
                 <ol className='list-decimal pl-5 space-y-3'>
                   {headings.map((item, i) => (
