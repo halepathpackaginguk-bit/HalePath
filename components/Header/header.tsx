@@ -40,7 +40,20 @@ function Header() {
               </Link>
             </li>
             <li className="px-2">
-              {/* <?php echo do_shortcode('[gtranslate]'); ?> */}
+              <Link
+                href="/about-us/"
+                className="text-sm font-normal text-white flex items-center gap-1 px-2 cursor-pointer"
+              >
+                About Us
+              </Link>
+            </li>
+            <li className="px-2">
+              <Link
+                href="/blog/"
+                className="text-sm font-normal text-white flex items-center gap-1 px-2 cursor-pointer"
+              >
+                Blog
+              </Link>
             </li>
           </ul>
         </div>
