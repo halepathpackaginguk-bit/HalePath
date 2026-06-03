@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
+const redirectsList = [
+  { source: "/custom-cbd-display-boxes", destination: "/category/custom-cbd-display-boxes" },
+];
+
 const nextConfig: NextConfig = {
   images: {
     domains: [
       "api.halepathpackaging.com",
-      
     ],
     remotePatterns: [
       {
@@ -12,10 +15,9 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "**",
       },
-     
     ],
   },
-   env: {
+  env: {
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
   },
   async headers() {
@@ -30,6 +32,13 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  async redirects() {
+    return redirectsList.map((r) => ({
+      source: r.source,
+      destination: r.destination,
+      permanent: true,
+    }));
   },
 };
 
