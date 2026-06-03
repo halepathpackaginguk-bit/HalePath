@@ -2,6 +2,7 @@ import {
   getCategoryBySlug,
   getProductsByCategory,
 } from "@/lib/data/getProductsData";
+import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "@/components/products/ProductCard";
@@ -16,11 +17,7 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
-
-  return {
-    title: category?.name ? `${category.name} - Products` : "Category Page",
-    description: `Browse products in the ${category?.name || "category"} category`,
-  };
+  return buildSeo(category, `category/${slug}`);
 }
 
 export default async function CategoryPage({

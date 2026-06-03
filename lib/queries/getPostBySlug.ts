@@ -20,6 +20,16 @@ export const GET_POST_BY_SLUG = gql`
         name
       }
     }
+    seo {
+      title
+      description
+      canonicalUrl
+      openGraph {
+        image {
+          secureUrl
+        }
+      }
+    }
   }
 }
 `;

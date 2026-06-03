@@ -1,7 +1,18 @@
 import Featured_Posts from '@/components/blog/featured-post';
 import { getBlogData, getBlogPostBySlug } from '@/lib/data/getHomeData'
+import { buildSeo } from '@/lib/seo/generateSeo';
 import Image from 'next/image';
 import React from 'react'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
+  return buildSeo(post, `blog/${slug}`);
+}
 
 export default async function Single
   ({

@@ -15,7 +15,13 @@ import SliderFull from "@/components/slider/slider-full";
 import Testimonials from "@/components/testimonial/testimonials";
 import WhatWeOffer from "@/components/what-we-offer/what-we-offer";
 import { getHomeData, getTestimonails } from "@/lib/data/getHomeData";
+import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
+
+export async function generateMetadata() {
+  return buildSeo(null, "");
+}
+
 export default async function Home() {
   const homeInfo = await getHomeData();
   const homePage = homeInfo.homePage;

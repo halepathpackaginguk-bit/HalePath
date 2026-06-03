@@ -1,8 +1,10 @@
-"use client";
-
 import PageBanner from "@/components/page-banner";
+import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
-import Link from "next/link";
+
+export async function generateMetadata() {
+  return buildSeo(null, "about-us");
+}
 
 const featureproductsRes = [
   {

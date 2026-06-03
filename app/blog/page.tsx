@@ -1,5 +1,10 @@
 import Featured_Posts from "@/components/blog/featured-post";
 import { getBlogData } from "@/lib/data/getHomeData";
+import { buildSeo } from "@/lib/seo/generateSeo";
+
+export async function generateMetadata() {
+  return buildSeo(null, "blog");
+}
 
 export default async function Blog() {
   const blog = await getBlogData();
