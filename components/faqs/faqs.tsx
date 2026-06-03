@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const Faqs = ({ col, data }: any) => {
@@ -11,6 +11,23 @@ const Faqs = ({ col, data }: any) => {
     }
     setOpenFaq(id);
   };
+
+  const faqSchema = useMemo(
+    () =>
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((item: any) => ({
+          "@type": "Question",
+          name: item.title,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.description,
+          },
+        })),
+      }),
+    [faqs]
+  );
 
   return (
     <section className="bg-[#F5F5F5] py-20 mt-28">
@@ -42,6 +59,10 @@ const Faqs = ({ col, data }: any) => {
           </div>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqSchema }}
+      />
     </section>
   );
 };

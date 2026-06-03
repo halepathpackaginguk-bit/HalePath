@@ -5,14 +5,32 @@ import ProductTabs from "./productTabs";
 import CenterSlider from "../slider/center-slider";
 import Image from "next/image";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 const ProductTemplate = ({ data }: any) => {
   const product = data.data;
   const relatedProducts = product.related?.nodes ?? [];
 
- // console.log(product);
+  const imageUrl =
+    product?.featuredImage?.node?.mediaItemUrl || product?.image?.sourceUrl;
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDescription?.replace(/<[^>]*>/g, "") || "",
+    url: `${baseUrl}/${product.slug}`,
+    ...(imageUrl && { image: imageUrl }),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
       <main>
         <Banner data={product} />
         <section className="mt-20 w-full mx-auto px-3 lg:px-0 overflow-hidden">
