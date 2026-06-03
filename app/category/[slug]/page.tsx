@@ -60,7 +60,7 @@ export default async function CategoryPage({
             />
           </div>
           <div>
-            <h4 className="font-bold text-3xl lg:text-5xl">{category?.name}</h4>
+            <h1 className="font-bold text-3xl lg:text-5xl">{category?.name}</h1>
             <div className="xl:text-[19px] mt-4" dangerouslySetInnerHTML={{__html:category?.description }} />
             <FormTabs productName={category?.name} productPrice={650} />
           </div>
