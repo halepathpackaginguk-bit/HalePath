@@ -30,7 +30,7 @@ export default async function CategoryPage({
   const category = await getCategoryBySlug(slug);
   const products = await getProductsByCategory(slug);
 
- console.log("Category Data:", category);
+  console.log("Category Data:", category);
 
   if (!category) {
     return (
@@ -61,7 +61,10 @@ export default async function CategoryPage({
           </div>
           <div>
             <h1 className="font-bold text-3xl lg:text-5xl">{category?.name}</h1>
-            <div className="xl:text-[19px] mt-4" dangerouslySetInnerHTML={{__html:category?.description }} />
+            <div
+              className="xl:text-[19px] mt-4"
+              dangerouslySetInnerHTML={{ __html: category?.description }}
+            />
             <FormTabs productName={category?.name} productPrice={650} />
           </div>
         </div>
