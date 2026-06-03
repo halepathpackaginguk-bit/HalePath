@@ -1,14 +1,19 @@
 import type { NextConfig } from "next";
 
 const redirectsList = [
-  { source: "/custom-cbd-display-boxes", destination: "/category/custom-cbd-display-boxes" },
+  {
+    source: "/custom-cbd-display-boxes",
+    destination: "/category/custom-cbd-display-boxes",
+  },
+  {
+    source: "/custom-vape-packaging",
+    destination: "/category/custom-vape-packaging",
+  },
 ];
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "api.halepathpackaging.com",
-    ],
+    domains: ["api.halepathpackaging.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -23,11 +28,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/sitemap.xml',
+        source: "/sitemap.xml",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400',
+            key: "Cache-Control",
+            value: "public, max-age=3600, stale-while-revalidate=86400",
           },
         ],
       },
