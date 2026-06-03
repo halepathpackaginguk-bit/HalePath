@@ -31,20 +31,18 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <meta name="google-site-verification" content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E" />
+      <meta
+        name="google-site-verification"
+        content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E"
+      />
       <body className="min-h-full flex flex-col">
         <Header />
-        {children} 
-         
-   <Script
+        {children}
+        <Script
           id="tawkto-script"
           strategy="afterInteractive"
           src="https://embed.tawk.to/6156ead1d326717cb6843ced/1fgtoahb9"
         />
-
-        
- 
-        
         <Footer />
       </body>
     </html>
