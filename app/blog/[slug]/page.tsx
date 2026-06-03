@@ -1,6 +1,7 @@
 import Featured_Posts from '@/components/blog/featured-post';
 import { getBlogData, getBlogPostBySlug } from '@/lib/data/getHomeData'
 import { buildSeo } from '@/lib/seo/generateSeo';
+import { generateTOCFromHTML } from '@/lib/toc';
 import Image from 'next/image';
 import React from 'react'
 
@@ -23,6 +24,8 @@ export default async function Single
   const { slug } = await params; // ✅ FIX
   const post = await getBlogPostBySlug(slug)
   const blog = await getBlogData()
+  const content = post?.content || "";
+  const { html, headings } = generateTOCFromHTML(content);
   // console.log("post", post)
   return (
     <main>
@@ -37,11 +40,35 @@ export default async function Single
         </div>
       </section>
       <section className='pt-6 pb-14'>
-        <div className='container mx-auto px-4'>
-          <div className='desc_content my-4'
-            dangerouslySetInnerHTML={{ __html: post?.content || "" }}
-          />
+        <div className='container mx-auto px-4 grid md:grid-cols-4 gap-10'>
 
+          {/* TOC */}
+          {headings.length > 0 && (
+            <aside className='md:col-span-1'>
+              <div className='bg-[#f5f5f5] p-4 rounded-lg sticky top-20'>
+                <h2 className='font-bold mb-3'>Table of Contents</h2>
+
+                <ol className='list-decimal pl-5 space-y-3'>
+                  {headings.map((item, i) => (
+                    <li
+                      key={i}
+                      style={{ marginLeft: (item.level - 2) * 10 }}
+                    >
+                      <a href={`#${item.id}`} className='hover:underline'>
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </aside>
+          )}
+
+          {/* CONTENT (same as PHP apply_filters output) */}
+          <div
+            className='md:col-span-3 desc_content my-4'
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
 
         </div>
       </section>
