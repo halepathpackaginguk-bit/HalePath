@@ -41,17 +41,18 @@ export default async function Home() {
         <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
         <CTASECTION />
         {/* Off Set Printing  */}
-        <ProductSlider productsRes={OffsetProducts} title="Offset Printing" />
+        <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" />
         <HowIt_work />
         <Brands />
         <BannerPageMiddel />
         {/* Corrugated Packaging  */}
-        <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" />
+        <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" />
         <Get_Qoute />
         <WhatWeOffer />
         {/* Flexible Packaging  */}
         <Packaging_Style
           title="Flexible Packaging / Maylar bags"
+          link="/all-flexible-packaging/"
           subtitle="Flexible Solutions, Unmatched Quality – Packaging That Sells Your Brand."
           data={Flexible}
         />
@@ -61,6 +62,7 @@ export default async function Home() {
           {/* Print & Advertising  */}
           <Packaging_Style
             title="Print & Advertising & Office Supplies"
+            link="/all-print-advertising/"
             subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
             data={Printadverstising}
           />

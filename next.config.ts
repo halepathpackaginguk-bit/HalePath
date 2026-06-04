@@ -9,6 +9,50 @@ const redirectsList = [
     source: "/custom-vape-packaging",
     destination: "/category/custom-vape-packaging",
   },
+  {
+    source: "/custom-two-piece-boxes",
+    destination: "/two-piece-rigid-box",
+  },
+  {
+    source: "/custom-hexagon-boxes",
+    destination: "/rigid-hexagon-boxes",
+  },
+  {
+    source: "/custom-business-cards-boxes",
+    destination: "/business-card-boxes",
+  },
+  {
+    source: "/1-2-3-bottom",
+    destination: "/1-2-3-bottom-tray",
+  },
+  {
+    source: "/custom-seprate-lid-gift-box",
+    destination: "/gift-box-with-separate-lid",
+  },
+  {
+    source: "/kraft-food-pouches-2",
+    destination: "/kraft-food-pouches",
+  },
+  {
+    source: "/category/product-by-industry/cbd-packaging",
+    destination: "/category/industries",
+  },
+  {
+    source: "/printed-cardboard-wrist-watch-packaging-boxes",
+    destination: "/custom-watch-box",
+  },
+  {
+    source: "/category/retail-boxes/custom-corrugated-boxes",
+    destination: "/corrugated-boxes/",
+  },
+  {
+    source: "/custom-eco-friendly-separate-lid-boxes",
+    destination: "/eco-friendly-mailer-boxes",
+  },
+  {
+    source: "/gable-bag-1-2-3-bottom",
+    destination: "/gable-bag-auto-bottom",
+  },
 ];
 
 const nextConfig: NextConfig = {

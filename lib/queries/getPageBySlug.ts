@@ -12,6 +12,30 @@ export const GET_PAGE_BY_SLUG = gql`
         mediaItemUrl
       }
     }
+      allPages {
+      category {
+         nodes {
+          databaseId
+          name
+          ... on ProductCategory {
+            products {
+              nodes {
+                databaseId
+                ... on SimpleProduct {
+                  name
+                  slug
+                  featuredImage {
+                    node {
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     seo {
       title
       description

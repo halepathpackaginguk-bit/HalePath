@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import MaskingImage from "../masking-Image";
 
-export default function ProductSlider({ title, productsRes }:any) {
+export default function ProductSlider({ title, link, productsRes }: any) {
 
   return (
     <section className="py-12">
@@ -21,12 +21,12 @@ export default function ProductSlider({ title, productsRes }:any) {
       </div>
       <div className="slider-container">
         <Slider {...settings}>
-          {productsRes?.map((item:any, idx:number ) => {
+          {productsRes?.map((item: any, idx: number) => {
             return <MaskingImage key={idx} data={item} />
           })}
         </Slider>
       </div>
-      {title && <Link href="/all-offset-printing" className="btn_secondry flex items-center gap-2 sm:mt-12 mt-6 w-fit mx-auto">
+      {title && <Link href={link} className="btn_secondry flex items-center gap-2 sm:mt-12 mt-6 w-fit mx-auto">
         See All {title}
       </Link>}
     </section>

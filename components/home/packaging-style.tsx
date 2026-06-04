@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import MaskingImage from "../masking-Image";
 import Link from "next/link";
 
-function Packaging_Style({ data, title, subtitle }: any) {
+function Packaging_Style({ data, title, link, subtitle }: any) {
   const settings = {
     dots: false,
     arrows: false,
@@ -61,7 +61,7 @@ function Packaging_Style({ data, title, subtitle }: any) {
           ))}
         </Slider>
       </div>
-      <Link href="/all-offset-printing" className="btn_secondry flex items-center gap-2 sm:mt-12 mt-6 w-fit mx-auto">
+      <Link href={link} className="btn_secondry flex items-center gap-2 sm:mt-12 mt-6 w-fit mx-auto">
         See All {title}
       </Link>
     </section>
