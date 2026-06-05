@@ -1,18 +1,22 @@
 import React from "react";
 import PageBanner from "../page-banner";
 import CategoriesProducts from "../category/Category-Products";
+import { getProductsByCategory } from "@/lib/data/getProductsData";
 
-const PageTemplate = ({ data }: any) => {
+const PageTemplate = async ({ data }: any) => {
   const page = data.data;
-  const products =
-    JSON.parse(
-      JSON.stringify(
-        page?.allPages?.category?.nodes?.[0]?.products?.nodes || []
-      )
-    );
+  // const products =
+  //   JSON.parse(
+  //     JSON.stringify(
+  //       page?.allPages?.category?.nodes?.[0]?.products?.nodes || []
+  //     )
+  //   );
 
-  // console.log(products);
-  // console.log("page", page);
+
+  const cat_slug = page?.allPages?.category?.nodes?.[0]?.slug || "";
+
+  const products = await getProductsByCategory(cat_slug);
+  //console.log(products);
 
   return (
     <>
