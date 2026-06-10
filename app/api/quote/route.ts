@@ -35,22 +35,17 @@ export async function POST(req: Request) {
       text: message,
       html: `
                 <h2>New Quote Request</h2>
-
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone}</p>
-
                 <hr/>
-
                 <p><strong>Product:</strong> ${product}</p>
                 <p><strong>Colors:</strong> ${colors}</p>
                 <p><strong>Quantity:</strong> ${qty}</p>
                 <p><strong>Length:</strong> ${length}</p>
                 <p><strong>Width:</strong> ${width}</p>
                 <p><strong>Depth:</strong> ${depth}</p>
-
                 <hr/>
-
                 <p><strong>Message:</strong></p>
                 <p>${message}</p>
             `,
