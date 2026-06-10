@@ -50,8 +50,7 @@ export default function FormTabs({
         width: data.width,
         depth: data.depth,
         colors: data.colors,
-        unit: data.unit,
-        stock: data.stock,
+        qty: data.qty,    
         message: data.message,
       };
 
@@ -212,7 +211,7 @@ export default function FormTabs({
                   </div>
 
                   <input
-                    {...register("quantity")}
+                    {...register("qty")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Quantity"

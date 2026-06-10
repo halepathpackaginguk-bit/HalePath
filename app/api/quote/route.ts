@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       phone,
       product,
       colors,
-      unit,
+      qty,
       width,
       depth,
       length,
@@ -44,8 +44,7 @@ export async function POST(req: Request) {
 
                 <p><strong>Product:</strong> ${product}</p>
                 <p><strong>Colors:</strong> ${colors}</p>
-                <p><strong>Unit:</strong> ${unit}</p>
-
+                <p><strong>Quantity:</strong> ${qty}</p>
                 <p><strong>Length:</strong> ${length}</p>
                 <p><strong>Width:</strong> ${width}</p>
                 <p><strong>Depth:</strong> ${depth}</p>
