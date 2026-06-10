@@ -177,21 +177,21 @@ export default function FormTabs({
                     type="nummber"
                     className="hale_input"
                     placeholder="Length"
-                    required
+                    
                   />
                   <input
                     {...register("width")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Width"
-                    required
+                    
                   />
                   <input
                     {...register("depth")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Depth"
-                    required
+                    
                   />
                 </div>
 
@@ -200,7 +200,7 @@ export default function FormTabs({
                     <select
                       {...register("colors")}
                       className="hale_input h-full appearance-none"
-                      required
+                      
                     >
                       <option value="">Colors</option>
                       <option value="1">1 color</option>
@@ -217,7 +217,7 @@ export default function FormTabs({
                     type="nummber"
                     className="hale_input"
                     placeholder="Quantity"
-                    required
+                    
                   />
                 </div>
 
@@ -225,7 +225,7 @@ export default function FormTabs({
                   {...register("message")}
                   className="hale_input !rounded-[20px] h-[141px] mt-2.5"
                   placeholder="Write Your Message..."
-                  required
+                  
                 />
 
                 <div className="flex gap-2 mt-3 items-center">
