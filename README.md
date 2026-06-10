@@ -1,2 +1,2 @@
 "sitemap": "tsx scripts/generate-sitemap.ts",
-    "postbuild": "npm run sitemap"
+"postbuild": "npm run sitemap"
