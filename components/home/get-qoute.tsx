@@ -117,14 +117,13 @@ function Get_Qoute() {
                 >
                   Cosmetics Packaging
                 </label>
-                <select
-                  className="hale_input md:min-h-[58px] h-[36px]"
+                <input
+                  className="hale_input"
+                  type="text"
                   name="product"
                   id="product"
-                >
-                  <option value="select the Product">select the Product</option>
-                  <option value="Product1">Product1</option>
-                </select>
+                  placeholder="Cosmetics Packaging"
+                />
                 {/* {errors.product && <span className='text-xs text-red-500'>This field is required</span>} */}
               </div>
             </div>

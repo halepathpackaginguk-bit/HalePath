@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: `"Contact Form" <${user}>`,
-      to: 'sales@halepathpackaging.com', // change if needed
+      to: 'mufaqar@gmail.com', // change if needed
       subject: `New Quote Request from ${fullname}`,
       html: `
         <h2>New Contact Form Submission</h2>
