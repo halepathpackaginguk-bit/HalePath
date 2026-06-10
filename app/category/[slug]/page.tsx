@@ -25,13 +25,9 @@ export default async function CategoryPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params; // ✅ FIX
-
+  const { slug } = await params; 
   const category = await getCategoryBySlug(slug);
   const products = await getProductsByCategory(slug);
-
-  console.log("Category Data:", category);
-
   if (!category) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
