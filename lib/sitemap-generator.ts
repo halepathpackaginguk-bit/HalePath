@@ -122,7 +122,7 @@ export async function fetchDynamicUrls(): Promise<SitemapUrl[]> {
       data.products.nodes.forEach((product: Product) => {
         if (product.slug) {
           urls.push({
-            url: `${SITE_URL}/product/${product.slug}`,
+            url: `${SITE_URL}/${product.slug}`,
             lastModified: product.modified || product.date || today,
             changeFrequency: "daily",
             priority: 0.8,
@@ -137,7 +137,7 @@ export async function fetchDynamicUrls(): Promise<SitemapUrl[]> {
       data.productCategories.nodes.forEach((category: ProductCategory) => {
         if (category.slug) {
           urls.push({
-            url: `${SITE_URL}/product-category/${category.slug}`,
+            url: `${SITE_URL}/category/${category.slug}`,
             lastModified: today, // Categories don't have dates, using today's date
             changeFrequency: "weekly",
             priority: 0.6,
