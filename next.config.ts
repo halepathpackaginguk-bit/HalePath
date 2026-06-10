@@ -3,11 +3,11 @@ import type { NextConfig } from "next";
 const redirectsList = [
   {
     source: "/custom-cbd-display-boxes",
-    destination: "/category/custom-cbd-display-boxes",
+    destination: "/category/cbd-products",
   },
   {
     source: "/custom-vape-packaging",
-    destination: "/category/custom-vape-packaging",
+    destination: "/category/vape-e-cigarettes",
   },
   {
     source: "/custom-two-piece-boxes",
@@ -22,11 +22,11 @@ const redirectsList = [
     destination: "/business-card-boxes",
   },
   {
-    source: "/1-2-3-bottom",
+    source: "/1-2-3-bottom-tray",
     destination: "/1-2-3-bottom-tray",
   },
   {
-    source: "/custom-seprate-lid-gift-box",
+    source: "/gift-box-with-separate-lid",
     destination: "/gift-box-with-separate-lid",
   },
   {
@@ -43,7 +43,7 @@ const redirectsList = [
   },
   {
     source: "/category/retail-boxes/custom-corrugated-boxes",
-    destination: "/corrugated-boxes/",
+    destination: "https://halepathpackaging.co.uk/corrugated-boxes/",
   },
   {
     source: "/custom-eco-friendly-separate-lid-boxes",
