@@ -51,7 +51,7 @@ export default async function Home() {
         <WhatWeOffer />
         {/* Flexible Packaging  */}
         <Packaging_Style
-          title="Flexible Packaging / Maylar bags"
+          title="Flexible Packaging / Mylar bags"
           link="/all-flexible-packaging/"
           subtitle="Flexible Solutions, Unmatched Quality – Packaging That Sells Your Brand."
           data={Flexible}
