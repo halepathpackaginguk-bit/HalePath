@@ -19,7 +19,12 @@ import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
 
 export async function generateMetadata() {
-  return buildSeo(null, "");
+  return buildSeo({
+    seo: {
+      title: "Hale Path Packaging - Custom Boxes and Packaging Solutions",
+      description: "Custom boxes, corrugated packaging, flexible packaging, and offset printing solutions at wholesale prices. Eco-friendly packaging manufacturer."
+    }
+  }, "");
 }
 
 export default async function Home() {

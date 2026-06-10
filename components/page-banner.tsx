@@ -1,4 +1,4 @@
-const PageBanner = ({ page_info, title }: any) => {
+const PageBanner = ({ page_info, title, description }: any) => {
 
     return (
         <section
@@ -9,10 +9,15 @@ const PageBanner = ({ page_info, title }: any) => {
                     : "url('/images/about-page/s2.webp')",
             }}
         >
-            <div className="hale_container">
+            <div className="hale_container text-center">
                 <h1 className="text-white font-bold text-3xl md:text-5xl lg:text-[51px]">
                     {page_info?.title ? page_info.title : title}
                 </h1>
+                {description && (
+                    <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto mt-4">
+                        {description}
+                    </p>
+                )}
             </div>
         </section>
     )

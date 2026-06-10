@@ -3,7 +3,12 @@ import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
 
 export async function generateMetadata() {
-  return buildSeo(null, "about-us");
+  return buildSeo({
+    seo: {
+      title: "About Us | Hale Path Packaging",
+      description: "Learn about Hale Path Packaging — our story, sustainable packaging solutions, and commitment to quality."
+    }
+  }, "about-us");
 }
 
 const featureproductsRes = [
@@ -42,7 +47,7 @@ const featureproductsRes = [
 export default function AboutPage() {
   return (
     <>
-      <PageBanner title="About Us" />
+      <PageBanner title="About Us" description="Learn more about Hale Path Packaging — our story, our team, and our commitment to sustainable packaging solutions." />
       <section className="my-16">
         <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row">
           <figure className="md:w-1/2">
@@ -56,21 +61,16 @@ export default function AboutPage() {
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
               Packaging usually gets blamed for waste.</h4>
             <p className="mb-2 text-center md:text-left">
-              Yet at Hale Path Packaging, we see it differently. We believe packaging can be strong, smart, and
-              responsible at the same time.
-              Hale Path Packaging offers complementary print technologies — Offset, UV offset, Flexo Printing, digital
-              printing, and cold foil or hot foil — supported by state-of-the-art binding and finishing systems. That
-              may sound technical, but here’s what it really means: we choose the right printing method for the right
-              job. Some designs need sharp detail. Others need bold colour. Some need speed. We match the process to
-              the purpose.
+             Packaging usually gets blamed for waste. Yet at Hale Path Packaging, we see it differently. We believe packaging can be strong, smart, and responsible at the same time. 
             </p>
             <p className="mb-2 text-center md:text-left">
-              HPP leads the corrugated packaging market while operating as one of the largest renewable packaging
-              facilities. In simple words, we don’t just produce boxes. We build packaging with long-term thinking. We
-              even develop our own liner and fluting in-house. These inner layers give corrugated boxes the strength
-              and durability required to pack and transport valuable products safely. If it needs to travel, stack, or
-              sit on shelves, it needs structure. We make sure it has it.
-            </p>
+          HPP leads the corrugated packaging market while operating as one of the largest renewable packaging facilities. In simple words, we don’t just produce boxes. We build packaging with long-term thinking. We even develop our own liner and fluting in-house. These inner layers give corrugated boxes the strength and durability required to pack and transport valuable products safely. If it needs to travel, stack, or sit on shelves, it needs structure. We make sure it has it. </p>
+
+            <p></p>
+
+        
+
+
           </div>
         </div>
       </section>
