@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const whyChooseHalePath = [
   {
-  
+
     description:
       "<b>One Packaging Partner </b> Whether you sell skincare, cannabis, food, electronics, or pet products, we have built packaging solutions specifically for your category. Most packaging companies handle one thing. We handle everything — and do each part exceptionally well.",
   },
@@ -16,27 +16,27 @@ const whyChooseHalePath = [
       "<b>See Your Design Before Production</b> Ordering custom packaging without a real design is a significant risk. That's why every order includes a full digital proof and 3D mockup before production starts. You approve it. We print it. No surprises, no costly reprints. If something's off, we fix it fast.",
   },
   {
-  
+
     description:
       "<b>Everything in One Place</b>Need boxes, pouches, and labels? Most suppliers do one thing. We do everything. Mailer boxes, rigid boxes, custom labels, pouches, promotional items — you can bundle your entire packaging line into a single order with a single point of contact.",
   },
   {
-    
+
     description:
       "<b>Support for Small & Large Brands </b> We've helped solo founders launch their first 50 boxes and scale DTC brands to reorder 50,000. Whether you're pre-launch or post-Series A, you get the same quality finishes, dedicated support, and wholesale custom boxes pricing.",
   },
   {
-  
+
     description:
       "<b>Fast & Reliable Turnaround </b> Our production timeline is stated upfront, not buried in fine print. Once your design is approved, most orders are manufactured and dispatched within 7 business days. You'll get tracking, updates, and a team you can actually reach.",
   },
   {
-   
+
     description:
       "<b>Premium Finishes That Elevate Brands </b>Foil stamping, embossing, debossing, spot UV, matte and gloss lamination, holographic effects — these aren't upsells. They're built into how we think about your brand from day one.",
   },
   {
-  
+
     description:
       "<b>Packaging + Print + Promotional </b> Your brand doesn't stop at the box. We also produce custom labels, business cards, stickers, banners, branded apparel, and promotional products — all under one roof for consistent branding across every touchpoint.",
   },
@@ -47,9 +47,9 @@ const MainContent = () => {
   const scrollRef = useRef(null);
 
   const images = [
-    "/images/about-page/about-bg-img_2.png",
-    "/images/about-page/image_1.png",
-    "/images/about-page/about-bg-img.png",
+    "/images/1.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
   ];
 
   const handleScroll = () => {
@@ -89,7 +89,7 @@ const MainContent = () => {
             ))}
             <figure className="">
               <Image
-                src={'/images/about-page/about-bg-img_2.png'}
+                src={'/images/2.jpeg'}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
@@ -98,7 +98,7 @@ const MainContent = () => {
             </figure>
             <figure className="">
               <Image
-                src={'/images/about-page/image_1.png'}
+                src={'/images/3.jpeg'}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
@@ -117,7 +117,7 @@ const MainContent = () => {
         </div>
 
         {/* Right side with scrollable content */}
-         <div className="relative md:w-3/5 w-1/2">
+        <div className="relative md:w-3/5 w-1/2">
           <div
             className="w-full sm:!max-h-[400px] !max-h-[220px] overflow-y-scroll scroll_Left"
             onScroll={handleScroll}
@@ -125,9 +125,9 @@ const MainContent = () => {
           >
             {whyChooseHalePath.map((item, index) => (
               <div className="slide_txt "
-                key={index} 
-                 dangerouslySetInnerHTML={{__html: item.description }} 
-                
+                key={index}
+                dangerouslySetInnerHTML={{ __html: item.description }}
+
               />
             ))}
           </div>
