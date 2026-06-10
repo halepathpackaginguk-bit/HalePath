@@ -15,6 +15,17 @@ export const GET_PRODUCT_BY_SLUG = gql`
           mediaItemUrl
         }
       }
+        seo {
+      title
+      description
+      canonicalUrl
+      focusKeywords
+      openGraph {
+        image {
+          secureUrl
+        }
+      }
+    }
 
       related(first: 4) {
         nodes {
