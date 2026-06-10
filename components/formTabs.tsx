@@ -85,6 +85,8 @@ export default function FormTabs({
         quantity: quantity,
         printing: data.printing,
         calculatedPrice: calculatedPrice,
+        name: data.name,
+        email: data.email,
       };
 
       const res = await fetch("/api/checkout", {
@@ -269,6 +271,22 @@ export default function FormTabs({
               />
 
               <div className="w-full gap-2.5">
+                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
+                  <input
+                    {...register("name")}
+                    className="hale_input"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    {...register("email")}
+                    type="email"
+                    className="hale_input"
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+
                 <div className="grid md:grid-cols-4 grid-cols-2 gap-2 mt-2.5">
                   <div className="relative">
                     <select
