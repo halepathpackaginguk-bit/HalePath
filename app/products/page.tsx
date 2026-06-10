@@ -1,26 +1,21 @@
 import PageBanner from '@/components/page-banner'
 import CategoriesProducts from '@/components/category/Category-Products';
+import { getPageBySlug } from '@/lib/data/getHomeData';
 import { getProductsData } from '@/lib/data/getProductsData';
 import { buildSeo } from '@/lib/seo/generateSeo';
 
 export async function generateMetadata() {
-  return buildSeo({
-    seo: {
-      title: "Our Products | Hale Path Packaging",
-      description: "Explore our full range of custom packaging solutions — corrugated boxes, flexible packaging, offset printing, and more."
-    }
-  }, "products");
+  const page = await getPageBySlug("products");
+  return buildSeo(page, "products");
 }
 
 const Products = async () => {
 
      const products = await getProductsData();
+     const page = await getPageBySlug("products");
   return (
     <div>
-      <PageBanner
-        title="Our Products"
-        description="Explore our full range of custom packaging solutions — from corrugated boxes to retail-ready displays, designed to fit your brand."
-      />
+      <PageBanner page_info={page} title="Products" description={page?.seo?.description || "Explore our full range of custom packaging solutions."} />
       <CategoriesProducts productsRes={products} />
     </div>
   )
