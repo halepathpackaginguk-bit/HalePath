@@ -18,7 +18,6 @@ export async function POST(request: Request) {
     const user = process.env.EMAIL_USER;
     const pass = process.env.EMAIL_PASS;
 
-    // Optional: add a safety check (remove after confirming it works)
     if (!host || !port || !user || !pass) {
       console.error('Missing env vars:', { host, port, user: !!user, pass: !!pass });
       return NextResponse.json(
@@ -30,8 +29,9 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       host,
       port,
-      secure: port === 465, // true for 465, false for 587
+      secure: port === 465,
       auth: { user, pass },
+      tls: { rejectUnauthorized: false },
     });
 
     await transporter.verify();
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: `"Contact Form" <${user}>`,
-      to: 'mufaqar@gmail.com', // change if needed
+      to: 'sales@halepathpackaging.com, mufaqar@gmail.com', // change if needed
       subject: `New Quote Request from ${fullname}`,
       html: `
         <h2>New Contact Form Submission</h2>

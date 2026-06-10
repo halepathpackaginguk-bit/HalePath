@@ -18,14 +18,25 @@ export async function POST(req: Request) {
       message,
     } = body;
 
+    const host = process.env.EMAIL_HOST;
+    const port = Number(process.env.EMAIL_PORT);
+    const user = process.env.EMAIL_USER;
+    const pass = process.env.EMAIL_PASS;
+
+    if (!host || !port || !user || !pass) {
+      console.error("Missing env vars:", { host, port, user: !!user, pass: !!pass });
+      return NextResponse.json(
+        { error: "Email configuration missing on server" },
+        { status: 500 },
+      );
+    }
+
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST, // e.g., smtp.hostinger.com
-      port: Number(process.env.EMAIL_PORT), // 465 or 587
-      secure: process.env.EMAIL_PORT === "465", // true for 465, false for other ports
-      auth: {
-        user: process.env.EMAIL_USER, // your Hostinger email address
-        pass: process.env.EMAIL_PASS, // your Hostinger email password
-      },
+      host,
+      port,
+      secure: port === 465,
+      auth: { user, pass },
+      tls: { rejectUnauthorized: false },
     });
 
     const mailData = {

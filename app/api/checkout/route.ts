@@ -16,14 +16,25 @@ export async function POST(req: Request) {
             name,
         } = body;
 
+        const host = process.env.EMAIL_HOST;
+        const port = Number(process.env.EMAIL_PORT);
+        const user = process.env.EMAIL_USER;
+        const pass = process.env.EMAIL_PASS;
+
+        if (!host || !port || !user || !pass) {
+            console.error("Missing env vars:", { host, port, user: !!user, pass: !!pass });
+            return NextResponse.json(
+                { error: "Email configuration missing on server" },
+                { status: 500 },
+            );
+        }
+
         const transporter = nodemailer.createTransport({
-            port: 465,
-            host: "smtp.gmail.com",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-            secure: true,
+            host,
+            port,
+            secure: port === 465,
+            auth: { user, pass },
+            tls: { rejectUnauthorized: false },
         });
 
         const mailData = {
