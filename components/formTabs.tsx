@@ -21,10 +21,17 @@ export default function FormTabs({
   const [calculatedPrice, setCalculatedPrice] = useState(productPrice);
 
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
+    register: registerQuote,
+    handleSubmit: handleSubmitQuote,
+    reset: resetQuote,
+    formState: { errors: errorsQuote },
+  } = useForm();
+
+  const {
+    register: registerCheckout,
+    handleSubmit: handleSubmitCheckout,
+    reset: resetCheckout,
+    formState: { errors: errorsCheckout },
   } = useForm();
 
   const handleQuantityChange = (value: number) => {
@@ -64,7 +71,7 @@ export default function FormTabs({
 
       if (res.ok) {
         alert(result.message || "Quote sent successfully ✅");
-        reset();
+        resetQuote();
       } else {
         alert(result.error || "Failed ❌");
       }
@@ -138,19 +145,19 @@ export default function FormTabs({
         <div className={`${activeTab === "tab1" ? "block" : "hidden"}`}>
           <div className={quoteFormClass}>
             <form
-              onSubmit={handleSubmit(handleQuoteSubmit)}
+              onSubmit={handleSubmitQuote(handleQuoteSubmit)}
               className="grid w-full gap-2 items-center px-3 sm:px-5 py-6 md:py-10"
             >
               <div className="w-full gap-2.5">
                 <div className="grid grid-cols-2 gap-2.5">
                   <input
-                    {...register("name")}
+                    {...registerQuote("name")}
                     className="hale_input"
                     placeholder="Your Name"
                     required
                   />
                   <input
-                    {...register("phone")}
+                    {...registerQuote("phone")}
                     className="hale_input"
                     placeholder="Phone Number"
                   />
@@ -158,14 +165,14 @@ export default function FormTabs({
 
                 <div className="grid grid-cols-2 gap-2.5 mt-2.5">
                   <input
-                    {...register("email")}
+                    {...registerQuote("email")}
                     className="hale_input"
                     placeholder="Email Address"
                     required
                   />
                   <input
                     value={productName}
-                    {...register("product")}
+                    {...registerQuote("product")}
                     className="hale_input"
                     readOnly
                   />
@@ -173,21 +180,21 @@ export default function FormTabs({
 
                 <div className="grid grid-cols-3 gap-2 mt-2.5">
                   <input
-                    {...register("length")}
+                    {...registerQuote("length")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Length"
                     
                   />
                   <input
-                    {...register("width")}
+                    {...registerQuote("width")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Width"
                     
                   />
                   <input
-                    {...register("depth")}
+                    {...registerQuote("depth")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Depth"
@@ -198,7 +205,7 @@ export default function FormTabs({
                 <div className="grid grid-cols-3 gap-2 mt-2.5">
                   <div className="relative">
                     <select
-                      {...register("colors")}
+                      {...registerQuote("colors")}
                       className="hale_input h-full appearance-none"
                       
                     >
@@ -213,7 +220,7 @@ export default function FormTabs({
                   </div>
 
                   <input
-                    {...register("qty")}
+                      {...registerQuote("qty")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Quantity"
@@ -222,14 +229,14 @@ export default function FormTabs({
                 </div>
 
                 <textarea
-                  {...register("message")}
+                  {...registerQuote("message")}
                   className="hale_input !rounded-[20px] h-[141px] mt-2.5"
                   placeholder="Write Your Message..."
                   
                 />
 
                 <div className="flex gap-2 mt-3 items-center">
-                  <input type="checkbox" {...register("agree")} required />
+                  <input type="checkbox" {...registerQuote("agree")} required />
                   <label className="cursor-pointer text-sm">
                     I Agree that my data is{" "}
                     <strong>collected and Stored.</strong>
@@ -248,7 +255,7 @@ export default function FormTabs({
         <div className={`${activeTab === "tab2" ? "block" : "hidden"}`}>
           <div className={quoteFormClass}>
             <form
-              onSubmit={handleSubmit(handleCheckoutSubmit)}
+              onSubmit={handleSubmitCheckout(handleCheckoutSubmit)}
               className="grid w-full gap-2 items-center px-3 sm:px-5 py-6 md:py-10"
             >
               <h2 className="md:text-[28px] md:leading-normal text-2xl font-bold text-title_Clr">
@@ -266,20 +273,20 @@ export default function FormTabs({
               <input
                 type="hidden"
                 value={productName}
-                {...register("product")}
+                {...registerCheckout("product")}
                 className="hale_input"
               />
 
               <div className="w-full gap-2.5">
                 <div className="grid grid-cols-2 gap-2.5 mt-2.5">
                   <input
-                    {...register("name")}
+                    {...registerCheckout("name")}
                     className="hale_input"
                     placeholder="Your Name"
                     required
                   />
                   <input
-                    {...register("email")}
+                    {...registerCheckout("email")}
                     type="email"
                     className="hale_input"
                     placeholder="Email Address"
@@ -290,7 +297,7 @@ export default function FormTabs({
                 <div className="grid md:grid-cols-4 grid-cols-2 gap-2 mt-2.5">
                   <div className="relative">
                     <select
-                      {...register("dimension")}
+                      {...registerCheckout("dimension")}
                       className="hale_input h-full appearance-none"
                     >
                       <option value="5 x 4 x 1">5 x 4 x 1</option>
@@ -301,7 +308,7 @@ export default function FormTabs({
 
                   <div className="relative">
                     <select
-                      {...register("box_stock")}
+                      {...registerCheckout("box_stock")}
                       className="hale_input h-full appearance-none"
                     >
                       <option value="Rigid">Rigid</option>
@@ -312,7 +319,7 @@ export default function FormTabs({
 
                   <div className="relative">
                     <select
-                      {...register("quantity", { required: true })}
+                      {...registerCheckout("quantity", { required: true })}
                       onChange={(e) =>
                         handleQuantityChange(Number(e.target.value))
                       }
@@ -326,7 +333,7 @@ export default function FormTabs({
 
                   <div className="relative">
                     <select
-                      {...register("printing")}
+                      {...registerCheckout("printing")}
                       className="hale_input h-full appearance-none"
                     >
                       <option value="outside_only">Outside only</option>
