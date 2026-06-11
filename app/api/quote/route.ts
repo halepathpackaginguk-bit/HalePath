@@ -41,7 +41,7 @@ export async function POST(req: Request) {
 
     const mailData = {
       from: process.env.EMAIL_USER,
-      to: `mufaqar@gmail.com, sales@halepathpackaging.com, ${email}`,
+      to: `mufaqar@gmail.com, Inquiriy@halepathpackaging.com, ${email}`,
       subject: `New Quote Request from ${name}`,
       text: message,
       html: `
