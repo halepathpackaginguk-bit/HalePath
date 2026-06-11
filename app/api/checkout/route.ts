@@ -37,9 +37,12 @@ export async function POST(req: Request) {
             tls: { rejectUnauthorized: false },
         });
 
+        await transporter.verify();
+        console.log("SMTP connection successful");
+
         const mailData = {
-            from: process.env.EMAIL_USER,
-            to: `Inquiriy@halepathpackaging.com, ${email}`,
+            from: `"Checkout Form" <${user}>`,
+            to: `inquiriy@halepathpackaging.com,mufaqar@gmail.com`,
             subject: `New Checkout Order - ${product}`,
             text: `Order placed for ${product}`,
             html: `
@@ -69,10 +72,10 @@ export async function POST(req: Request) {
             { status: 200 }
         );
     } catch (error) {
-        console.error(error);
+        console.error("Checkout email error:", error);
 
         return NextResponse.json(
-            { error: "Failed to send checkout email" },
+            { error: error instanceof Error ? error.message : "Failed to send checkout email" },
             { status: 500 }
         );
     }

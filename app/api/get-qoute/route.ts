@@ -46,9 +46,12 @@ export async function POST(req: Request) {
       tls: { rejectUnauthorized: false },
     });
 
+    await transporter.verify();
+    console.log("SMTP connection successful");
+
     const mailData = {
-      from: process.env.EMAIL_USER,
-      to: `Inquiriy@halepathpackaging.com, ${email}`,
+      from: `"Quote Form" <${user}>`,
+      to: `inquiriy@halepathpackaging.com,mufaqar@gmail.com`,
       subject: `New Quote from ${name}`,
       text: `${message} | Sent from: ${email}`,
       html: `
@@ -71,7 +74,10 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailData);
     return NextResponse.json({ message: "Email sent!" }, { status: 200 });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Email failed" }, { status: 500 });
+    console.error("Get-quote email error:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Email failed" },
+      { status: 500 },
+    );
   }
 }
