@@ -176,9 +176,16 @@ export default function FormTabs({
                     className="hale_input"
                     hidden
                   />
+                   <input
+                      {...registerQuote("qty")}
+                    type="nummber"
+                    className="hale_input"
+                    placeholder="Quantity"
+                    
+                  />
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 mt-2.5">
+                <div className="grid grid-cols-2 gap-2 mt-2.5">
                   <input
                     {...registerQuote("length")}
                     type="nummber"
@@ -193,16 +200,10 @@ export default function FormTabs({
                     placeholder="Width"
                     
                   />
-                  <input
-                    {...registerQuote("depth")}
-                    type="nummber"
-                    className="hale_input"
-                    placeholder="Depth"
-                    
-                  />
+                  
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 mt-2.5">
+                <div className="grid grid-cols-2 gap-2 mt-2.5">
                   <div className="relative">
                     <select
                       {...registerQuote("colors")}
@@ -218,19 +219,20 @@ export default function FormTabs({
                     </select>
                     <RiArrowDownSLine className="text-xl absolute right-4 top-1/2 -translate-y-1/2" />
                   </div>
-
                   <input
-                      {...registerQuote("qty")}
+                    {...registerQuote("depth")}
                     type="nummber"
                     className="hale_input"
-                    placeholder="Quantity"
+                    placeholder="Depth"
                     
                   />
+
+                 
                 </div>
 
                 <textarea
                   {...registerQuote("message")}
-                  className="hale_input !rounded-[20px] h-[141px] mt-2.5"
+                  className="hale_input !rounded-[20px] h-[141px] mt-2.5 pt-2"
                   placeholder="Write Your Message..."
                   
                 />
