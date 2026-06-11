@@ -174,7 +174,7 @@ export default function FormTabs({
                     value={productName}
                     {...registerQuote("product")}
                     className="hale_input"
-                    readOnly
+                    hidden
                   />
                 </div>
 
