@@ -57,7 +57,7 @@ export default function FormTabs({
         width: data.width,
         depth: data.depth,
         colors: data.colors,
-        qty: data.qty,    
+        qty: data.qty,
         message: data.message,
       };
 
@@ -176,12 +176,11 @@ export default function FormTabs({
                     className="hale_input"
                     hidden
                   />
-                   <input
-                      {...registerQuote("qty")}
+                  <input
+                    {...registerQuote("qty")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Quantity"
-                    
                   />
                 </div>
 
@@ -191,16 +190,13 @@ export default function FormTabs({
                     type="nummber"
                     className="hale_input"
                     placeholder="Length"
-                    
                   />
                   <input
                     {...registerQuote("width")}
                     type="nummber"
                     className="hale_input"
                     placeholder="Width"
-                    
                   />
-                  
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 mt-2.5">
@@ -208,7 +204,6 @@ export default function FormTabs({
                     <select
                       {...registerQuote("colors")}
                       className="hale_input h-full appearance-none"
-                      
                     >
                       <option value="">Colors</option>
                       <option value="1">1 color</option>
@@ -224,17 +219,13 @@ export default function FormTabs({
                     type="nummber"
                     className="hale_input"
                     placeholder="Depth"
-                    
                   />
-
-                 
                 </div>
 
                 <textarea
                   {...registerQuote("message")}
                   className="hale_input !rounded-[20px] h-[141px] mt-2.5 pt-2"
                   placeholder="Write Your Message..."
-                  
                 />
 
                 <div className="flex gap-2 mt-3 items-center">
