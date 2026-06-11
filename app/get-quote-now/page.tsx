@@ -24,7 +24,7 @@ const GetQouteNow = async () => {
       />
       <Get_Qoute />
       <Testimonials testimonialsRes={testimonialsRes} />
-      <Instagram />
+     
     </main>
   );
 };

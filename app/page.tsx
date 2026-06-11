@@ -84,7 +84,6 @@ export default async function Home() {
             className="w-full"
           />
         </section>
-        <Instagram />
       </main>
     </>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/header";
 import Footer from "@/components/footer";
 import Script from "next/script";
+import Instagram from "@/components/instagram/instagram";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://embed.tawk.to/6156ead1d326717cb6843ced/1fgtoahb9"
         />
+         <Instagram />
         <Footer />
       </body>
     </html>
