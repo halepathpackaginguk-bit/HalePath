@@ -647,3 +647,16 @@ ul.career_list li {
   align-items: center;
   justify-content: center;
 }
+
+.cat_info_box h2 {
+  @apply text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4;
+}
+
+.cat_info_box p,
+.cat_info_box ul {
+  @apply mb-4;
+}
+
+.cat_info_box a {
+  @apply underline;
+}

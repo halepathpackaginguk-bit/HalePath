@@ -29,12 +29,7 @@ export default async function CategoryPage({
   const { slug } = await params; 
   const category = await getCategoryBySlug(slug);
   const products = await getProductsByCategory(slug);
-
   const catinfo = category?.categoryInfo?.categoryInfo || [];
-
-  console.log("catinfo", catinfo);
-
-
 
   if (!category) {
     return (

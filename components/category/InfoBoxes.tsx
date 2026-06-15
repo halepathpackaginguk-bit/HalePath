@@ -19,7 +19,7 @@ const InfoBoxes = ({ data }: { data: any }) => {
             />
           </figure>
 
-          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
+          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col cat_info_box">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
               {infoBox?.title}
             </h4>
@@ -40,7 +40,7 @@ const InfoBoxes = ({ data }: { data: any }) => {
       </section>
 
       <section className="my-10">
-        <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row">
+        <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row ">
           <figure className="md:w-1/2">
             <Image
               alt="Why Us Image"
@@ -51,7 +51,7 @@ const InfoBoxes = ({ data }: { data: any }) => {
             />
           </figure>
 
-          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
+          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col cat_info_box">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
               {infoBox2.title}
             </h4>
