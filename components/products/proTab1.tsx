@@ -25,14 +25,15 @@ const ProTab1 = ({ data }: Props) => {
             />
           </figure>
 
-          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
+          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col cat_info_box">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
               {infoBox1.title}
             </h4>
 
-            <p className="mb-7 text-center md:text-left">
-              {infoBox1.description}
-            </p>
+            <div
+              className="mb-7 text-center md:text-left"
+              dangerouslySetInnerHTML={{ __html: infoBox1.description }}
+            />
 
             <Link
               href="/get-quote-now"
@@ -56,14 +57,15 @@ const ProTab1 = ({ data }: Props) => {
             />
           </figure>
 
-          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
+          <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col cat_info_box">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
               {infoBox2.title}
             </h4>
 
-            <p className="mb-7 text-center md:text-left">
-              {infoBox2.description}
-            </p>
+            <div
+              className="mb-7 text-center md:text-left"
+              dangerouslySetInnerHTML={{ __html: infoBox2.description }}
+            />
 
             <Link
               href="/get-quote-now"
