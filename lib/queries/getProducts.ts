@@ -221,6 +221,29 @@ export const GET_CATEGORY_BY_SLUG = gql`
         mediaItemUrl
       }
 
+       categoryInfo {
+      categoryInfo {
+        infoBox {
+          description
+          infoimage {
+            node {
+              mediaItemUrl
+            }
+          }
+          title
+        }
+        infoBox2 {
+          description
+          title
+          infoimage {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+
       faqs {
         faqsSections {
           title

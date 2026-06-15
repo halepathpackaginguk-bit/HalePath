@@ -9,6 +9,7 @@ import ProductCard from "@/components/products/ProductCard";
 import CategoriesProducts from "@/components/category/Category-Products";
 import FormTabs from "@/components/formTabs";
 import Faqs from "@/components/faqs/faqs";
+import InfoBoxes from "@/components/category/InfoBoxes";
 
 export async function generateMetadata({
   params,
@@ -28,6 +29,13 @@ export default async function CategoryPage({
   const { slug } = await params; 
   const category = await getCategoryBySlug(slug);
   const products = await getProductsByCategory(slug);
+
+  const catinfo = category?.categoryInfo?.categoryInfo || [];
+
+  console.log("catinfo", catinfo);
+
+
+
   if (!category) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
@@ -66,6 +74,10 @@ export default async function CategoryPage({
         </div>
       </main>
       <CategoriesProducts productsRes={products} />
+
+      <InfoBoxes data={catinfo} />
+
+
       {category?.faqs?.faqsSections?.length > 0 && (
         <Faqs data={category?.faqs} col={2} />
       )}
