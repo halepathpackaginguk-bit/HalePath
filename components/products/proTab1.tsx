@@ -13,7 +13,7 @@ const ProTab1 = ({ data }: Props) => {
 
   return (
     <>
-      {infoBox1.title && (
+      {infoBox1.description && (
         <section className="my-10">
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row-reverse">
             <figure className="md:w-1/2">
@@ -47,7 +47,7 @@ const ProTab1 = ({ data }: Props) => {
         </section>
       )}
 
-      {infoBox2.title && (
+      {infoBox2.description && (
         <section className="my-10">
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row">
             <figure className="md:w-1/2">
