@@ -66,7 +66,6 @@ const ProTab1 = ({ data }: Props) => {
               className="mb-7 text-center md:text-left"
               dangerouslySetInnerHTML={{ __html: infoBox2.description }}
             />
-
             <Link
               href="/get-quote-now"
               className="py-[9px] px-[41px] text-white bg-[#1C2E42] rounded-md"
