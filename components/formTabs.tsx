@@ -251,9 +251,9 @@ export default function FormTabs({
               onSubmit={handleSubmitCheckout(handleCheckoutSubmit)}
               className="grid w-full gap-2 items-center px-3 sm:px-5 py-6 md:py-10"
             >
-              <h2 className="md:text-[28px] md:leading-normal text-2xl font-bold text-title_Clr">
+              <p className="md:text-[28px] md:leading-normal text-2xl font-bold text-title_Clr">
                 Available Sizes for {productName}
-              </h2>
+              </p>
 
               <p>
                 Choose from our popular Standard Sizes for a quick,
