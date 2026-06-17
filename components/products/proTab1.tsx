@@ -83,12 +83,13 @@ const ProTab1 = ({ data }: Props) => {
       {/* <ProReviews /> */}
       {/* Related Products */}
 
-      
-      <section className="bg-[#F5F5F5] py-20 mt-28">
-        <div className="container mx-auto px-3 text-center">
-          <Faqs col={2} data={data.faqs} />
-        </div>
-      </section>
+      {data.faqs && data.faqs.length > 0 && (
+        <section className="bg-[#F5F5F5] py-20 mt-28">
+          <div className="container mx-auto px-3 text-center">
+            <Faqs col={2} data={data.faqs} />
+          </div>
+        </section>
+      )}
     </>
   );
 };
