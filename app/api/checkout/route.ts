@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
     const mailData = {
       from: `"Checkout Form" <${user}>`,
-      to: `Inquiry@halepathpackaging.com,mufaqar@gmail.com`,
+      to: `Inquiry@halepathpackaging.com`,
       subject: `New Checkout Order - ${product}`,
       text: `Order placed for ${product}`,
       html: `
