@@ -11,6 +11,8 @@ const ProductTemplate = ({ data }: any) => {
   const product = data.data;
   const relatedProducts = product.related?.nodes ?? [];
 
+  
+
   const imageUrl =
     product?.featuredImage?.node?.mediaItemUrl || product?.image?.sourceUrl;
 

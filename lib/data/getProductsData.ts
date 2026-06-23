@@ -1,8 +1,12 @@
 import client from "@/lib/apollo-client";
-import { GET_CATEGORIES, GET_CATEGORY_BY_SLUG, GET_PRODUCT_BY_SLUG, GET_PRODUCTS, GET_PRODUCTS_BY_CATEGORY, GET_SEARCH_PRODUCTS } from "../queries/getProducts";
-
-
-
+import {
+  GET_CATEGORIES,
+  GET_CATEGORY_BY_SLUG,
+  GET_PRODUCT_BY_SLUG,
+  GET_PRODUCTS,
+  GET_PRODUCTS_BY_CATEGORY,
+  GET_SEARCH_PRODUCTS,
+} from "../queries/getProducts";
 
 export async function getProductBySlug(slug: string) {
   const { data } = await client.query<any>({
@@ -13,12 +17,10 @@ export async function getProductBySlug(slug: string) {
   return data?.product || null;
 }
 
-
 export async function getProductsData() {
   const { data } = await client.query<any>({ query: GET_PRODUCTS });
   return data?.products?.nodes || [];
 }
-
 
 export async function getSearchProductsData(searchTerm?: string) {
   try {
@@ -33,10 +35,11 @@ export async function getSearchProductsData(searchTerm?: string) {
   }
 }
 
-
-
 export async function getProductsByCategory(category: string) {
-  const { data } = await client.query<any>({ query: GET_PRODUCTS_BY_CATEGORY, variables: { category } });
+  const { data } = await client.query<any>({
+    query: GET_PRODUCTS_BY_CATEGORY,
+    variables: { category },
+  });
   return data?.products?.nodes || [];
 }
 
@@ -48,7 +51,7 @@ export async function getCategoryBySlug(slug: string) {
   try {
     const { data } = await client.query<any>({
       query: GET_CATEGORY_BY_SLUG,
-      variables: { slug }
+      variables: { slug },
     });
     return data?.productCategory || null;
   } catch (error) {

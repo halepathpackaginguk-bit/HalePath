@@ -9,6 +9,7 @@ import ProTab3 from "./proTab3";
 const ProductTabs = ({ prodata, faqs }: any) => {
     const [activeTab, setActiveTab] = useState("tab1");
 
+
     // ===== STICKY HEADER =====
     useEffect(() => {
         const header = document.getElementById("tabs-header");

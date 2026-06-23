@@ -1,7 +1,7 @@
 import Product_Gallery from "./product-gallery";
 import FormTabs from "../formTabs";
 function Banner({ data }: any) {
-  console.log("Banner", data);
+  //console.log("Banner", data);
 
   return (
     <section className="pt-14">
