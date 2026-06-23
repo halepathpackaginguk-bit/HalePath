@@ -54,8 +54,8 @@ const ProductTemplate = ({ data }: any) => {
         </section>
       </main>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Product Image */}
+      {/* <div className="flex flex-col md:flex-row gap-8">  
+    
         <div className="md:w-1/2">
           {product.image?.sourceUrl && (
             <div className="aspect-square relative">
@@ -68,7 +68,7 @@ const ProductTemplate = ({ data }: any) => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

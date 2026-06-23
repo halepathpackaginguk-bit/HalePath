@@ -10,11 +10,7 @@ type Props = {
 const ProTab1 = ({ data }: Props) => {
   const infoBox1 = data.productSpecifications.productExtraInfo.infoBox;
   const infoBox2 = data.productSpecifications.productExtraInfo.infoBox2;
-
   const showHide = data.productSpecifications.productExtraInfo.showHide;
-
-  console.log("showHide Data:", showHide);
-
   return (
     <>
       {showHide === "show" && (
