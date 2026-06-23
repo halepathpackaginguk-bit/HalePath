@@ -24,7 +24,12 @@ export async function POST(req: Request) {
     const pass = process.env.EMAIL_PASS;
 
     if (!host || !port || !user || !pass) {
-      console.error("Missing env vars:", { host, port, user: !!user, pass: !!pass });
+      console.error("Missing env vars:", {
+        host,
+        port,
+        user: !!user,
+        pass: !!pass,
+      });
       return NextResponse.json(
         { error: "Email configuration missing on server" },
         { status: 500 },
@@ -75,7 +80,10 @@ export async function POST(req: Request) {
     console.error("Quote email error:", error);
 
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to send quote email" },
+      {
+        error:
+          error instanceof Error ? error.message : "Failed to send quote email",
+      },
       { status: 500 },
     );
   }

@@ -53,6 +53,10 @@ const redirectsList = [
     source: "/gable-bag-1-2-3-bottom",
     destination: "/gable-bag-auto-bottom",
   },
+  {
+    source: "/sheet-mask-packaging",
+    destination: "/sheet-mask-pouches",
+  },
 ];
 
 const nextConfig: NextConfig = {
