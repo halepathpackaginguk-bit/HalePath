@@ -23,6 +23,13 @@ const ProductTemplate = ({ data }: any) => {
     description: product.shortDescription?.replace(/<[^>]*>/g, "") || "",
     url: `${baseUrl}/${product.slug}`,
     ...(imageUrl && { image: imageUrl }),
+    offers: {
+      "@type": "Offer",
+      price: "0.69",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${baseUrl}/${product.slug}`,
+    },
   };
 
   return (
