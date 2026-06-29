@@ -57,15 +57,15 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
     return (
         <div
             onClick={(e) => e.stopPropagation()}
-            className="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-white/30 backdrop-blur-[10px] px-3 sm:px-5 py-6 md:py-10">
+            className="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-secondary/70 backdrop-blur-[10px] px-3 sm:px-5 py-6 md:py-10">
 
             {/* HEADER */}
             <div className="pb-5 w-full flex flex-row justify-between items-center">
-                <h2 className="md:text-[28px] md:leading-normal text-2xl font-bold text-title_Clr">
+                <h2 className="md:text-[28px] md:leading-normal text-2xl font-bold text-white">
                     Get Custom Quote
                 </h2>
 
-                <button onClick={() => onClose?.()} className="text-title_Clr cursor-pointer">
+                <button onClick={() => onClose?.()} className="text-white cursor-pointer">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -148,7 +148,7 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
                 </div>
 
                 {/* AGREEMENT */}
-                <div className="flex gap-2 my-3 items-center text-title_Clr">
+                <div className="flex gap-2 my-3 items-center text-white">
                     <input type="checkbox" name="agree" className="p-2 w-4 h-4" required />
                     <label className="cursor-pointer text-sm">
                         I Agree that my data is <strong>collected and Stored.</strong>
