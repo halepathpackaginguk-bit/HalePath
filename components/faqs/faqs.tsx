@@ -30,7 +30,7 @@ const Faqs = ({ col, data }: any) => {
   );
 
   return (
-    <section className="bg-[#F5F5F5] py-20 mt-28">
+    <section className="bg-[#F5F5F5] py-16">
       <div className="hale_container grid md:grid-cols-1 gap-6">
         <div id="faqs" className="pt-8">
           <h2 className="h2">

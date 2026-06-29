@@ -11,6 +11,8 @@ const ProTab1 = ({ data }: Props) => {
   const infoBox1 = data.productSpecifications.productExtraInfo.infoBox;
   const infoBox2 = data.productSpecifications.productExtraInfo.infoBox2;
   const showHide = data.productSpecifications.productExtraInfo.showHide;
+
+  console.log("data1", data);
   return (
     <>
       {showHide === "show" && (
@@ -83,8 +85,8 @@ const ProTab1 = ({ data }: Props) => {
       {/* <ProReviews /> */}
       {/* Related Products */}
 
-      {data.faqs && data.faqs.length > 0 && (
-        <section className="bg-[#F5F5F5] py-20 mt-28">
+      {data.faqs.faqsSections && data.faqs.faqsSections.length > 0 && (
+        <section className="bg-[#F5F5F5] ">
           <div className="container mx-auto px-3 text-center">
             <Faqs col={2} data={data.faqs} />
           </div>
