@@ -184,6 +184,16 @@ function Footer() {
               </Link>
             </li>
             <li>
+              <a
+                href="https://wa.me/18884328748"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer_link"
+              >
+                WhatsApp Chat
+              </a>
+            </li>
+            <li>
               <Link
                 href="mailto:sales@halepathpackaging.com"
                 target="_blank"

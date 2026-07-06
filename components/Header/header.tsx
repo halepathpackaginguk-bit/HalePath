@@ -69,12 +69,14 @@ function Header() {
             <SearchForm />
           </div>
           <div className="xl:w-1/4 sm:w-1/3 hidden lg:flex gap-5 justify-end">
-            <Link
-              href="/contact-us"
+            <a
+              href="https://wa.me/18884328748"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-secondary px-5 py-2 text-[13px] uppercase font-medium text-secondary rounded-full hover:bg-secondary hover:text-white"
             >
-              Contact Us
-            </Link>
+              WhatsApp
+            </a>
             <Link
               href="/get-quote-now"
               className="border-2 border-secondary bg-secondary px-5 py-2 text-[13px] uppercase font-medium text-white rounded-full hover:bg-transparent hover:text-secondary"
