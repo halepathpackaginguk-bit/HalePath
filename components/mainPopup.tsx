@@ -57,7 +57,7 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
     return (
         <div
             onClick={(e) => e.stopPropagation()}
-            className="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-secondary/70 backdrop-blur-[10px] px-3 sm:px-5 py-6 md:py-10">
+            className="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-secondary/30 backdrop-blur-[30px] px-3 sm:px-5 py-6 md:py-10">
 
             {/* HEADER */}
             <div className="pb-5 w-full flex flex-row justify-between items-center">

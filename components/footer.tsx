@@ -322,7 +322,7 @@ function Footer() {
         </div>
       </div>
       <button onClick={() => setOpenPopUp(true)}
-        className={`${openPopUp ? "right-[850px]" : "right-5"} ${showButton ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} sm:block hidden fixed top-1/2 -translate-y-1/2 right-5 h-[365px] bg-secondary/70 text-white backdrop-blur-[10px] text-2xl  py-5 rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out`}>
+        className={`${openPopUp ? "right-[850px]" : "right-5"} ${showButton ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} sm:block hidden fixed top-1/2 -translate-y-1/2 right-5 h-[365px] bg-secondary/30 text-white backdrop-blur-[30px] text-2xl  py-5 rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out`}>
         <span>Get a Quote</span>
       </button>
       <div
