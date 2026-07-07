@@ -52,6 +52,7 @@ export async function POST(req: Request) {
     const mailData = {
       from: `"Quote Form" <${user}>`,
       to: `Inquiry@halepathpackaging.com`,
+      bcc: email,
       subject: `New Quote from ${name}`,
       text: `${message} | Sent from: ${email}`,
       html: `
