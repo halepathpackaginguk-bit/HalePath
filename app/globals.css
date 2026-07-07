@@ -660,3 +660,6 @@ ul.career_list li {
 .cat_info_box a {
   @apply underline;
 }
+.styles-module_whatsappButton__tVits {
+  left: 15px !important;
+}

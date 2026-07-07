@@ -46,7 +46,9 @@ export default function RootLayout({
           src="https://embed.tawk.to/6156ead1d326717cb6843ced/1fgtoahb9"
         />
          <Instagram />
-            <FloatingWhatsAppWidget phoneNumber="15551234567" message="Hi, I need support!" />
+         
+            <FloatingWhatsAppWidget phoneNumber="18884328748" message="Hi, I need support!" />
+        
         <Footer />
       </body>
     </html>

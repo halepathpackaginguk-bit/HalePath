@@ -8,11 +8,11 @@ export default function FloatingWhatsAppWidget({ phoneNumber, message }: { phone
     <FloatingWhatsApp
       phoneNumber={phoneNumber}
       accountName="Customer Support"
-      avatar="/avatar-image.png" // Path to public folder image
+      avatar="/images/logo.png" // Path to public folder image
       statusMessage="Typically replies within minutes"
       chatMessage="Hello there! 💬 How can we help you today?"
       allowEsc
-      allowClickAway
+      
       notification
       notificationSound
     />
