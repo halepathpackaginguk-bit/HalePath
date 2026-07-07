@@ -1,14 +1,35 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import MainPopup from "./mainPopup";
 
 function Footer() {
   const [openPopUp, setOpenPopUp] = useState(false);
+  const [showButton, setShowButton] = useState(true);
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = document.getElementById('site-header');
+    const footer = footerRef.current;
+    if (!header || !footer) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const anyIntersecting = entries.some((e) => e.isIntersecting);
+        setShowButton(!anyIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(header);
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="pt-14  bg-[#f5f5f5]">
+    <footer ref={footerRef} className="pt-14  bg-[#f5f5f5]">
       <div className="hale_container grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-between 2xl:gap-5 md:gap-4 gap-5">
         <div>
           <h6 className="footer_title">
@@ -301,7 +322,7 @@ function Footer() {
         </div>
       </div>
       <button onClick={() => setOpenPopUp(true)}
-        className={`${openPopUp ? "right-[850px]" : "right-5"} sm:block hidden fixed top-1/2 -translate-y-1/2 right-5 h-[365px] bg-secondary/70 text-white backdrop-blur-[10px] text-2xl  py-5 rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out`}>
+        className={`${openPopUp ? "right-[850px]" : "right-5"} ${showButton ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} sm:block hidden fixed top-1/2 -translate-y-1/2 right-5 h-[365px] bg-secondary/70 text-white backdrop-blur-[10px] text-2xl  py-5 rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out`}>
         <span>Get a Quote</span>
       </button>
       <div

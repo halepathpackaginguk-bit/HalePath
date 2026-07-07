@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { NavLinks } from "@/const/navlinks";
 import ClientHeaderWrapper from "./ClientHeaderWrapper";
-import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 import SearchForm from "./searchForm";
 
 function Header() {
   return (
-    <>
+    <div id="site-header">
       <div className="bg-secondary py-2.5 hidden md:block">
         <div className="hale_container flex items-center justify-between">
           <ul className="flex items-center divide-x-2 divide-white">
@@ -73,9 +73,9 @@ function Header() {
               href="https://wa.me/18884328748"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-secondary px-5 py-2 text-[13px] uppercase font-medium text-secondary rounded-full hover:bg-secondary hover:text-white"
+              className="bg-[#25D366] border-2 border-[#25D366] px-5 py-2 text-[13px] uppercase font-medium text-secondary rounded-full hover:bg-[#075E54] hover:border-[#075E54] hover:text-white flex items-center gap-2.5"
             >
-              WhatsApp
+             <FaWhatsapp className="text-lg" />  WhatsApp
             </a>
             <Link
               href="/get-quote-now"
@@ -87,7 +87,7 @@ function Header() {
         </div>
       </div>
       <ClientHeaderWrapper />
-    </>
+    </div>
   );
 }
 
