@@ -43,7 +43,7 @@ export default function RootLayout({
         <Script
           id="tawkto-script"
           strategy="afterInteractive"
-          src="https://embed.tawk.to/6156ead1d326717cb6843ced/1fgtoahb9"
+          src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7%27;"
         />
          <Instagram />
          
@@ -54,3 +54,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
