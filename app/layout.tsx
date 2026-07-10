@@ -43,7 +43,7 @@ export default function RootLayout({
         <Script
           id="tawkto-script"
           strategy="afterInteractive"
-          src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7%27;"
+          src="https://tawk.to/chat/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
         />
          <Instagram />
          
