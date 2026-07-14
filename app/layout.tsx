@@ -45,10 +45,8 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://tawk.to/chat/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
         />
-         <Instagram />
-         
-            <FloatingWhatsAppWidget phoneNumber="18884328748" message="Hi, I need support!" />
-        
+         <Instagram />         
+            <FloatingWhatsAppWidget phoneNumber="18884328748" message="Hi, I need support!" />        
         <Footer />
       </body>
     </html>
