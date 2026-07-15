@@ -1,6 +1,7 @@
 import BannerPageMiddel from "@/components/banner/banner";
 import CategorySlider from "@/components/category/categorySlider";
 import CTASECTION from "@/components/CTA";
+import AvailableWorldwide from "@/components/home/availablein";
 import Brands from "@/components/home/brands";
 import Faqs from "@/components/home/faqs";
 import Get_Qoute from "@/components/home/get-qoute";
@@ -84,6 +85,7 @@ export default async function Home() {
             className="w-full"
           />
         </section>
+        <AvailableWorldwide />
       </main>
     </>
   );
