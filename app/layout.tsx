@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/header";
-import Footer from "@/components/footer";
 import Script from "next/script";
-import Instagram from "@/components/instagram/instagram";
-import FloatingWhatsAppWidget from "@/components/FloatingWhatsAppWidget";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+import DynamicFloatingWhatsApp from "@/components/DynamicFloatingWhatsApp";
+
+const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
+const Instagram = dynamic(() => import("@/components/instagram/instagram"), { ssr: true });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,9 +49,13 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
         />
-         <Instagram />         
-            <FloatingWhatsAppWidget phoneNumber="18884328748" message="Hi, I need support!" />        
-        <Footer />
+        <Suspense fallback={null}>
+          <Instagram />
+        </Suspense>
+        <DynamicFloatingWhatsApp />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

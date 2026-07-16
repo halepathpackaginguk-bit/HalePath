@@ -25,7 +25,7 @@ function QouteFormForProduct() {
     setLoading(true);
     SendMail();
     function SendMail() {
-      fetch("/api/email", {
+      fetch("/api/contact", {
         method: "POST",
         headers: {
           Accept: "application/json, text/plain, */*",

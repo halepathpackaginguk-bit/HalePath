@@ -6,12 +6,15 @@ import {
 import { buildSeo } from "@/lib/seo/generateSeo";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import CategoryCard from "@/components/category/CategoryCard";
-import CategoriesProducts from "@/components/category/Category-Products";
-import FormTabs from "@/components/formTabs";
-import Faqs from "@/components/faqs/faqs";
 import InfoBoxes from "@/components/category/InfoBoxes";
 import { NavLinks } from "@/const/navlinks";
+
+const CategoriesProducts = dynamic(() => import("@/components/category/Category-Products"), { ssr: true });
+const FormTabs = dynamic(() => import("@/components/formTabs"), { ssr: true });
+const FaqsDynamic = dynamic(() => import("@/components/faqs/faqs"), { ssr: true });
 
 export async function generateMetadata({
   params,
@@ -56,12 +59,13 @@ export default async function CategoryPage({
       <main className="py-10 lg:py-20">
         <div className="hale_container grid items-center md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-[70px]">
           <div className="h-full">
-            <img
+            <Image
               src={category?.image?.sourceUrl || "/images/placeholder.jpg"}
-              alt=""
+              alt={category?.name || "Category"}
               width={651}
               height={375}
               className="img-full rounded-[22px]"
+              priority
             />
           </div>
           <div>
@@ -70,7 +74,9 @@ export default async function CategoryPage({
               className="xl:text-[19px] mt-4"
               dangerouslySetInnerHTML={{ __html: category?.description }}
             />
-            <FormTabs productName={category?.name} productPrice={650} />
+            <Suspense fallback={null}>
+              <FormTabs productName={category?.name} productPrice={650} />
+            </Suspense>
           </div>
         </div>
       </main>
@@ -87,7 +93,9 @@ export default async function CategoryPage({
       <InfoBoxes data={catinfo} />
 
       {category?.faqs?.faqsSections?.length > 0 && (
-        <Faqs data={category?.faqs} col={2} />
+        <Suspense fallback={null}>
+          <FaqsDynamic data={category?.faqs} col={2} />
+        </Suspense>
       )}
     </>
   );
@@ -125,10 +133,10 @@ async function SubCategoriesSection({
         Explore our range of {navlink.name.toLowerCase()} solutions
       </p>
       <div className="hale_container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {subCategories.map((sub: any) => (
+          {subCategories.map((sub: any) => (
           <div key={sub.slug} className="p-3">
             <Link href={sub.link} className="inline-flex h-fit">
-              <img
+              <Image
                 src={
                   sub.image?.sourceUrl ||
                   sub.image?.mediaItemUrl ||
@@ -138,6 +146,7 @@ async function SubCategoriesSection({
                 width={363}
                 height={375}
                 className="maskimage img-full"
+                loading="lazy"
               />
             </Link>
             <h4 className="text-xl font-normal text-title_Clr text-center flex w-fit mx-auto mt-8">

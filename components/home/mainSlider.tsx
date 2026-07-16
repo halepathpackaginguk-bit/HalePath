@@ -1,4 +1,3 @@
-import Slider from "react-slick";
 import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";

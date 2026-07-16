@@ -23,10 +23,10 @@ const CategoriesProducts = ({ productsRes }: any) => {
         </p>
       </div>
       <div className="hale_container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {productsRes?.map((item: any, idx: number) => (
+        {productsRes?.slice(0, visibleCount).map((item: any, idx: number) => (
           <div key={idx} className="p-3">
             <Link href={`/${item?.slug}`} className="inline-flex h-fit">
-              <img
+              <Image
                 src={
                   item?.featuredImage?.node?.mediaItemUrl ||
                   "/images/product-placeholder.jpg"
@@ -35,6 +35,7 @@ const CategoriesProducts = ({ productsRes }: any) => {
                 width={363}
                 height={375}
                 className="maskimage img-full"
+                loading="lazy"
               />
             </Link>
             <h4 className="text-xl font-normal text-title_Clr text-center flex w-fit mx-auto mt-8">

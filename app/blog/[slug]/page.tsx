@@ -1,9 +1,11 @@
-import Featured_Posts from '@/components/blog/featured-post';
 import { getBlogData, getBlogPostBySlug } from '@/lib/data/getHomeData'
 import { buildSeo } from '@/lib/seo/generateSeo';
 import { generateTOCFromHTML } from '@/lib/toc';
 import Image from 'next/image';
-import React from 'react'
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const Featured_Posts = dynamic(() => import('@/components/blog/featured-post'), { ssr: true });
 
 export async function generateMetadata({
   params,
@@ -36,7 +38,7 @@ export default async function Single
           </h1>
         </div>
         <div className='container mx-auto h-full'>
-          <Image src={post?.featuredImage?.node?.sourceUrl} alt='featured' width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' />
+          <Image src={post?.featuredImage?.node?.sourceUrl || '/placeholder.jpg'} alt={post?.title || 'featured'} width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' loading="lazy" />
         </div>
       </section>
       <section className='pt-6 pb-14'>
@@ -72,18 +74,20 @@ export default async function Single
 
         </div>
       </section>
-      <section className='pb-14'>
-        <div className='container mx-auto px-4'>
-          <h2 className='md:text-[29px] md:leading-normal text-lg font-bold text-title_Clr text-center mb-4'>
-            Most Popular Blog
-          </h2>
-          <div className="grid md:grid-cols-3 grid-cols-1 md:gap-[30px] gap-7">
-            {blog?.map((item, idx) => {
-              return <Featured_Posts key={idx} data={item} />;
-            })}
+      <Suspense fallback={null}>
+        <section className='pb-14'>
+          <div className='container mx-auto px-4'>
+            <h2 className='md:text-[29px] md:leading-normal text-lg font-bold text-title_Clr text-center mb-4'>
+              Most Popular Blog
+            </h2>
+            <div className="grid md:grid-cols-3 grid-cols-1 md:gap-[30px] gap-7">
+              {blog?.map((item, idx) => {
+                return <Featured_Posts key={idx} data={item} />;
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Suspense>
     </main>
   )
 }

@@ -59,12 +59,13 @@ export default function CategorySlider({ categoriesRes }: any) {
             return (
               <div key={idx} className="w-full p-2">
                 <Link href={link}>
-                  <img
+                  <Image
                     src={item?.image?.mediaItemUrl || "/placeholder.png"}
                     alt={item?.name || "category"}
                     width={363}
                     height={375}
                     className="cat_image img-full"
+                    loading="lazy"
                   />
                 </Link>
 

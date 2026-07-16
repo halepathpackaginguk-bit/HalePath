@@ -1,9 +1,11 @@
 import PageBanner from "@/components/page-banner";
-import Get_Qoute from "@/components/home/get-qoute";
-import Instagram from "@/components/instagram/instagram";
-import Testimonials from "@/components/testimonial/testimonials";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { getTestimonails } from "@/lib/data/getHomeData";
 import { buildSeo } from "@/lib/seo/generateSeo";
+
+const Get_Qoute = dynamic(() => import("@/components/home/get-qoute"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/testimonial/testimonials"), { ssr: true });
 
 export async function generateMetadata() {
   return buildSeo({
@@ -22,8 +24,12 @@ const GetQouteNow = async () => {
         title="Get a Quote"
         description="Ready to start your packaging project? Request a personalized quote today and our team will get back to you promptly."
       />
-      <Get_Qoute />
-      <Testimonials testimonialsRes={testimonialsRes} />
+      <Suspense fallback={null}>
+        <Get_Qoute />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Testimonials testimonialsRes={testimonialsRes} />
+      </Suspense>
      
     </main>
   );

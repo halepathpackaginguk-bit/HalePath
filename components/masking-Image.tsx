@@ -3,20 +3,18 @@ import Link from "next/link";
 import React from "react";
 
 const MaskingImage = ({ data }: any) => {
-  const link =
-    data?._type === "products" ? `/${data?.slug}` : `/${data?.slug}`; 
+  const link = `/${data?.slug}`;
 
   return (
     <div className="w-fit p-2">
       <Link href={link}>
-        <img
-          src={
-            data?.featuredImage?.node?.mediaItemUrl || "images/category1.png"
-          }
-          alt="category1"
+        <Image
+          src={data?.featuredImage?.node?.mediaItemUrl || "/images/category1.png"}
+          alt={data?.name || "category1"}
           width={363}
           height={375}
           className="maskimage img-full"
+          loading="lazy"
         />
       </Link>
       <Link

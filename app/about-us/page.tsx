@@ -55,7 +55,8 @@ export default function AboutPage() {
               src="/images/about-page/slider.png"
               width={600}
               height={500}
-              className="rounded-2xl w-full" />
+              className="rounded-2xl w-full"
+              priority />
           </figure>
           <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
@@ -86,7 +87,8 @@ export default function AboutPage() {
               src="/images/about-page/slider.png"
               width={600}
               height={500}
-              className="rounded-2xl w-full" />
+              className="rounded-2xl w-full"
+              loading="lazy" />
           </figure>
           <div className="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
             <h4 className="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
@@ -121,7 +123,8 @@ export default function AboutPage() {
               <div className="md:w-1/3 w-full">
                 <Image src={product?.gallery} alt="img"
                   width={500} height={400}
-                  className='w-full object-cover object-center' />
+                  className='w-full object-cover object-center'
+                  loading="lazy" />
               </div>
               <div className='md:w-2/3 w-full p-5'>
                 <h3 className=''>

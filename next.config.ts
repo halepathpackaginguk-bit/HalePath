@@ -69,9 +69,14 @@ const nextConfig: NextConfig = {
         pathname: "**",
       },
     ],
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [480, 640, 768, 1024, 1280, 1536],
   },
   env: {
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
+  },
+  experimental: {
+    optimisticClientCache: true,
   },
   async headers() {
     return [

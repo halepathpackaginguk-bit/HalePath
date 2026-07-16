@@ -15,8 +15,8 @@ export default function SearchFormClient({
   const [loading, setLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
-  // Close results when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -39,13 +39,18 @@ export default function SearchFormClient({
         return;
       }
 
+      if (abortRef.current) {
+        abortRef.current.abort();
+      }
+      abortRef.current = new AbortController();
+
       setLoading(true);
       try {
         const products = await getSearchProductsData(term);
         setResults(products);
         setShowResults(true);
       } catch (error) {
-        console.error("Search error:", error);
+        if (error instanceof Error && error.name === "AbortError") return;
         setResults([]);
       } finally {
         setLoading(false);
@@ -54,7 +59,6 @@ export default function SearchFormClient({
     [initialProducts],
   );
 
-  // Debounce search
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
@@ -67,6 +71,14 @@ export default function SearchFormClient({
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm, performSearch, initialProducts]);
+
+  useEffect(() => {
+    return () => {
+      if (abortRef.current) {
+        abortRef.current.abort();
+      }
+    };
+  }, []);
 
   return (
     <div className="relative w-full" ref={searchRef}>

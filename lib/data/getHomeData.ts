@@ -5,7 +5,7 @@ import { GET_PAGE_BY_SLUG } from "../queries/getPageBySlug";
 import { GET_POST_BY_SLUG } from "../queries/getPostBySlug";
 
 export async function getHomeData() {
-  const { data } = await client.query<any>({ query: GET_HOME });
+  const { data } = await client.query<any>({ query: GET_HOME, fetchPolicy: "cache-first" });
   return data.page || {};
 }
 
@@ -13,10 +13,10 @@ export async function getTestimonails(): Promise<any[]> {
   try {
     const { data } = await client.query<any>({
       query: GET_TESTIMONAILS,
-      variables: { first: 10 }, // optional
+      variables: { first: 10 },
+      fetchPolicy: "cache-first",
     });
 
-    // Ensure only valid posts are returned
     return (data?.testimonials?.nodes ?? []).filter((t:any): t is any => !!t);
   } catch (error) {
     console.error("Error fetching blog posts:", error);
@@ -28,10 +28,10 @@ export async function getBlogData(): Promise<any[]> {
   try {
     const { data } = await client.query<any>({
       query: GET_POSTS,
-      variables: { first: 30 }, // optional
+      variables: { first: 30 },
+      fetchPolicy: "cache-first",
     });
 
-    // Ensure only valid posts are returned
     return (data?.posts?.nodes ?? []).filter((p:any): p is any => !!p);
   } catch (error) {
     console.error("Error fetching blog posts:", error);
@@ -44,9 +44,9 @@ export async function getBlogPostBySlug(slug: string): Promise<any | null> {
     const { data } = await client.query<{ post: any }>({
       query: GET_POST_BY_SLUG,
       variables: { slug },
+      fetchPolicy: "cache-first",
     });
 
-    // Return the post if it exists, otherwise null
     return data?.post ?? null;
   } catch (error) {
     console.error(`Error fetching blog post for slug "${slug}":`, error);
@@ -62,11 +62,11 @@ export async function getPageBySlug(slug: string) {
       variables: {
         slug: `/${slug}/`,
       },
+      fetchPolicy: "cache-first",
     });
 
     return data?.page || null;
   } catch (error) {
-    // console.log(error);
     return null;
   }
 }

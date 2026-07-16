@@ -1,23 +1,25 @@
-import BannerPageMiddel from "@/components/banner/banner";
-import CategorySlider from "@/components/category/categorySlider";
-import CTASECTION from "@/components/CTA";
-import AvailableWorldwide from "@/components/home/available";
-import Brands from "@/components/home/brands";
-import Faqs from "@/components/home/faqs";
-import Get_Qoute from "@/components/home/get-qoute";
-import HowIt_work from "@/components/home/howit-work";
-import MainSlider from "@/components/home/mainSlider";
-import Packaging_Style from "@/components/home/packaging-style";
-import ProductSlider from "@/components/home/productSlider";
-import WhatWeDo from "@/components/home/what-we-do";
-import Instagram from "@/components/instagram/instagram";
-import MainContent from "@/components/main/main-content";
-import SliderFull from "@/components/slider/slider-full";
-import Testimonials from "@/components/testimonial/testimonials";
-import WhatWeOffer from "@/components/what-we-offer/what-we-offer";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { getHomeData, getTestimonails } from "@/lib/data/getHomeData";
 import { buildSeo } from "@/lib/seo/generateSeo";
-import Image from "next/image";
+
+const BannerPageMiddel = dynamic(() => import("@/components/banner/banner"), { ssr: true });
+const CategorySlider = dynamic(() => import("@/components/category/categorySlider"), { ssr: true });
+const CTASECTION = dynamic(() => import("@/components/CTA"), { ssr: true });
+const AvailableWorldwide = dynamic(() => import("@/components/home/available"), { ssr: true });
+const Brands = dynamic(() => import("@/components/home/brands"), { ssr: true });
+const Faqs = dynamic(() => import("@/components/home/faqs"), { ssr: true });
+const Get_Qoute = dynamic(() => import("@/components/home/get-qoute"), { ssr: true });
+const HowIt_work = dynamic(() => import("@/components/home/howit-work"), { ssr: true });
+const MainSlider = dynamic(() => import("@/components/home/mainSlider"), { ssr: true });
+const Packaging_Style = dynamic(() => import("@/components/home/packaging-style"), { ssr: true });
+const ProductSlider = dynamic(() => import("@/components/home/productSlider"), { ssr: true });
+const WhatWeDo = dynamic(() => import("@/components/home/what-we-do"), { ssr: true });
+const MainContent = dynamic(() => import("@/components/main/main-content"), { ssr: true });
+const SliderFull = dynamic(() => import("@/components/slider/slider-full"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/testimonial/testimonials"), { ssr: true });
+const WhatWeOffer = dynamic(() => import("@/components/what-we-offer/what-we-offer"), { ssr: true });
 
 export async function generateMetadata() {
   return buildSeo({
@@ -42,40 +44,72 @@ export default async function Home() {
   return (
     <>
       <main className={``}>
-        <MainSlider />
-        <MainContent />
-        <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
-        <CTASECTION />
-        {/* Off Set Printing  */}
-        <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" />
-        <HowIt_work />
-        <Brands />
-        <BannerPageMiddel />
-        {/* Corrugated Packaging  */}
-        <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" />
-        <Get_Qoute />
-        <WhatWeOffer />
-        {/* Flexible Packaging  */}
-        <Packaging_Style
-          title="Flexible Packaging / Mylar bags"
-          link="/all-flexible-packaging/"
-          subtitle="Flexible Solutions, Unmatched Quality – Packaging That Sells Your Brand."
-          data={Flexible}
-        />
-        <CTASECTION />
-        <SliderFull />
-        <section className="bg-[#EAF6F9]">
-          {/* Print & Advertising  */}
+        <Suspense fallback={<div className="min-h-[400px] bg-gray-100 animate-pulse" />}>
+          <MainSlider />
+        </Suspense>
+        <Suspense fallback={null}>
+          <MainContent />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CTASECTION />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" />
+        </Suspense>
+        <Suspense fallback={null}>
+          <HowIt_work />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Brands />
+        </Suspense>
+        <Suspense fallback={null}>
+          <BannerPageMiddel />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Get_Qoute />
+        </Suspense>
+        <Suspense fallback={null}>
+          <WhatWeOffer />
+        </Suspense>
+        <Suspense fallback={null}>
           <Packaging_Style
-            title="Print & Advertising & Office Supplies"
-            link="/all-print-advertising/"
-            subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
-            data={Printadverstising}
+            title="Flexible Packaging / Mylar bags"
+            link="/all-flexible-packaging/"
+            subtitle="Flexible Solutions, Unmatched Quality – Packaging That Sells Your Brand."
+            data={Flexible}
           />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CTASECTION />
+        </Suspense>
+        <Suspense fallback={null}>
+          <SliderFull />
+        </Suspense>
+        <section className="bg-[#EAF6F9]">
+          <Suspense fallback={null}>
+            <Packaging_Style
+              title="Print & Advertising & Office Supplies"
+              link="/all-print-advertising/"
+              subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
+              data={Printadverstising}
+            />
+          </Suspense>
         </section>
-        <WhatWeDo data={WhatweDo} />
-        <Testimonials testimonialsRes={testimonialsRes} />
-        <Faqs faqRes={FAQS} />
+        <Suspense fallback={null}>
+          <WhatWeDo data={WhatweDo} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Testimonials testimonialsRes={testimonialsRes} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Faqs faqRes={FAQS} />
+        </Suspense>
         <section className="px-4">
           <Image
             src="/images/cta-ban.png"
@@ -83,9 +117,12 @@ export default async function Home() {
             width={1920}
             height={1080}
             className="w-full"
+            loading="lazy"
           />
         </section>
-        <AvailableWorldwide />
+        <Suspense fallback={null}>
+          <AvailableWorldwide />
+        </Suspense>
       </main>
     </>
   );
