@@ -22,26 +22,31 @@
 @font-face {
   font-family: "PoppinsBold";
   src: url("/fonts/Poppins-Bold.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "PoppinsMedium";
   src: url("/fonts/Poppins-Medium.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "PoppinsRegular";
   src: url("/fonts/Poppins-Regular.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "EffraMedium";
   src: url("/fonts/Effra_Trial_Rg.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "SourceSansProRegular";
   src: url("/fonts/SourceSansPro-Regular.ttf");
+  font-display: swap;
 }
 
 body {
