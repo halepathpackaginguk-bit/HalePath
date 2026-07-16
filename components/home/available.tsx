@@ -55,10 +55,10 @@ const data = [
 ];
 
 export default function AvailableWorldwide() {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [openIndex, setOpenIndex] = useState<number | 0>(0);
 
     const toggleAccordion = (index: number) => {
-        setOpenIndex((prev) => (prev === index ? null : index));
+        setOpenIndex((prev) => (prev === index ? 0 : index));
     };
 
     return (
