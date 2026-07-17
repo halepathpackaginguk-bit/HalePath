@@ -49,6 +49,16 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VKK5QYCM9X"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-VKK5QYCM9X');`}
+        </Script>
         <Suspense fallback={null}>
           <Instagram />
         </Suspense>
