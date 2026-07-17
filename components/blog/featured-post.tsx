@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
@@ -7,7 +6,7 @@ const Featured_Posts = ({ data }: any) => {
     return (
         <div className='shadow-[-1px_3px_10px_0px_rgba(0,0,0,0.06)] border border-[#E5E5E5]'>
             <div className='h-[264px]'>
-                <Image src={data?.featuredImage?.node?.sourceUrl} alt='Featured' width={640} height={264} className='w-full h-full object-cover object-center' />
+                <img src={data?.featuredImage?.node?.sourceUrl} alt='Featured' width={640} height={264} className='w-full h-full object-cover object-center' />
             </div>
             <div className='md:p-7 p-5'>
                 <p className='text-sm font-semibold text-secondary/80 bg-[#F1F5F9] px-2 py-1 rounded-lg w-fit'>

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import Image from "next/image";
 
 type GalleryNode = {
   mediaItemUrl: string;
@@ -67,13 +66,12 @@ const Product_Gallery = ({ data }: Props) => {
         <Slider {...settings} ref={(slider) => setSlider1(slider)}>
           {GalleryImages.map((item, idx) => (
             <div key={idx}>
-              <Image
+              <img
                 src={item.mediaItemUrl}
                 alt={item.altText || "product"}
                 width={435}
                 height={365}
                 className="w-full h-full object-cover rounded-[12px] max-h-[605px]"
-                priority={idx === 0}
               />
             </div>
           ))}
@@ -94,7 +92,7 @@ const Product_Gallery = ({ data }: Props) => {
                 }`}
                 onClick={() => slider1?.slickGoTo(idx)}
               >
-                <Image
+                <img
                   src={item.mediaItemUrl}
                   alt={item.altText || "thumb"}
                   width={154}

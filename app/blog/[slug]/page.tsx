@@ -1,7 +1,6 @@
 import { getBlogData, getBlogPostBySlug } from '@/lib/data/getHomeData'
 import { buildSeo } from '@/lib/seo/generateSeo';
 import { generateTOCFromHTML } from '@/lib/toc';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
@@ -38,7 +37,7 @@ export default async function Single
           </h1>
         </div>
         <div className='container mx-auto h-full'>
-          <Image src={post?.featuredImage?.node?.sourceUrl || '/placeholder.jpg'} alt={post?.title || 'featured'} width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' loading="lazy" />
+          <img src={post?.featuredImage?.node?.sourceUrl || '/placeholder.jpg'} alt={post?.title || 'featured'} width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' loading="lazy" />
         </div>
       </section>
       <section className='pt-6 pb-14'>

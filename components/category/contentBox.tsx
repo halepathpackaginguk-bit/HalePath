@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaCircleArrowRight } from 'react-icons/fa6'
@@ -7,7 +6,7 @@ function ContentBox({ Cstm_class, img, title, list }: any) {
     return (
         <div className={`flex lg:gap-24 items-center gap-7 ${Cstm_class}`}>
             <div className='lg:w-1/2 w-full'>
-                <Image src={img} alt='feature' width={580} height={440} className='w-full' />
+                <img src={img} alt='feature' width={580} height={440} className='w-full' />
             </div>
             <div className='lg:w-1/2 w-full'>
                 <h3 className='text-base font-normal text-title_Clr mb-4'>

@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import Image from "next/image";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 const ImageCarousel = ({ data }: any) => {
@@ -84,7 +83,7 @@ const ImageCarousel = ({ data }: any) => {
           &#10094;
         </button>
 
-        <Image
+        <img
           src={images[currentIndex]}
           alt="lightbox"
           width={1000}

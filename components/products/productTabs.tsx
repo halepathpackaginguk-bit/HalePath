@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import ProTab1 from "./proTab1";
 import ProTab2 from "./proTab2";

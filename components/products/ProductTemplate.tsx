@@ -3,7 +3,6 @@ import Banner from "./banner";
 import ImageCarousel from "../image-crousel/ImageCarousel";
 import ProductTabs from "./productTabs";
 import CenterSlider from "../slider/center-slider";
-import Image from "next/image";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 

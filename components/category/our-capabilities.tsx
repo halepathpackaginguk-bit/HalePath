@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -12,7 +11,7 @@ const OurCapabilities = ({ data }: any) => {
             key={idx}
             className="bg-[#EFEFEF] flex flex-col justify-center items-center px-1.5 py-[15px] rounded-[16px] "
           >
-            <Image
+            <img
               src={item?.image?.asset?.url}
               alt=""
               width={48}

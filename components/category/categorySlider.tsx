@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
-import Image from "next/image";
 import MaskingImage from "../masking-Image";
 
 export default function CategorySlider({ categoriesRes }: any) {
@@ -59,7 +58,7 @@ export default function CategorySlider({ categoriesRes }: any) {
             return (
               <div key={idx} className="w-full p-2">
                 <Link href={link}>
-                  <Image
+                  <img
                     src={item?.image?.mediaItemUrl || "/placeholder.png"}
                     alt={item?.name || "category"}
                     width={363}

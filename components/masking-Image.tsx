@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -8,7 +7,7 @@ const MaskingImage = ({ data }: any) => {
   return (
     <div className="w-fit p-2">
       <Link href={link}>
-        <Image
+        <img
           src={data?.featuredImage?.node?.mediaItemUrl || "/images/category1.png"}
           alt={data?.name || "category1"}
           width={363}

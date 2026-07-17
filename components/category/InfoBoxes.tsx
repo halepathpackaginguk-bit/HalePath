@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -11,7 +10,7 @@ const InfoBoxes = ({ data }: { data: any }) => {
         <section className="my-10">
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row-reverse">
             <figure className="md:w-1/2">
-              <Image
+              <img
                 alt="Why Us Image"
                 src={infoBox?.infoimage?.node?.mediaItemUrl}
                 width={800}
@@ -44,7 +43,7 @@ const InfoBoxes = ({ data }: { data: any }) => {
         <section className="my-10">
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row ">
             <figure className="md:w-1/2">
-              <Image
+              <img
                 alt="Why Us Image"
                 src={infoBox2?.infoimage?.node?.mediaItemUrl}
                 width={800}
