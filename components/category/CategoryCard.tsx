@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from "next/image";
 
 export default function CategoryCard({ category }: { category: any }) {
   return (
@@ -7,11 +6,10 @@ export default function CategoryCard({ category }: { category: any }) {
       <Link href={`/${category.slug}`}>
         <div className="relative aspect-square bg-gray-200 rounded-lg overflow-hidden">
           {category.image?.sourceUrl ? (
-            <Image
+            <img
               src={category.image.sourceUrl}
               alt={category.name}
-              fill
-              className="object-cover"
+              className="w-full h-full object-cover"
             />
           ) : (
             <div className="bg-gray-300 w-full h-full flex items-center justify-center">

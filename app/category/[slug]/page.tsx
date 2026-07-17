@@ -4,7 +4,6 @@ import {
   getCategoriesData,
 } from "@/lib/data/getProductsData";
 import { buildSeo } from "@/lib/seo/generateSeo";
-import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
@@ -59,13 +58,12 @@ export default async function CategoryPage({
       <main className="py-10 lg:py-20">
         <div className="hale_container grid items-center md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-[70px]">
           <div className="h-full">
-            <Image
+            <img
               src={category?.image?.sourceUrl || "/images/placeholder.jpg"}
               alt={category?.name || "Category"}
               width={651}
               height={375}
               className="img-full rounded-[22px]"
-              priority
             />
           </div>
           <div>
@@ -136,7 +134,7 @@ async function SubCategoriesSection({
           {subCategories.map((sub: any) => (
           <div key={sub.slug} className="p-3">
             <Link href={sub.link} className="inline-flex h-fit">
-              <Image
+              <img
                 src={
                   sub.image?.sourceUrl ||
                   sub.image?.mediaItemUrl ||

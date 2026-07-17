@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -26,7 +25,7 @@ const CategoriesProducts = ({ productsRes }: any) => {
         {productsRes?.slice(0, visibleCount).map((item: any, idx: number) => (
           <div key={idx} className="p-3">
             <Link href={`/${item?.slug}`} className="inline-flex h-fit">
-              <Image
+              <img
                 src={
                   item?.featuredImage?.node?.mediaItemUrl ||
                   "/images/product-placeholder.jpg"
