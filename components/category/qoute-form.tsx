@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -27,9 +28,9 @@ function Qoute_Form() {
         body: JSON.stringify(data),
       }).then((res) => {
         if (res.status === 200) {
-          // console.log("Response succeeded!");
           reset();
           setLoading(false);
+          window.location.href = "/thank-you";
         }
       });
     }

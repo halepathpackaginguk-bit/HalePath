@@ -1,3 +1,4 @@
+"use client";
 import { getProductsData } from "@/lib/data/getProductsData";
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -34,9 +35,9 @@ function QouteFormForProduct() {
         body: JSON.stringify(data),
       }).then((res) => {
         if (res.status === 200) {
-          // console.log("Response succeeded!");
           reset();
           setLoading(false);
+          window.location.href = "/thank-you";
         }
       });
     }

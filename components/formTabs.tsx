@@ -70,8 +70,8 @@ export default function FormTabs({
       const result = await res.json();
 
       if (res.ok) {
-        alert(result.message || "Quote sent successfully ✅");
         resetQuote();
+        window.location.href = "/thank-you";
       } else {
         alert(result.error || "Failed ❌");
       }
@@ -105,7 +105,8 @@ export default function FormTabs({
       const result = await res.json();
 
       if (res.ok) {
-        alert(result.message || "Order placed successfully ✅");
+        resetCheckout();
+        window.location.href = "/thank-you";
       } else {
         alert(result.error || "Checkout failed ❌");
       }

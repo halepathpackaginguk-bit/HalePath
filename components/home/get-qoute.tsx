@@ -26,8 +26,8 @@ function Get_Qoute() {
       const result = await res.json();
 
       if (res.ok) {
-        alert("Message sent successfully!");
         form.reset();
+        window.location.href = "/thank-you";
       } else {
         alert(result.error || "Something went wrong");
       }
