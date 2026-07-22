@@ -16,6 +16,7 @@ const OurCapabilities = ({ data }: any) => {
               alt=""
               width={48}
               height={48}
+              loading="lazy"
             />
             <h6 className="text-[#111827] text-center !font-normal text-xs mt-3">
               {item?.title}

@@ -72,6 +72,7 @@ const Product_Gallery = ({ data }: Props) => {
                 width={435}
                 height={365}
                 className="w-full h-full object-cover rounded-[12px] max-h-[605px]"
+                loading="lazy"
               />
             </div>
           ))}

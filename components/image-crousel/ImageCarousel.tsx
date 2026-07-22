@@ -57,6 +57,7 @@ const ImageCarousel = ({ data }: any) => {
                 height={450}
                 onClick={() => openLightbox(index)}
                 className="cursor-pointer !h-full w-full object-cover rounded-2xl"
+                loading="lazy"
               />
             </figure>
           </div>

@@ -20,11 +20,12 @@ const ProTab1 = ({ data }: Props) => {
             <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row-reverse">
               <figure className="md:w-1/2">
                 <img
-                  alt="Why Us Image"
+                  alt={infoBox1?.title || "Why Us Image"}
                   src={infoBox1?.image?.node?.mediaItemUrl}
                   width={800}
                   height={600}
                   className="rounded-2xl"
+                  loading="lazy"
                 />
               </figure>
 
@@ -52,11 +53,12 @@ const ProTab1 = ({ data }: Props) => {
             <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row">
               <figure className="md:w-1/2">
                 <img
-                  alt="Why Us Image"
+                  alt={infoBox2?.title || "Why Us Image"}
                   src={infoBox2?.image?.node?.mediaItemUrl}
                   width={800}
                   height={600}
                   className="rounded-2xl"
+                  loading="lazy"
                 />
               </figure>
 

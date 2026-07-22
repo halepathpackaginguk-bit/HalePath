@@ -11,11 +11,12 @@ const InfoBoxes = ({ data }: { data: any }) => {
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row-reverse">
             <figure className="md:w-1/2">
               <img
-                alt="Why Us Image"
+                alt={infoBox?.title || "Why Us Image"}
                 src={infoBox?.infoimage?.node?.mediaItemUrl}
                 width={800}
                 height={600}
                 className="rounded-2xl"
+                loading="lazy"
               />
             </figure>
 
@@ -44,11 +45,12 @@ const InfoBoxes = ({ data }: { data: any }) => {
           <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row ">
             <figure className="md:w-1/2">
               <img
-                alt="Why Us Image"
+                alt={infoBox2?.title || "Why Us Image"}
                 src={infoBox2?.infoimage?.node?.mediaItemUrl}
                 width={800}
                 height={600}
                 className="rounded-2xl"
+                loading="lazy"
               />
             </figure>
 
