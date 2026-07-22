@@ -9,6 +9,7 @@ export const GET_POST_BY_SLUG = gql`
     excerpt
     content
     date
+    modified
     featuredImage {
       node {
         sourceUrl
@@ -18,6 +19,14 @@ export const GET_POST_BY_SLUG = gql`
     author {
       node {
         name
+      }
+    }
+    categories(first: 10) {
+      edges {
+        node {
+          name
+          slug
+        }
       }
     }
     seo {

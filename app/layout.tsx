@@ -66,6 +66,43 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <Footer />
         </Suspense>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://www.halepathpackaging.com/#organization",
+              "name": "Hale Path Packaging",
+              "url": "https://www.halepathpackaging.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.halepathpackaging.com/images/logo.png"
+              },
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61586916928562",
+                "https://www.instagram.com/halepathpackaging.uk",
+                "https://www.tiktok.com/@halepathpackaging"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "5955 Alpha Rd Suite 102, Unit 5092",
+                "addressLocality": "Dallas",
+                "addressRegion": "TX",
+                "postalCode": "75240",
+                "addressCountry": "US"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-888-432-8748",
+                "contactType": "customer service",
+                "email": "sales@halepathpackaging.com",
+                "areaServed": ["US", "GB", "CA", "AU"],
+                "availableLanguage": ["English"]
+              }
+            })
+          }}
+        />
       </body>
     </html>
   );

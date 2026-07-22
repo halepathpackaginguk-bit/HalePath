@@ -27,9 +27,106 @@ export default async function Single
   const blog = await getBlogData()
   const content = post?.content || "";
   const { html, headings } = generateTOCFromHTML(content);
-  // console.log("post", post)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.halepathpackaging.com";
+  const postUrl = `${baseUrl}/blog/${slug}`;
+  const categoryEdge = post?.categories?.edges?.[0]?.node;
+  const categoryName = categoryEdge?.name || "";
+  const categoryUrl = categoryEdge?.slug ? `${baseUrl}/blog?category=${categoryEdge.slug}` : "";
+  const wordCount = content.replace(/<[^>]*>/g, "").split(/\s+/).filter(Boolean).length;
+  const description = post?.seo?.description || post?.excerpt?.replace(/<[^>]*>/g, "") || "";
+  const imageUrl = post?.featuredImage?.node?.sourceUrl || "";
+  const datePublished = post?.date ? new Date(post.date).toISOString() : "";
+  const dateModified = post?.modified ? new Date(post.modified).toISOString() : datePublished;
+
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#article`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    "headline": post?.title?.slice(0, 110) || "",
+    "description": description.slice(0, 160),
+    "image": {
+      "@type": "ImageObject",
+      "url": imageUrl,
+      "width": 1200,
+      "height": 675,
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Hale Path Packaging",
+      "url": "https://www.halepathpackaging.com/",
+    },
+    "publisher": {
+      "@id": "https://www.halepathpackaging.com/#organization",
+    },
+    "datePublished": datePublished,
+    "dateModified": dateModified,
+    "articleSection": categoryName,
+    "keywords": categoryName,
+    "wordCount": wordCount,
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".tldr-summary", ".faq-question", ".faq-answer"],
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${baseUrl}/blog`,
+      },
+      ...(categoryName && categoryUrl
+        ? [
+            {
+              "@type": "ListItem" as const,
+              "position": 3,
+              "name": categoryName,
+              "item": categoryUrl,
+            },
+            {
+              "@type": "ListItem" as const,
+              "position": 4,
+              "name": post?.title || "",
+              "item": postUrl,
+            },
+          ]
+        : [
+            {
+              "@type": "ListItem" as const,
+              "position": 3,
+              "name": post?.title || "",
+              "item": postUrl,
+            },
+          ]),
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className='py-14'>
         <div className='container mx-auto px-4'>
           <h1 className='text-4xl text-2xl font-bold text-title_Clr text-center mb-4'>
