@@ -57,6 +57,10 @@ const redirectsList = [
     source: "/sheet-mask-packaging",
     destination: "/sheet-mask-pouches",
   },
+   {
+    source: "/nail-remover-boxes",
+    destination: "/nail-polish-remover-boxes",
+  },
 ];
 
 const nextConfig: NextConfig = {
