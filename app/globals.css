@@ -667,8 +667,9 @@ ul.career_list li {
 
 .cat_info_box p,
 .cat_info_box ul {
-  @apply mb-4;
+  @apply mb-4 ;
 }
+.cat_info_box ul { list-style-type: disc; list-style-position: inside;}
 
 .cat_info_box a {
   @apply underline;
