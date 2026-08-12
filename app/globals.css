@@ -442,6 +442,10 @@ footer ul li a span.marker {
   @apply md:w-1/2 w-full mx-auto;
 }
 
+.blog .desc_content img {
+  @apply  w-full mx-auto;
+}
+
 .desc_content table {
   @apply w-full mx-auto overflow-x-scroll border border-title_Clr/20 border-collapse my-8;
 }
