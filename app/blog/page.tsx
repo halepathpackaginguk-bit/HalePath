@@ -45,7 +45,7 @@ export default async function Blog() {
         title="Blog"
         description="Stay updated with the latest packaging trends, tips, and insights from the Hale Path Packaging team."
       />
-      <section className="py-16 blog">
+      <section className="py-16 single_blog">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 grid-cols-1 md:gap-[30px] gap-7">
             {blog?.map((item: any, idx: number) => {

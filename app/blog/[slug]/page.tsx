@@ -137,7 +137,7 @@ export default async function Single
           <img src={post?.featuredImage?.node?.sourceUrl || '/placeholder.jpg'} alt={post?.title || 'featured'} width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' loading="lazy" />
         </div>
       </section>
-      <section className='pt-6 pb-14'>
+      <section className='pt-6 pb-14 single_blog'>
         <div className='container mx-auto px-4 grid md:grid-cols-4 gap-10'>
 
           {/* TOC */}
