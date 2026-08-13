@@ -61,6 +61,12 @@ const redirectsList = [
     source: "/nail-remover-boxes",
     destination: "/nail-polish-remover-boxes",
   },
+  {
+    source: "/flat-bottom-pouch-with-zipper-2",
+    destination: "/flat-bottom-pouch-with-zipper",
+  },
+
+  
 ];
 
 const nextConfig: NextConfig = {
