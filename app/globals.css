@@ -416,13 +416,13 @@ footer ul li a span.marker {
   @apply md:text-xl md:leading-none text-lg font-bold text-title_Clr mb-3;
 }
 
-.page_content ul,
-.desc_content ul {
+.page_content ul, .page_content ol,
+.desc_content ul, .desc_content ol {
   @apply list-inside list-disc mb-4 space-y-4;
 }
 
-.page_content ul li,
-.desc_content ul li {
+.page_content ul li, .page_content ol li,
+.desc_content ul li, .desc_content ol li {
   @apply text-base font-normal text-title_Clr;
 }
 
@@ -450,11 +450,11 @@ footer ul li a span.marker {
 
 
 
-.desc_content table {
+.desc_content table, .cat_info_box table {
   @apply w-full mx-auto overflow-x-scroll border border-title_Clr/20 border-collapse my-8;
 }
 
-.desc_content table tr td {
+.desc_content table tr td, .cat_info_box table tr td {
   @apply p-4 border border-title_Clr/20;
 }
 
@@ -666,10 +666,10 @@ ul.career_list li {
 }
 
 .cat_info_box p,
-.cat_info_box ul {
+.cat_info_box ul, .cat_info_box ol {
   @apply mb-4 ;
 }
-.cat_info_box ul { list-style-type: disc; list-style-position: inside;}
+.cat_info_box ul, .cat_info_box ol { list-style-type: disc; list-style-position: inside;}
 
 .cat_info_box a {
   @apply underline;

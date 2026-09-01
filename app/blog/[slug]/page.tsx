@@ -127,14 +127,59 @@ export default async function Single
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <section className='py-14'>
-        <div className='container mx-auto px-4'>
-          <h1 className='text-4xl text-2xl font-bold text-title_Clr text-center mb-4'>
-            {post?.title}
-          </h1>
-        </div>
-        <div className='container mx-auto h-full'>
-          <img src={post?.featuredImage?.node?.sourceUrl || '/placeholder.jpg'} alt={post?.title || 'featured'} width={1000} height={454} className='object-cover object-center rounded-[19px] mx-auto w-full h-full' loading="lazy" />
+
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20">
+        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-6">
+          <div className="md:w-1/2 w-full flex flex-col justify-center">
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              {categoryName && (
+                <a
+                  href={categoryUrl}
+                  className="bg-primary/20 text-primary px-4 py-1 rounded-full text-sm font-semibold hover:bg-primary hover:text-white transition-colors"
+                >
+                  {categoryName}
+                </a>
+              )}
+
+              <span className="text-gray-400">•</span>
+
+              <time
+                dateTime={datePublished}
+                className="text-gray-400 text-sm"
+              >
+                {post?.date
+                  ? new Date(post.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })
+                  : ''}
+              </time>
+
+              <span className="text-gray-400">•</span>
+
+              <span className="text-gray-400 text-sm">
+                {Math.ceil(wordCount / 200)} min read
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+              {post?.title}
+            </h1>
+          </div>
+
+          {imageUrl && (
+            <div className="md:w-1/2 w-full">
+              <img
+                src={imageUrl}
+                alt={post?.featuredImage?.node?.altText || post?.title || 'Featured'}
+                width={1000}
+                height={500}
+                loading="lazy"
+                className="w-full h-auto rounded-t-2xl shadow-2xl object-cover max-h-[500px]"
+              />
+            </div>
+          )}
         </div>
       </section>
       <section className='pt-6 pb-14 single_blog'>
