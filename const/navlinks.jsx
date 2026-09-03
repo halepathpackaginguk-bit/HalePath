@@ -289,7 +289,7 @@ export const NavLinks = [
                     { title: "Eco-Friendly Materials", link: "/category/eco-friendly-materials/" },
                     { title: "Recyclable Materials", link: "/category/recyclable-materials/" },
                     { title: "Biodegradable Packaging", link: "/category/biodegradable-packaging/" },
-                    { title: "FSC-Certified Paper", link: "/category/fsc-certified-paper/" },
+                    { title: "Certified Paper", link: "/category/certified-paper/" },
                 ],
             },
             {
