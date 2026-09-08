@@ -1,5 +1,6 @@
 import PageBanner from "@/components/page-banner";
 import Link from "next/link";
+import Script from "next/script";
 import { buildSeo } from "@/lib/seo/generateSeo";
 
 export async function generateMetadata() {
@@ -40,6 +41,14 @@ const ThankYou = async () => {
           </div>
         </div>
       </section>
+      <Script id="google-ads-conversion" strategy="afterInteractive">
+        {`gtag('event', 'conversion', {
+          'send_to': 'AW-11223196191/tHp1CO3pkM4bEJ_E0ecp',
+          'value': 0.0,
+          'currency': 'USD',
+          'transaction_id': ''
+        });`}
+      </Script>
     </main>
   );
 };
