@@ -59,6 +59,16 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-VKK5QYCM9X');`}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11223196191"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-11223196191');`}
+        </Script>
         <Suspense fallback={null}>
           <Instagram />
         </Suspense>
