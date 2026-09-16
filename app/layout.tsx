@@ -42,6 +42,14 @@ export default function RootLayout({
         content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E"
       />
       <body className="min-h-full flex flex-col">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NJ65R553"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Header />
         {children}
         <Script
