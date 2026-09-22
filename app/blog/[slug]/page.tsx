@@ -38,6 +38,15 @@ export default async function Single
   const datePublished = post?.date ? new Date(post.date).toISOString() : "";
   const dateModified = post?.modified ? new Date(post.modified).toISOString() : datePublished;
 
+  const relatedPosts = (blog ?? [])
+    .filter((p: any) => p?.slug !== slug)
+    .sort((a: any, b: any) => {
+      const aSame = a?.categories?.edges?.some((c: any) => c?.node?.slug === categoryEdge?.slug) ? 0 : 1;
+      const bSame = b?.categories?.edges?.some((c: any) => c?.node?.slug === categoryEdge?.slug) ? 0 : 1;
+      return aSame - bSame;
+    })
+    .slice(0, 3);
+
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -219,10 +228,10 @@ export default async function Single
         <section className='pb-14'>
           <div className='container mx-auto px-4'>
             <h2 className='md:text-[29px] md:leading-normal text-lg font-bold text-title_Clr text-center mb-4'>
-              Most Popular Blog
+              Related Blog
             </h2>
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-[30px] gap-7">
-              {blog?.map((item, idx) => {
+              {relatedPosts?.map((item, idx) => {
                 return <Featured_Posts key={idx} data={item} />;
               })}
             </div>
