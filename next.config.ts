@@ -66,6 +66,16 @@ const redirectsList = [
     destination: "/flat-bottom-pouch-with-zipper",
   },
 
+    {
+    source: "/custom-sports-card-packaging-2",
+    destination: "/custom-sports-card-packaging",
+  },
+
+    {
+    source: "/category/vape-e-cigarette",
+    destination: "/category/vape-e-cigarettes",
+  },
+
   
 ];
 

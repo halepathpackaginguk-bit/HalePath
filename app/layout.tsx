@@ -9,7 +9,9 @@ import { Suspense } from "react";
 import DynamicFloatingWhatsApp from "@/components/DynamicFloatingWhatsApp";
 
 const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
-const Instagram = dynamic(() => import("@/components/instagram/instagram"), { ssr: true });
+const Instagram = dynamic(() => import("@/components/instagram/instagram"), {
+  ssr: true,
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,7 +79,7 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'AW-11223196191');`}
         </Script>
-     
+
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -99,40 +101,37 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "@id": "https://www.halepathpackaging.com/#organization",
-              "name": "Hale Path Packaging",
-              "url": "https://www.halepathpackaging.com/",
-              "logo": {
+              name: "Hale Path Packaging",
+              url: "https://www.halepathpackaging.com/",
+              logo: {
                 "@type": "ImageObject",
-                "url": "https://www.halepathpackaging.com/images/logo.png"
+                url: "https://www.halepathpackaging.com/images/logo.png",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.facebook.com/profile.php?id=61586916928562",
                 "https://www.instagram.com/halepathpackaging.uk",
-                "https://www.tiktok.com/@halepathpackaging"
+                "https://www.tiktok.com/@halepathpackaging",
               ],
-              "address": {
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "5955 Alpha Rd Suite 102, Unit 5092",
-                "addressLocality": "Dallas",
-                "addressRegion": "TX",
-                "postalCode": "75240",
-                "addressCountry": "US"
+                streetAddress: "5955 Alpha Rd Suite 102, Unit 5092",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75240",
+                addressCountry: "US",
               },
-              "contactPoint": {
+              contactPoint: {
                 "@type": "ContactPoint",
-                "telephone": "+1-888-432-8748",
-                "contactType": "customer service",
-                "email": "sales@halepathpackaging.com",
-                "areaServed": ["US", "GB", "CA", "AU"],
-                "availableLanguage": ["English"]
-              }
-            })
+                telephone: "+1-888-432-8748",
+                contactType: "customer service",
+                email: "sales@halepathpackaging.com",
+                areaServed: ["US", "GB", "CA", "AU"],
+                availableLanguage: ["English"],
+              },
+            }),
           }}
         />
       </body>
     </html>
   );
 }
-
-
-
