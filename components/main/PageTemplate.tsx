@@ -8,7 +8,7 @@ const PageTemplate = async ({ data }: any) => {
   const cat_slug = page?.allPages?.category?.nodes?.[0]?.slug || "";
   const hasCategory = !!cat_slug;
 
-  console.log("Page",page);
+  console.log("Page",data);
 
   // Only fetch products if a category exists (optional optimization)
   const products = hasCategory ? await getProductsByCategory(cat_slug) : [];
