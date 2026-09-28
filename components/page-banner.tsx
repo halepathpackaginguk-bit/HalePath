@@ -1,13 +1,14 @@
 const PageBanner = ({ page_info, title, description }: any) => {
+    const bannerImage =
+        page_info?.featuredImage?.node?.mediaItemUrl ||
+        page_info?.featuredImage?.node?.sourceUrl ||
+        page_info?.seo?.openGraph?.image?.secureUrl ||
+        "/images/about-page/s2.webp";
 
     return (
         <section
             className="py-16 sm:h-[350px] h-[260px] flex items-center justify-center bg-cover bg-no-repeat bg-center bg-black/50 bg-blend-overlay"
-            style={{
-                backgroundImage: page_info?.featuredImage?.node?.mediaItemUrl
-                    ? `url(${page_info.featuredImage.node.mediaItemUrl})`
-                    : "url('/images/about-page/s2.webp')",
-            }}
+            style={{ backgroundImage: `url(${bannerImage})` }}
         >
             <div className="hale_container text-center">
                 <h1 className="text-white font-bold text-3xl md:text-5xl lg:text-[51px]">
