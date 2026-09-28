@@ -1,4 +1,6 @@
 const PageBanner = ({ page_info, title, description }: any) => {
+
+    console.log("page Info", page_info);
     const bannerImage =
         page_info?.featuredImage?.node?.mediaItemUrl ||
         page_info?.featuredImage?.node?.sourceUrl ||

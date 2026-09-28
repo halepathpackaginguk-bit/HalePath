@@ -7,8 +7,6 @@ export const GET_PAGE_BY_SLUG = gql`
     title
     content
     slug
-    
-
     featuredImage {
       node {
         mediaItemUrl
