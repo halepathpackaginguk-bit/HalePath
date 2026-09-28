@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+
 :root {
   --title_Clr: #1c1c1c;
   --txt_Clr: #666666;
@@ -148,6 +149,7 @@ span,
 .slide_txt {
   @apply md:text-2xl text-sm font-normal text-title_Clr mb-2;
 }
+
 .slide_txt {
   direction: ltr;
 }
@@ -384,7 +386,7 @@ footer ul li a span.marker {
 
 .tab_active,
 .form_tab_active {
-  @apply bg-secondary  text-white border-secondary;
+  @apply bg-secondary text-white border-secondary;
 }
 
 .slider-scroll-area .slider-wrapper .slick-slide {
@@ -416,13 +418,17 @@ footer ul li a span.marker {
   @apply md:text-xl md:leading-none text-lg font-bold text-title_Clr mb-3;
 }
 
-.page_content ul, .page_content ol,
-.desc_content ul, .desc_content ol {
+.page_content ul,
+.page_content ol,
+.desc_content ul,
+.desc_content ol {
   @apply list-inside list-disc mb-4 space-y-4;
 }
 
-.page_content ul li, .page_content ol li,
-.desc_content ul li, .desc_content ol li {
+.page_content ul li,
+.page_content ol li,
+.desc_content ul li,
+.desc_content ol li {
   @apply text-base font-normal text-title_Clr;
 }
 
@@ -444,17 +450,19 @@ footer ul li a span.marker {
 
 
 .single_blog .desc_content img {
-  @apply  w-full mx-auto;
+  @apply w-full mx-auto;
 }
 
 
 
 
-.desc_content table, .cat_info_box table {
+.desc_content table,
+.cat_info_box table {
   @apply w-full mx-auto overflow-x-scroll border border-title_Clr/20 border-collapse my-8;
 }
 
-.desc_content table tr td, .cat_info_box table tr td {
+.desc_content table tr td,
+.cat_info_box table tr td {
   @apply p-4 border border-title_Clr/20;
 }
 
@@ -593,18 +601,18 @@ ul.career_list li {
   justify-content: center;
 }
 
-.thumb-wrapper > div {
+.thumb-wrapper>div {
   width: 100%;
   overflow: hidden;
   transition: all 0.1s;
 }
 
-.thumb-wrapper > div.active {
+.thumb-wrapper>div.active {
   border: 2px solid #1c2e4230;
   border-radius: 11px;
 }
 
-.thumb-wrapper > div img {
+.thumb-wrapper>div img {
   width: 100%;
   height: 100%;
   object-position: center;
@@ -666,14 +674,29 @@ ul.career_list li {
 }
 
 .cat_info_box p,
-.cat_info_box ul, .cat_info_box ol {
-  @apply mb-4 ;
+.cat_info_box ul,
+.cat_info_box ol {
+  @apply mb-4;
 }
-.cat_info_box ul, .cat_info_box ol { list-style-type: disc; list-style-position: inside;}
+
+.cat_info_box ul,
+.cat_info_box ol {
+  list-style-type: disc;
+  list-style-position: inside;
+}
 
 .cat_info_box a {
   @apply underline;
 }
+
 .styles-module_whatsappButton__tVits {
   left: 15px !important;
+}
+
+.video-card {
+  @apply w-full overflow-hidden rounded-xl md:w-1/4;
+}
+
+.video-card video {
+  @apply block h-auto w-full;
 }

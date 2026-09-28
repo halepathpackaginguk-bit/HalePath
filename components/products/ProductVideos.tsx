@@ -14,10 +14,9 @@ export default function ProductVideos() {
                 {videos.map((video, index) => (
                     <div
                         key={video}
-                        className="video-card w-full overflow-hidden rounded-xl md:w-1/4"
+                        className="video-card"
                     >
                         <video
-                            className="block h-auto w-full"
                             autoPlay
                             muted
                             loop
