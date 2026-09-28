@@ -1,5 +1,6 @@
 import Product_Gallery from "./product-gallery";
 import FormTabs from "../formTabs";
+import { ProductTrust } from "./productTrust";
 function Banner({ data }: any) {
   //console.log("Banner", data);
 
@@ -8,6 +9,7 @@ function Banner({ data }: any) {
       <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7">
         <div className="md:w-1/2 w-full">
           <Product_Gallery data={data} />
+          <ProductTrust />
         </div>
         <div className="md:w-1/2 w-full">
           <h1 className="md:text-[40px] md:leading-none text-3xl font-bold text-title_Clr">

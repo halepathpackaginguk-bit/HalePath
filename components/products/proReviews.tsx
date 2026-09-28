@@ -1,13 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
 import { useRef } from "react";
 
-const ProReviews = () => {
-    const sliderRef = useRef<any>(null);
+type Testimonial = {
+    review: string;
+    name: string;
+    location: string;
+    rating: number;
+};
 
-    const testimonialsRes = [
+const ProReviews = () => {
+    const sliderRef = useRef<Slider | null>(null);
+
+    const testimonialsRes: Testimonial[] = [
         {
             review: "Amazing quality and fast delivery. Highly recommended!",
             name: "John Smith",
@@ -26,125 +32,131 @@ const ProReviews = () => {
             location: "Toronto, Canada",
             rating: 5,
         },
+        {
+            review: "Excellent packaging quality and amazing customer service.",
+            name: "Sarah Williams",
+            location: "Manchester, UK",
+            rating: 5,
+        },
     ];
 
-    const settings = {
-        slidesToShow: 2,
+    const settings: Settings = {
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
         dots: false,
         infinite: true,
         adaptiveHeight: true,
+        speed: 500,
         responsive: [
             {
                 breakpoint: 1024,
-                settings: { slidesToShow: 3 },
+                settings: {
+                    slidesToShow: 2,
+                },
             },
             {
                 breakpoint: 768,
-                settings: { slidesToShow: 2 },
+                settings: {
+                    slidesToShow: 2,
+                },
             },
             {
                 breakpoint: 480,
-                settings: { slidesToShow: 1 },
+                settings: {
+                    slidesToShow: 1,
+                },
             },
         ],
     };
 
     return (
-        <section>
-            <div>
-                <div className="hale_container mx-auto flex md:flex-row flex-col gap-5 items-center">
-                    <div className="md:w-1/3 w-full">
-                        <h6 className="text-[#1C2E42] font-semibold flex gap-2 items-center">
-                            Testimonials
-                            <div className="sub_title_line"></div>
-                        </h6>
-                        <h2 className="h2 !text-left">
-                            What Customers Says
-                            <span className="text-[#47AFC3]">About Us</span>
+        <section className="bg-[#F8F5F0] py-16">
+            <div className="container mx-auto px-4">
+
+                {/* Header */}
+                <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+
+                    <div>
+                        <span className="text-secondary text-sm font-semibold uppercase tracking-[4px]">
+                            Loved by 500+ brands worldwide
+                        </span>
+
+                        <h2 className="text-coff_black mt-2 text-4xl font-bold">
+                            Customer Stories
                         </h2>
                     </div>
 
-                    <div className="md:w-2/3 w-full">
-                        <div className="pro_testi_slider">
-                            <Slider ref={sliderRef} {...settings}>
-                                {testimonialsRes.map((testimonial, index) => (
-                                    <div key={index}>
-                                        <div className="testi_box">
-                                            <div className="testi_inner">
-                                                <Image
-                                                    src="/images/about-page/qoute-icon.png"
-                                                    alt="Quote Icon"
-                                                    className="w-[66px] h-[54px]"
-                                                    width={66}
-                                                    height={54}
-                                                />
+                    <a
+                        href="#"
+                        className="border-secondary text-secondary hover:bg-secondary hover:text-white inline-flex w-fit rounded-full border px-7 py-3 font-medium transition-all duration-300"
+                    >
+                        View All Stories
+                    </a>
 
-                                                <p className="mt-4">
-                                                    {testimonial.review}
-                                                </p>
+                </div>
 
-                                                {/* Stars */}
-                                                <div className="mt-2 flex gap-1">
-                                                    {[1, 2, 3, 4, 5].map((i) => (
-                                                        <span
-                                                            key={i}
-                                                            className={
-                                                                i <= testimonial.rating
-                                                                    ? "text-[#FFAE00]"
-                                                                    : "text-gray-300"
-                                                            }
-                                                        >
-                                                            ★
-                                                        </span>
-                                                    ))}
-                                                </div>
+                {/* Testimonials Slider */}
+                <div className="testi-slider">
+                    <Slider
+                        ref={sliderRef}
+                        {...settings}
+                    >
+                        {testimonialsRes.map((testimonial, index) => (
+                            <article
+                                key={`${testimonial.name}-${index}`}
+                                className="px-1.5"
+                            >
+                                <div className="group overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
 
-                                                <div className="mt-5 flex gap-2 items-center">
-                                                    <figure className="testi_img">
-                                                        <Image
-                                                            src="/images/about-page/user.jpg"
-                                                            alt="User"
-                                                            className="rounded-full w-[49px] h-[49px]"
-                                                            width={49}
-                                                            height={49}
-                                                        />
-                                                    </figure>
-                                                    <div>
-                                                        <h6 className="testi_title">
-                                                            {testimonial.name}
-                                                        </h6>
-                                                        <p className="text-[#1C1C1CE8]">
-                                                            {testimonial.location}
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                    {/* Image / Placeholder */}
+                                    <div className="flex h-60 items-center justify-center overflow-hidden bg-[#F1EDE7]">
+                                        <div className="text-secondary/30 text-6xl font-bold">
+                                            "
                                         </div>
                                     </div>
-                                ))}
-                            </Slider>
-                        </div>
 
-                        {/* Arrows */}
-                        <div className="flex justify-center gap-4 text-3xl mt-4">
-                            <button
-                                className="testi-prev hover:text-[#47AFC3]"
-                                onClick={() => sliderRef.current?.slickPrev()}
-                            >
-                                &#8592;
-                            </button>
-                            <button
-                                className="testi-next hover:text-[#47AFC3]"
-                                onClick={() => sliderRef.current?.slickNext()}
-                            >
-                                &#8594;
-                            </button>
-                        </div>
-                    </div>
+                                    {/* Content */}
+                                    <div className="p-6">
+
+                                        {/* Rating */}
+                                        <ul className="mb-3 flex items-center gap-1">
+                                            {Array.from({ length: 5 }).map((_, starIndex) => (
+                                                <li
+                                                    key={starIndex}
+                                                    className={
+                                                        starIndex < testimonial.rating
+                                                            ? "text-[#FFAE00]"
+                                                            : "text-gray-300"
+                                                    }
+                                                >
+                                                    ★
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        {/* Review */}
+                                        <p className="mb-5 leading-7 text-gray-600">
+                                            {testimonial.review}
+                                        </p>
+
+                                        {/* Customer */}
+                                        <h3 className="text-coff_black mb-1 text-lg font-semibold transition group-hover:text-secondary">
+                                            {testimonial.name}
+                                        </h3>
+
+                                        {/* Location */}
+                                        <p className="text-sm text-gray-500">
+                                            {testimonial.location}
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </Slider>
                 </div>
+
             </div>
         </section>
     );

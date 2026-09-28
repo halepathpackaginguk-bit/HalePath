@@ -3,6 +3,8 @@ import Banner from "./banner";
 import ImageCarousel from "../image-crousel/ImageCarousel";
 import ProductTabs from "./productTabs";
 import CenterSlider from "../slider/center-slider";
+import Product_brand_slider from "./Product_brand_slider";
+import ProductVideos from "./ProductVideos";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -41,6 +43,7 @@ const ProductTemplate = ({ data }: any) => {
       />
       <main>
         <Banner data={product} />
+        <Product_brand_slider />
         <section className="mt-20 w-full mx-auto px-3 lg:px-0 overflow-hidden">
           <h2 className="text-2xl text-center mb-8 sm:text-3xl md:text-5xl font-bold">
             {product?.name} Gallery
@@ -50,6 +53,7 @@ const ProductTemplate = ({ data }: any) => {
           />
         </section>
         <ProductTabs prodata={product} />
+        <ProductVideos />
         <section className="mt-20">
           <div className="container mx-auto px-4">
             <span className="md:text-[51px] md:leading-normal text-3xl font-bold text-title_Clr text-center mb-4">
