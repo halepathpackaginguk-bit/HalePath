@@ -7,8 +7,15 @@ export default function Product_brand_slider() {
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
+        autoplaySpeed: 0,
+        speed: 5000,
+        cssEase: 'linear',
         dots: false,
         infinite: true,
+        pauseOnHover: true,
+        pauseOnFocus: false,
+        draggable: true,
+        swipe: true,
         adaptiveHeight: true,
         responsive: [
             {
