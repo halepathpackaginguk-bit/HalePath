@@ -5,7 +5,7 @@ import React from "react";
 
 import MaskingImage from "../masking-Image";
 
-export default function ProductSlider({ title, link, productsRes }: any) {
+export default function ProductSlider({ title, link, desc, productsRes }: any) {
   return (
     <section className="py-12">
       <div className="hale_container flex flex-col justify-center items-center">
@@ -16,6 +16,7 @@ export default function ProductSlider({ title, link, productsRes }: any) {
           </h4>
         )}
         {title && <h2 className="h2">{title}</h2>}
+        {desc && <p className="sm:text-lg text-sm font-normal text-txt_Clr text-center md:w-5/6 mx-auto">{desc}</p>}
       </div>
       <div className="slider-container">
         <Slider {...settings}>

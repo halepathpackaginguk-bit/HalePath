@@ -47,8 +47,6 @@ export default async function Home() {
       <main className={``}>
         <Suspense fallback={<div className="min-h-[400px] bg-gray-100 animate-pulse" />}>
           <MainSlider />
-
-        
         </Suspense>
           <Product_brand_slider/>
         <Suspense fallback={null}>
@@ -61,7 +59,7 @@ export default async function Home() {
           <CTASECTION />
         </Suspense>
         <Suspense fallback={null}>
-          <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" />
+          <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" desc="Our offset printing delivers exceptional colour accuracy and sharp, crisp detail on every run. It is ideal for large-volume orders, from folding cartons to brochures and retail packaging. Because offset printing becomes more efficient at scale, you enjoy low per-unit wholesale costs without sacrificing quality. Count on consistent results from the first box to the last." />
         </Suspense>
         <Suspense fallback={null}>
           <HowIt_work />
@@ -73,7 +71,7 @@ export default async function Home() {
           <BannerPageMiddel />
         </Suspense>
         <Suspense fallback={null}>
-          <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" />
+          <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" desc="Explore our heavy-duty, eco-friendly corrugated shipping and mailer boxes, built to protect your products in transit. Choose custom sizes, strengths, and printed designs that keep your brand visible from warehouse to doorstep." />
         </Suspense>
         <Suspense fallback={null}>
           <Get_Qoute />
@@ -85,7 +83,7 @@ export default async function Home() {
           <Packaging_Style
             title="Flexible Packaging / Mylar bags"
             link="/all-flexible-packaging/"
-            subtitle="Flexible Solutions, Unmatched Quality – Packaging That Sells Your Brand."
+            subtitle="Protect freshness and boost shelf appeal with our custom Mylar bags and flexible packaging. We make coffee pouches, stand-up bags, and child-resistant Mylar bags for wellness and cannabis products. Our high-barrier, puncture-resistant materials block light, moisture, and oxygen, keeping contents fresh and secure. Choose your size, zipper, window, and finish, and add full-colour printing to make your brand stand out on any shelf."
             data={Flexible}
           />
         </Suspense>
