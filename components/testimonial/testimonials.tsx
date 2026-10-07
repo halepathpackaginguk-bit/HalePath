@@ -1,35 +1,45 @@
 "use client";
-import Slider from "react-slick";
-import {
-  FaStar,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
-import { FaCircleCheck } from "react-icons/fa6";
 
-const Testimonials = ({ testimonialsRes }: any) => {
-  const settings = {
-    slidesToShow: 2,
+import { useRef } from "react";
+import Slider, { Settings } from "react-slick";
+
+interface Testimonial {
+  title: string;
+  content: string;
+  testimonialsInfo: {
+    address: string;
+    rating: number;
+    incentivized: boolean;
+    customerType: string;
+  };
+}
+interface TestimonialsProps {
+  testimonialsRes: Testimonial[];
+}
+
+const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
+  const sliderRef = useRef<Slider | null>(null);
+
+  const settings: Settings = {
+    slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     dots: false,
     infinite: true,
     adaptiveHeight: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
       {
@@ -43,114 +53,96 @@ const Testimonials = ({ testimonialsRes }: any) => {
   };
 
   return (
-    <section className="py-[60px]">
-      <div className="hale_container flex md:flex-row flex-col gap-6">
-        {/* Rating Summary (UNCHANGED) */}
-        <div className="py-10 md:w-1/4 w-full bg-secondary text-center space-y-0.5 flex flex-col justify-center items-center">
-          <h3 className="text-xl font-semibold text-white">Excellent</h3>
+    <section className="bg-[#F8F5F0] py-16">
+      <div className="container mx-auto px-4">
 
-          <ul className="flex gap-1 justify-center items-center text-sm">
-            {Array.from({ length: 5 }, (_, index) => (
-              <li
-                key={index}
-                className={index < 5 ? "text-[#FFAE00]" : "text-gray-300"}
-              >
-                <FaStar />
-              </li>
-            ))}
-          </ul>
+        {/* Header */}
+        <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div>
+            <span className="text-secondary text-sm font-semibold uppercase tracking-[4px]">
+              Loved by 500+ brands worldwide
+            </span>
 
-          <div className="flex md:flex-col flex-row justify-center sm:gap-0 gap-0.5">
-            <p className="text-sm font-normal text-white">4.9 average </p>
-            <p className="text-sm font-normal text-white">2,634 reviews</p>
+            <h2 className="text-coff_black mt-2 text-4xl font-bold">
+              Customer Stories
+            </h2>
           </div>
+
+          <a
+            href="#"
+            className="border-secondary text-secondary hover:bg-secondary hover:text-white inline-flex w-fit rounded-full border px-7 py-3 font-medium transition-all duration-300"
+          >
+            View All Stories
+          </a>
         </div>
 
         {/* Testimonials Slider */}
-        <div className="md:w-3/4 w-full relative px-5">
-          <Slider {...settings} className="testimonials-slider">
-            {testimonialsRes?.map((item: any, idx: number) => {
-              const fullStars = Math.floor(item.rating);
-              const halfStar = item.rating - fullStars >= 0.5;
-              return (
-                <div key={idx} className="px-2 w-full h-full">
-                  <div className="w-full bg-white p-4 border shadow border-black/15 h-full flex flex-col justify-between min-h-[242px] sm:max-h-[242px]">
-                    <div className="w-full">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-base font-normal text-title_Clr">
-                          {item.title}
-                        </h3>
+        <div className="testi-slider relative">
+          <Slider ref={sliderRef} {...settings}>
+            {testimonialsRes?.map((testimonial, index) => (
+              <article key={`${testimonial.title}-${index}`} className="px-2">
+                <div className="group overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
 
-                        <ul className="flex gap-1 text-xs">
-                          <li className="text-[#FFAE00]">
-                            <FaStar />
-                          </li>
-                          <li className="text-[#FFAE00]">
-                            <FaStar />
-                          </li>
-                          <li className="text-[#FFAE00]">
-                            <FaStar />
-                          </li>
-                          <li className="text-[#FFAE00]">
-                            <FaStar />
-                          </li>
-                          <li className="text-[#FFAE00]">
-                            <FaStar />
-                          </li>
-                        </ul>
-                      </div>
-                      <p className="text-base font-normal text-title_Clr mb-1 flex items-center gap-1.5">
-                        <FaCircleCheck className="text-sm text-[#FFAE00]" />
-                        {item.testimonialsInfo.customerType}
-                      </p>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: item?.content || "",
-                        }}
-                        className="text-base font-normal text-title_Clr italic mb-5"
-                      />
-
-                      <p className="text-base font-normal text-title_Clr mb-5 flex items-center gap-1.5">
-                        <FaCircleCheck className="text-sm text-[#FFAE00]" />
-                        {item.testimonialsInfo.incentivized}
-                      </p>
-                      <p className="text-sm font-normal text-title_Clr">
-                        {item.testimonialsInfo.address}
-                      </p>
+                  {/* Quote */}
+                  <div className="flex h-60 items-center justify-center overflow-hidden bg-[#F1EDE7]">
+                    <div className="text-secondary/30 text-6xl font-bold">
+                      "
                     </div>
                   </div>
+
+                  <div className="p-6">
+
+                    {/* Rating */}
+                    <ul className="mb-3 flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, starIndex) => (
+                        <li
+                          key={starIndex}
+                          className={
+                            starIndex < testimonial.testimonialsInfo.rating
+                              ? "text-[#FFAE00]"
+                              : "text-gray-300"
+                          }
+                        >
+                          ★
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Review */}
+                    <div
+                      className="mb-5 leading-7 text-gray-600"
+                      dangerouslySetInnerHTML={{
+                        __html: testimonial.content,
+                      }}
+                    />
+
+                    {/* Customer */}
+                    <h3 className="text-coff_black mb-1 text-lg font-semibold transition group-hover:text-secondary">
+                      {testimonial.title}
+                    </h3>
+
+                    {/* Address */}
+                    <p className="text-sm text-gray-500">
+                      {testimonial.testimonialsInfo.address}
+                    </p>
+
+                    {/* Customer Type */}
+                    {testimonial.testimonialsInfo.customerType && (
+                      <p className="mt-1 text-sm text-gray-500">
+                        {testimonial.testimonialsInfo.customerType}
+                      </p>
+                    )}
+
+                  </div>
                 </div>
-              );
-            })}
+              </article>
+            ))}
           </Slider>
         </div>
+
       </div>
     </section>
   );
 };
 
 export default Testimonials;
-
-const PrevArrow = (props: any) => {
-  const { onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      className="absolute top-1/2 -translate-y-1/2 left-0 z-10"
-    >
-      <FaChevronLeft />
-    </button>
-  );
-};
-
-const NextArrow = (props: any) => {
-  const { onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      className="absolute top-1/2 -translate-y-1/2 right-0 z-10"
-    >
-      <FaChevronRight />
-    </button>
-  );
-};

@@ -114,7 +114,7 @@ export default async function Home() {
         </Suspense>
         <section className="px-4">
           <Image
-            src="/images/cta-ban.png"
+            src="/images/page-us.png"
             alt="about us"
             width={1920}
             height={1080}
