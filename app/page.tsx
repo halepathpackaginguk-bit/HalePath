@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { getHomeData, getTestimonails } from "@/lib/data/getHomeData";
 import { buildSeo } from "@/lib/seo/generateSeo";
+import Product_brand_slider from "@/components/products/Product_brand_slider";
 
 const BannerPageMiddel = dynamic(() => import("@/components/banner/banner"), { ssr: true });
 const CategorySlider = dynamic(() => import("@/components/category/categorySlider"), { ssr: true });
@@ -46,7 +47,10 @@ export default async function Home() {
       <main className={``}>
         <Suspense fallback={<div className="min-h-[400px] bg-gray-100 animate-pulse" />}>
           <MainSlider />
+
+        
         </Suspense>
+          <Product_brand_slider/>
         <Suspense fallback={null}>
           <MainContent />
         </Suspense>

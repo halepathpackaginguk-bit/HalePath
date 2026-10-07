@@ -42,7 +42,7 @@ export default function Product_brand_slider() {
         ],
     };
     return (
-        <section className="py-16 bg-[#f5f5f5] mt-8">
+        <section className="py-16 bg-[#f5f5f5]">
             <div className="w-full px-4">
                 <div className="text-center mb-8">
                     <span className="text-secondary font-semibold text-base uppercase tracking-wider">Trusted Brands</span>
