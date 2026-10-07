@@ -54,8 +54,10 @@ function Get_Qoute() {
             <span className="block border-b-2 border-white max-w-[61px] w-full"></span>
           </h4>
           <h2 className="md:text-4xl text-2xl font-bold text-white mb-8 sm:text-left text-center">
-          No packaging experience needed. We guide you through every step.
+         How We Deliver Premium Custom Printed Boxes Nationwide
           </h2>
+
+          <p className="text-sm font-light text-white">Hale Path makes it simple to get premium custom printed boxes delivered anywhere in the United States. Share your box style, size, and artwork, and our team prepares a design proof before production starts. We print with sharp, consistent colour and finish every order with options like matte lamination, gloss coating, and foil accents.</p>
           <form
             onSubmit={onSubmit}
             className="grid w-full gap-4 items-center mt-5 bg-white/5 backdrop-blur-[10px] md:p-8 p-6 rounded-[19px]">

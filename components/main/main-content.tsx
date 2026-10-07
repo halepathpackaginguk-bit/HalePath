@@ -7,8 +7,7 @@ import Link from "next/link";
 const whyChooseHalePath = [
   {
     description:
-      "<b>One Packaging Partner </b> Whether you sell skincare, cannabis, food, electronics, or pet products, we have built packaging solutions specifically for your category. Most packaging companies handle one thing. We handle everything — and do each part exceptionally well.",
-  },
+      "<p> US e-commerce brands choose Hale Path because we make custom packaging simple, affordable, and dependable. Whether you are launching your first product or shipping thousands of orders every month, our team helps you pick the right box style, material, and finish for your budget. You get design support, clear pricing, and flexible order quantities that suit startups and growing online stores.</p>  <b>One Packaging Partner </b> Whether you sell skincare, cannabis, food, electronics, or pet products, we have built packaging solutions specifically for your category. Most packaging companies handle one thing. We handle everything — and do each part exceptionally well."},
   {
     description:
       "<b>See Your Design Before Production</b> Ordering custom packaging without a real design is a significant risk. That's why every order includes a full digital proof and 3D mockup before production starts. You approve it. We print it. No surprises, no costly reprints. If something's off, we fix it fast.",
@@ -108,7 +107,7 @@ const MainContent = () => {
           <h2 className="md:text-4xl text-2xl font-bold text-coff_black capitalize mb-3">
             Why US E-Commerce Brands Choose Our Custom Packaging?
           </h2>
-          <div
+         <div
             className="w-full sm:!max-h-[400px] !max-h-[220px] overflow-y-scroll scroll_Left"
             onScroll={handleScroll}
             ref={scrollRef}
