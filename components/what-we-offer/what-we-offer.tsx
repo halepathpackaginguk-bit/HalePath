@@ -45,7 +45,7 @@ const WhatWeOffer = () => {
             {packagingContent.map((item, idx) => (
               <div key={idx} className='service_box ms:h-[520px] h-[380px] sm:p-5 p-2 bg-white/5 backdrop-blur-[10px]'>
                 <div className="h-full w-full bg-no-repeat bg-center bg-cover flex items-end justify-end pt-6 pb-1"
-                  style={{ backgroundImage: `url('/images/about-page/o${idx + 1}.png')` }} >
+                  style={{ backgroundImage: `url('/images/eco/${idx + 1}.jpg')` }} >
                   <div className="service_inner">
                     <div className="content">
                       <h5 className="group">

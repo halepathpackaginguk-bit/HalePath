@@ -38,7 +38,7 @@ const MainContent = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const scrollRef = useRef(null);
 
-  const images = ["/images/1.jpeg", "/images/2.jpeg", "/images/3.jpeg"];
+  const images = ["/images/about/1.jpg", "/images/about/2.jpg", "/images/about/3.jpg"];
 
   const handleScroll = () => {
     const scrollElement = scrollRef.current;
@@ -78,7 +78,7 @@ const MainContent = () => {
             ))}
             <figure className="">
               <Image
-                src={"/images/2.jpeg"}
+                src={"/images/about/2.jpg"}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
@@ -87,7 +87,7 @@ const MainContent = () => {
             </figure>
             <figure className="">
               <Image
-                src={"/images/3.jpeg"}
+                src={"/images/about/3.jpg"}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
