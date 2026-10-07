@@ -55,7 +55,6 @@ const MainContent = () => {
       setCurrentImageIndex(newIndex);
     }
   };
-
   return (
     <section className="max_content mt-14 py-8">
       <main className="hale_container hale_flex !flex-row !items-start">
