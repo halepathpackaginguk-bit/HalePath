@@ -146,6 +146,12 @@ export const GET_TESTIMONAILS = gql`
   testimonials {
     nodes {
       title
+       featuredImage {
+      node {
+        sourceUrl
+        altText
+      }
+    }
       content
        testimonialsInfo {
         address

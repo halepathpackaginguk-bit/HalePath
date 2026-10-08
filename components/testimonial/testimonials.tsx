@@ -1,10 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
+import { FaStar } from "react-icons/fa";
 import Slider, { Settings } from "react-slick";
 
 interface Testimonial {
   title: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    } | null;
+  } | null;
   content: string;
   testimonialsInfo: {
     address: string;
@@ -85,15 +93,13 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
 
                   {/* Quote */}
                   <div className="flex h-60 items-center justify-center overflow-hidden bg-[#F1EDE7]">
-                    <div className="text-secondary/30 text-6xl font-bold">
-                      "
-                    </div>
+                    <Image src={testimonial.featuredImage?.node?.sourceUrl || "/images/default.jpg"} alt="feature" width="424" height="240" className="h-full w-full" />
                   </div>
 
                   <div className="p-6">
 
                     {/* Rating */}
-                    <ul className="mb-3 flex items-center gap-1">
+                    <ul className="flex gap-1 items-center text-sm">
                       {Array.from({ length: 5 }).map((_, starIndex) => (
                         <li
                           key={starIndex}
@@ -103,36 +109,22 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
                               : "text-gray-300"
                           }
                         >
-                          ★
+                          <FaStar />
                         </li>
                       ))}
                     </ul>
 
+                    {/* Customer */}
+                    <h3 className="text-lg font-semibold text-coff_black mb-3 group-hover:text-secondary transition">
+                      {testimonial.title}
+                    </h3>
                     {/* Review */}
                     <div
-                      className="mb-5 leading-7 text-gray-600"
+                      className="text-gray-600 leading-7 mb-6"
                       dangerouslySetInnerHTML={{
                         __html: testimonial.content,
                       }}
                     />
-
-                    {/* Customer */}
-                    <h3 className="text-coff_black mb-1 text-lg font-semibold transition group-hover:text-secondary">
-                      {testimonial.title}
-                    </h3>
-
-                    {/* Address */}
-                    <p className="text-sm text-gray-500">
-                      {testimonial.testimonialsInfo.address}
-                    </p>
-
-                    {/* Customer Type */}
-                    {testimonial.testimonialsInfo.customerType && (
-                      <p className="mt-1 text-sm text-gray-500">
-                        {testimonial.testimonialsInfo.customerType}
-                      </p>
-                    )}
-
                   </div>
                 </div>
               </article>
