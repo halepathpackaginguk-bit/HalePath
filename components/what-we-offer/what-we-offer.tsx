@@ -11,7 +11,7 @@ const packagingContent = [
   {
     title: "Recycling & Circularity",
     description:
-      "We don't just tick the recycling box — we build it into everything. Our paper and board materials stay in circulation, cutting waste before it starts. Fully compatible with UK recycling systems, our packaging helps your brand stay green without sacrificing a thing.",
+      "We don't just tick the recycling box — we build it into everything. Our paper and board materials stay in circulation, cutting waste before it starts. Fully compatible with USA recycling systems, our packaging helps your brand stay green without sacrificing a thing.",
   },
   {
     title: "Eco-Friendly Kraft Paper",
@@ -21,7 +21,7 @@ const packagingContent = [
   {
     title: "Performance-Driven Sustainability",
     description:
-      "Eco claims are easy to make. Proving them is another story. Our packaging cuts material use, ditches harmful inks, and meets strict UK environmental standards — all without compromising on protection. Real sustainability that works as hard as your product does.",
+      "Eco claims are easy to make. Proving them is another story. Our packaging cuts material use, ditches harmful inks, and meets strict USA environmental standards — all without compromising on protection. Real sustainability that works as hard as your product does.",
   },
 ];
 
