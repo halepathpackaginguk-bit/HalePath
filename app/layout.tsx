@@ -5,6 +5,7 @@ import Header from "@/components/Header/header";
 import Script from "next/script";
 
 import DynamicFloatingWhatsApp from "@/components/DynamicFloatingWhatsApp";
+import DeferredTawkTo from "@/components/DeferredTawkTo";
 import Footer from "@/components/footer";
 import Instagram from "@/components/instagram/instagram";
 
@@ -60,11 +61,7 @@ export default function RootLayout({
         </noscript>
         <Header />
         {children}
-        <Script
-          id="tawkto-script"
-          strategy="lazyOnload"
-          src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
-        />
+        <DeferredTawkTo />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VKK5QYCM9X"
           strategy="lazyOnload"

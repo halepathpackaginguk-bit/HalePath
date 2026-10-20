@@ -14,27 +14,31 @@ export default function MainSlider() {
   useEffect(() => {
     let cancelled = false;
 
-    const mountVideo = () => {
+    const events: (keyof WindowEventMap)[] = [
+      "scroll",
+      "pointerdown",
+      "pointermove",
+      "touchstart",
+      "keydown",
+    ];
+
+    const show = () => {
       if (cancelled) return;
-      const show = () => {
-        if (!cancelled) setShowVideo(true);
-      };
-      if (typeof window.requestIdleCallback === "function") {
-        window.requestIdleCallback(show, { timeout: 5000 });
-      } else {
-        window.setTimeout(show, 2000);
-      }
+      cancelled = true;
+      events.forEach((name) => window.removeEventListener(name, show));
+      window.clearTimeout(fallback);
+      setShowVideo(true);
     };
 
-    if (document.readyState === "complete") {
-      mountVideo();
-    } else {
-      window.addEventListener("load", mountVideo, { once: true });
-    }
+    events.forEach((name) =>
+      window.addEventListener(name, show, { passive: true }),
+    );
+    const fallback = window.setTimeout(show, 8000);
 
     return () => {
       cancelled = true;
-      window.removeEventListener("load", mountVideo);
+      events.forEach((name) => window.removeEventListener(name, show));
+      window.clearTimeout(fallback);
     };
   }, []);
 
