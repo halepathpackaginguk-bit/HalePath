@@ -7,9 +7,9 @@ const CTASECTION = () => {
       <section className="bg-secondary py-7 mb-6">
         <div className="hale_container flex md:flex-row flex-col items-center gap-7 justify-between">
           <div className="md:w-2/3 w-full flex flex-wrap items-center gap-3 sm:justify-start justify-center">
-            <h6 className="md:text-xl text-base font-normal text-white mr-4 sm:text-left text-center">
+            <h3 className="md:text-xl text-base font-normal text-white mr-4 sm:text-left text-center">
               Luxury Packaging That Elevates Your Brand
-            </h6>
+            </h3>
 
             <p className="md:text-3xl text-xl font-normal text-primary sm:text-left text-center">
               Enjoy 10% <span className="md:text-3xl text-xl font-normal text-white sm:text-left text-center">

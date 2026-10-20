@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 
 const ImgBox = ({ img, title, content, slug }: any) => {
@@ -6,7 +7,7 @@ const ImgBox = ({ img, title, content, slug }: any) => {
         <div className='feature_box'>
             <div >
                 <Link href={`/${slug}`}>
-                    <img src={img} alt={title || 'packaging'} width={292} height={226} className='img-full sm:h-auto h-[240px]' loading="lazy" />
+                    <Image src={img} alt={title || 'packaging'} width={292} height={226} sizes="(max-width: 768px) 100vw, 25vw" className='img-full sm:h-auto h-[240px]' />
                 </Link>
             </div>
             <div className='p-5'>

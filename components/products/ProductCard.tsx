@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProductCard({ product }: { product: any }) {
   return (
@@ -6,10 +7,12 @@ export default function ProductCard({ product }: { product: any }) {
       <Link href={`/${product.slug}`} className="block flex-grow">
         {product.image?.sourceUrl ? (
           <div className="aspect-square relative">
-            <img
+            <Image
               src={product.image.sourceUrl}
               alt={product.name}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 600px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover"
             />
           </div>
         ) : (

@@ -1,26 +1,23 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
 import { getHomeData, getTestimonails } from "@/lib/data/getHomeData";
 import { buildSeo } from "@/lib/seo/generateSeo";
 import Product_brand_slider from "@/components/products/Product_brand_slider";
-
-const BannerPageMiddel = dynamic(() => import("@/components/banner/banner"), { ssr: true });
-const CategorySlider = dynamic(() => import("@/components/category/categorySlider"), { ssr: true });
-const CTASECTION = dynamic(() => import("@/components/CTA"), { ssr: true });
-const AvailableWorldwide = dynamic(() => import("@/components/home/available"), { ssr: true });
-const Brands = dynamic(() => import("@/components/home/brands"), { ssr: true });
-const Faqs = dynamic(() => import("@/components/home/faqs"), { ssr: true });
-const Get_Qoute = dynamic(() => import("@/components/home/get-qoute"), { ssr: true });
-const HowIt_work = dynamic(() => import("@/components/home/howit-work"), { ssr: true });
-const MainSlider = dynamic(() => import("@/components/home/mainSlider"), { ssr: true });
-const Packaging_Style = dynamic(() => import("@/components/home/packaging-style"), { ssr: true });
-const ProductSlider = dynamic(() => import("@/components/home/productSlider"), { ssr: true });
-const WhatWeDo = dynamic(() => import("@/components/home/what-we-do"), { ssr: true });
-const MainContent = dynamic(() => import("@/components/main/main-content"), { ssr: true });
-const SliderFull = dynamic(() => import("@/components/slider/slider-full"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/testimonial/testimonials"), { ssr: true });
-const WhatWeOffer = dynamic(() => import("@/components/what-we-offer/what-we-offer"), { ssr: true });
+import BannerPageMiddel from "@/components/banner/banner";
+import CategorySlider from "@/components/category/categorySlider";
+import CTASECTION from "@/components/CTA";
+import AvailableWorldwide from "@/components/home/available";
+import Brands from "@/components/home/brands";
+import Faqs from "@/components/home/faqs";
+import Get_Qoute from "@/components/home/get-qoute";
+import HowIt_work from "@/components/home/howit-work";
+import MainSlider from "@/components/home/mainSlider";
+import Packaging_Style from "@/components/home/packaging-style";
+import ProductSlider from "@/components/home/productSlider";
+import WhatWeDo from "@/components/home/what-we-do";
+import MainContent from "@/components/main/main-content";
+import SliderFull from "@/components/slider/slider-full";
+import Testimonials from "@/components/testimonial/testimonials";
+import WhatWeOffer from "@/components/what-we-offer/what-we-offer";
 
 export async function generateMetadata() {
   return buildSeo({
@@ -45,73 +42,37 @@ export default async function Home() {
   return (
     <>
       <main className={``}>
-        <Suspense fallback={<div className="min-h-[400px] bg-gray-100 animate-pulse" />}>
-          <MainSlider />
-        </Suspense>
-          <Product_brand_slider/>
-        <Suspense fallback={null}>
-          <MainContent />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CTASECTION />
-        </Suspense>
-        <Suspense fallback={null}>
-          <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" desc="Our offset printing delivers exceptional colour accuracy and sharp, crisp detail on every run. It is ideal for large-volume orders, from folding cartons to brochures and retail packaging. Because offset printing becomes more efficient at scale, you enjoy low per-unit wholesale costs without sacrificing quality. Count on consistent results from the first box to the last." />
-        </Suspense>
-        <Suspense fallback={null}>
-          <HowIt_work />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Brands />
-        </Suspense>
-        <Suspense fallback={null}>
-          <BannerPageMiddel />
-        </Suspense>
-        <Suspense fallback={null}>
-          <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" desc="Explore our heavy-duty, eco-friendly corrugated shipping and mailer boxes, built to protect your products in transit. Choose custom sizes, strengths, and printed designs that keep your brand visible from warehouse to doorstep." />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Get_Qoute />
-        </Suspense>
-        <Suspense fallback={null}>
-          <WhatWeOffer />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Packaging_Style
-            title="Flexible Packaging / Mylar bags"
-            link="/all-flexible-packaging/"
-            subtitle="Protect freshness and boost shelf appeal with our custom Mylar bags and flexible packaging. We make coffee pouches, stand-up bags, and child-resistant Mylar bags for wellness and cannabis products. Our high-barrier, puncture-resistant materials block light, moisture, and oxygen, keeping contents fresh and secure. Choose your size, zipper, window, and finish, and add full-colour printing to make your brand stand out on any shelf."
-            data={Flexible}
-          />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CTASECTION />
-        </Suspense>
-        <Suspense fallback={null}>
-          <SliderFull />
-        </Suspense>
+        <MainSlider />
+        <Product_brand_slider />
+        <MainContent />
+        <CategorySlider categoriesRes={homePage.latestCategories.nodes} />
+        <CTASECTION />
+        <ProductSlider productsRes={OffsetProducts} title="Offset Printing" link="/all-offset-printing" desc="Our offset printing delivers exceptional colour accuracy and sharp, crisp detail on every run. It is ideal for large-volume orders, from folding cartons to brochures and retail packaging. Because offset printing becomes more efficient at scale, you enjoy low per-unit wholesale costs without sacrificing quality. Count on consistent results from the first box to the last." />
+        <HowIt_work />
+        <Brands />
+        <BannerPageMiddel />
+        <ProductSlider productsRes={Corrugated} title="Corrugated Packaging" link="/all-corrugated-packaging" desc="Explore our heavy-duty, eco-friendly corrugated shipping and mailer boxes, built to protect your products in transit. Choose custom sizes, strengths, and printed designs that keep your brand visible from warehouse to doorstep." />
+        <Get_Qoute />
+        <WhatWeOffer />
+        <Packaging_Style
+          title="Flexible Packaging / Mylar bags"
+          link="/all-flexible-packaging/"
+          subtitle="Protect freshness and boost shelf appeal with our custom Mylar bags and flexible packaging. We make coffee pouches, stand-up bags, and child-resistant Mylar bags for wellness and cannabis products. Our high-barrier, puncture-resistant materials block light, moisture, and oxygen, keeping contents fresh and secure. Choose your size, zipper, window, and finish, and add full-colour printing to make your brand stand out on any shelf."
+          data={Flexible}
+        />
+        <CTASECTION />
+        <SliderFull />
         <section className="bg-[#EAF6F9]">
-          <Suspense fallback={null}>
-            <Packaging_Style
-              title="Print & Advertising & Office Supplies"
-              link="/all-print-advertising/"
-              subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
-              data={Printadverstising}
-            />
-          </Suspense>
+          <Packaging_Style
+            title="Print & Advertising & Office Supplies"
+            link="/all-print-advertising/"
+            subtitle="Start designing unique boxes with different styles, sizes, and choices. Custom rigid boxes or Kraft boxes for retail products and many more?We can help, Custom printing and packaging services ideas abound."
+            data={Printadverstising}
+          />
         </section>
-        <Suspense fallback={null}>
-          <WhatWeDo data={WhatweDo} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Testimonials testimonialsRes={testimonialsRes} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Faqs faqRes={FAQS} />
-        </Suspense>
+        <WhatWeDo data={WhatweDo} />
+        <Testimonials testimonialsRes={testimonialsRes} />
+        <Faqs faqRes={FAQS} />
         <section className="px-4">
           <Image
             src="/images/page-us.png"
@@ -122,9 +83,7 @@ export default async function Home() {
             loading="lazy"
           />
         </section>
-        <Suspense fallback={null}>
-          <AvailableWorldwide />
-        </Suspense>
+        <AvailableWorldwide />
       </main>
     </>
   );

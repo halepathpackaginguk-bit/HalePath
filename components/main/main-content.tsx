@@ -38,7 +38,7 @@ const MainContent = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const scrollRef = useRef(null);
 
-  const images = ["/images/about/1.jpg", "/images/about/2.jpg", "/images/about/3.jpg"];
+  const images = ["/images/about/1.webp", "/images/about/2.webp", "/images/about/3.webp"];
 
   const handleScroll = () => {
     const scrollElement = scrollRef.current;
@@ -71,25 +71,28 @@ const MainContent = () => {
                   alt={`Image ${index + 1}`}
                   layout="fill"
                   objectFit="cover"
+                  sizes="(max-width: 768px) 50vw, 40vw"
                   className="w-full h-full object-cover rounded-2xl scale-110"
                 />
               </figure>
             ))}
             <figure className="">
               <Image
-                src={"/images/about/2.jpg"}
+                src={"/images/about/2.webp"}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
+                sizes="(max-width: 768px) 40vw, 32vw"
                 className="!w-[80%] !-top-10 mx-auto sm:!h-[400px] !h-[220px] absolute z-[-1] scale-105 rounded-3xl !left-1/2 !-translate-x-1/2"
               />
             </figure>
             <figure className="">
               <Image
-                src={"/images/about/3.jpg"}
+                src={"/images/about/3.webp"}
                 alt={``}
                 layout="fill"
                 objectFit="cover"
+                sizes="(max-width: 768px) 45vw, 36vw"
                 className="!w-[90%] !-top-5 mx-auto sm:!h-[400px] !h-[220px] absolute z-[-1] scale-105 rounded-3xl !left-1/2 !-translate-x-1/2"
               />
             </figure>

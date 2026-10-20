@@ -1,6 +1,7 @@
 "use client";
 import Slider from "react-slick";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import MaskingImage from "../masking-Image";
@@ -58,13 +59,13 @@ export default function CategorySlider({ categoriesRes }: any) {
             return (
               <div key={idx} className="w-full p-2">
                 <Link href={link}>
-                  <img
-                    src={item?.image?.mediaItemUrl || "/placeholder.png"}
+                  <Image
+                    src={item?.image?.mediaItemUrl || "/images/placeholder.jpg"}
                     alt={item?.name || "category"}
                     width={363}
                     height={375}
+                    sizes="(max-width: 600px) 92vw, (max-width: 1024px) 33vw, 20vw"
                     className="cat_image img-full"
-                    loading="lazy"
                   />
                 </Link>
 

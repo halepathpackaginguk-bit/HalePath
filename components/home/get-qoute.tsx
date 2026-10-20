@@ -42,7 +42,7 @@ function Get_Qoute() {
   return (
     <section
       className='md:py-14 py-10 relative bg-center bg-no-repeat bg-cover before:content-[""] before:absolute before:w-full before:bg-[#191919]  before:h-full before:top-0'
-      style={{ backgroundImage: `url("/images/qoute-bg.png")` }}
+      style={{ backgroundImage: `url("/images/qoute-bg.webp")` }}
     >
       <div className="hale_container relative z-10 flex md:flex-row flex-col gap-7">
         <div className="md:w-1/2 w-full">

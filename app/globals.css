@@ -20,36 +20,6 @@
   max-width: 1440px;
 }
 
-@font-face {
-  font-family: "PoppinsBold";
-  src: url("/fonts/Poppins-Bold.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "PoppinsMedium";
-  src: url("/fonts/Poppins-Medium.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "PoppinsRegular";
-  src: url("/fonts/Poppins-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "EffraMedium";
-  src: url("/fonts/Effra_Trial_Rg.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SourceSansProRegular";
-  src: url("/fonts/SourceSansPro-Regular.ttf");
-  font-display: swap;
-}
-
 body {
   box-sizing: border-box;
   margin: 0;
@@ -67,19 +37,19 @@ h4,
 h5,
 h6,
 .PoppinsBold {
-  font-family: "PoppinsBold", sans-serif;
+  font-family: var(--font-poppins-bold), sans-serif;
 }
 
 a,
 .PoppinsMedium {
-  font-family: "PoppinsMedium", sans-serif;
+  font-family: var(--font-poppins-medium), sans-serif;
 }
 
 p,
 li,
 span,
 .PoppinsRegular {
-  font-family: "PoppinsRegular", sans-serif;
+  font-family: var(--font-poppins-regular), sans-serif;
 }
 
 /* =========================
@@ -115,11 +85,11 @@ span,
 }
 
 .about_bg {
-  background-image: url("/images/corr-us.jpg");
+  background-image: url("/images/corr-us.webp");
 }
 
 .offerbg {
-  background-image: url("/images/about-page/offer-bg.png");
+  background-image: url("/images/about-page/offer-bg.webp");
 }
 
 .slider_bg {

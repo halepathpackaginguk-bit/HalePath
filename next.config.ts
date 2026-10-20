@@ -81,8 +81,12 @@ const redirectsList = [
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["api.halepathpackaging.com"],
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.halepathpackaging.com",
+        pathname: "/**",
+      },
       {
         protocol: "https",
         hostname: "images.unsplash.com",

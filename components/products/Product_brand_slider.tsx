@@ -1,5 +1,8 @@
 "use client";
+import Image from "next/image";
 import Slider from "react-slick";
+
+const brands = Array.from({ length: 19 }, (_, i) => i + 1);
 
 export default function Product_brand_slider() {
     const settings = {
@@ -50,111 +53,19 @@ export default function Product_brand_slider() {
                     </h2>
                 </div>
                 <Slider {...settings} className="!w-full">
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/1.jpg" alt="brandlogo" width="90" height="60" />
+                    {brands.map((brand) => (
+                        <div key={brand} className="px-4">
+                            <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                                <Image
+                                    src={`/images/brands/${brand}.jpg`}
+                                    alt="brandlogo"
+                                    width={90}
+                                    height={60}
+                                    sizes="90px"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/2.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/3.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/4.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/5.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/6.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/7.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/8.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/9.jpg" alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/10.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/11.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/12.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/13.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/14.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/15.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/16.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/17.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/18.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
-                    <div className="px-4">
-                        <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                            <img src="/images/brands/19.jpg"
-                                alt="brandlogo" width="90" height="60" />
-                        </div>
-                    </div>
+                    ))}
                 </Slider>
             </div>
         </section>

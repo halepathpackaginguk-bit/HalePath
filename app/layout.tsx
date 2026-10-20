@@ -1,26 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/header";
 import Script from "next/script";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
 
 import DynamicFloatingWhatsApp from "@/components/DynamicFloatingWhatsApp";
+import Footer from "@/components/footer";
+import Instagram from "@/components/instagram/instagram";
 
-const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
-const Instagram = dynamic(() => import("@/components/instagram/instagram"), {
-  ssr: true,
+const poppinsBold = Poppins({
+  weight: "700",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins-bold",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppinsMedium = Poppins({
+  weight: "500",
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins-medium",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppinsRegular = Poppins({
+  weight: "400",
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins-regular",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppinsBold.variable} ${poppinsMedium.variable} ${poppinsRegular.variable} h-full antialiased`}
     >
       <meta
         name="google-site-verification"
@@ -56,7 +62,7 @@ export default function RootLayout({
         {children}
         <Script
           id="tawkto-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://embed.tawk.to/6a4f9e3c8926201d475f4a7c/1jt3g47c7"
         />
         <Script
@@ -71,9 +77,9 @@ export default function RootLayout({
         </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-11223196191"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-ads" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
@@ -87,13 +93,9 @@ export default function RootLayout({
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-NJ65R553');`}
         </Script>
-        <Suspense fallback={null}>
-          <Instagram />
-        </Suspense>
+        <Instagram />
         <DynamicFloatingWhatsApp />
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
