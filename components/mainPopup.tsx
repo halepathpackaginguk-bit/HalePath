@@ -65,8 +65,12 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
                     Get Custom Quote
                 </h2>
 
-                <button onClick={() => onClose?.()} className="text-white cursor-pointer">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <button
+                    onClick={() => onClose?.()}
+                    aria-label="Close"
+                    className="text-white cursor-pointer"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -77,19 +81,20 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full gap-2.5">
 
                     {/* Name */}
-                    <input className="hale_input" type="text" name="name" placeholder="Your Name" required />
+                    <input className="hale_input" type="text" name="name" aria-label="Your Name" placeholder="Your Name" required />
 
                     {/* Phone */}
-                    <input className="hale_input" type="tel" name="phone" placeholder="Phone Number" />
+                    <input className="hale_input" type="tel" name="phone" aria-label="Phone Number" placeholder="Phone Number" />
 
                     {/* Email */}
-                    <input className="hale_input" type="email" name="email" placeholder="Email Address" required />
+                    <input className="hale_input" type="email" name="email" aria-label="Email Address" placeholder="Email Address" required />
 
                     {/* Product */}
                     <div className="relative">
                         <select
                             className="hale_input h-full appearance-none"
                             name="product"
+                            aria-label="Select Product"
                             defaultValue=""
                             required
                         >
@@ -109,7 +114,7 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
 
                     {/* Colors */}
                     <div className="relative">
-                        <select className="hale_input h-full appearance-none" name="colors" required>
+                        <select className="hale_input h-full appearance-none" name="colors" aria-label="Colors" required>
                             <option value="">Colors</option>
                             <option value="1">1 color</option>
                             <option value="2">2 colors</option>
@@ -122,13 +127,13 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
                     </div>
 
                     {/* Dimensions */}
-                    <input type="number" name="length" placeholder="Length" className="hale_input h-full" required />
-                    <input type="number" name="width" placeholder="Width" className="hale_input" required />
-                    <input type="number" name="depth" placeholder="Depth" className="hale_input" required />
+                    <input type="number" name="length" aria-label="Length" placeholder="Length" className="hale_input h-full" required />
+                    <input type="number" name="width" aria-label="Width" placeholder="Width" className="hale_input" required />
+                    <input type="number" name="depth" aria-label="Depth" placeholder="Depth" className="hale_input" required />
 
                     {/* Unit */}
                     <div className="relative">
-                        <select className="hale_input h-full appearance-none" name="unit" required>
+                        <select className="hale_input h-full appearance-none" name="unit" aria-label="Select Unit" required>
                             <option value="">Select Unit</option>
                             <option value="inches">Inches</option>
                             <option value="cm">CM</option>
@@ -141,6 +146,7 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
                     {/* Message */}
                     <textarea
                         name="message"
+                        aria-label="Write Your Message"
                         placeholder="Write Your Message..."
                         className="hale_input"
                         required
@@ -149,7 +155,7 @@ const MainPopup = ({ onClose }: { onClose?: () => void }) => {
 
                 {/* AGREEMENT */}
                 <div className="flex gap-2 my-3 items-center text-white">
-                    <input type="checkbox" name="agree" className="p-2 w-4 h-4" required />
+                    <input type="checkbox" name="agree" aria-label="I Agree that my data is collected and Stored" className="p-2 w-4 h-4" required />
                     <label className="cursor-pointer text-sm">
                         I Agree that my data is <strong>collected and Stored.</strong>
                     </label>

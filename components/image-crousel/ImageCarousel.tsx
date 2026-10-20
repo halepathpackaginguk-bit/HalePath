@@ -72,6 +72,7 @@ const ImageCarousel = ({ data }: any) => {
       >
         <button
           onClick={closeLightbox}
+          aria-label="Close lightbox"
           className="absolute top-5 right-5 text-white text-3xl"
         >
           &times;
@@ -79,6 +80,7 @@ const ImageCarousel = ({ data }: any) => {
 
         <button
           onClick={prevImage}
+          aria-label="Previous image"
           className="absolute left-5 text-white text-3xl"
         >
           &#10094;
@@ -94,6 +96,7 @@ const ImageCarousel = ({ data }: any) => {
 
         <button
           onClick={nextImage}
+          aria-label="Next image"
           className="absolute right-5 text-white text-3xl"
         >
           &#10095;
@@ -103,6 +106,7 @@ const ImageCarousel = ({ data }: any) => {
       {/* ARROWS */}
       <button
         onClick={goPrev}
+        aria-label="Previous slide"
         className="absolute left-5 top-1/2 -translate-y-1/2 z-10 h-[60px] w-[60px] rounded-full bg-primary flex items-center justify-center"
       >
         <FaArrowLeftLong />
@@ -110,6 +114,7 @@ const ImageCarousel = ({ data }: any) => {
 
       <button
         onClick={goNext}
+        aria-label="Next slide"
         className="absolute right-5 top-1/2 -translate-y-1/2 z-10 h-[60px] w-[60px] rounded-full bg-primary flex items-center justify-center"
       >
         <FaArrowRightLong />

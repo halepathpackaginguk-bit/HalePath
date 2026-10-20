@@ -154,12 +154,14 @@ export default function FormTabs({
                   <input
                     {...registerQuote("name")}
                     className="hale_input"
+                    aria-label="Your Name"
                     placeholder="Your Name"
                     required
                   />
                   <input
                     {...registerQuote("phone")}
                     className="hale_input"
+                    aria-label="Phone Number"
                     placeholder="Phone Number"
                   />
                 </div>
@@ -168,6 +170,7 @@ export default function FormTabs({
                   <input
                     {...registerQuote("email")}
                     className="hale_input"
+                    aria-label="Email Address"
                     placeholder="Email Address"
                     required
                   />
@@ -175,12 +178,14 @@ export default function FormTabs({
                     value={productName}
                     {...registerQuote("product")}
                     className="hale_input"
+                    aria-label="Product"
                     hidden
                   />
                   <input
                     {...registerQuote("qty")}
                     type="nummber"
                     className="hale_input"
+                    aria-label="Quantity"
                     placeholder="Quantity"
                   />
                 </div>
@@ -190,12 +195,14 @@ export default function FormTabs({
                     {...registerQuote("length")}
                     type="nummber"
                     className="hale_input"
+                    aria-label="Length"
                     placeholder="Length"
                   />
                   <input
                     {...registerQuote("width")}
                     type="nummber"
                     className="hale_input"
+                    aria-label="Width"
                     placeholder="Width"
                   />
                 </div>
@@ -205,6 +212,7 @@ export default function FormTabs({
                     <select
                       {...registerQuote("colors")}
                       className="hale_input h-full appearance-none"
+                      aria-label="Colors"
                     >
                       <option value="">Colors</option>
                       <option value="1">1 color</option>
@@ -219,6 +227,7 @@ export default function FormTabs({
                     {...registerQuote("depth")}
                     type="nummber"
                     className="hale_input"
+                    aria-label="Depth"
                     placeholder="Depth"
                   />
                 </div>
@@ -226,11 +235,17 @@ export default function FormTabs({
                 <textarea
                   {...registerQuote("message")}
                   className="hale_input !rounded-[20px] h-[141px] mt-2.5 pt-2"
+                  aria-label="Write Your Message"
                   placeholder="Write Your Message..."
                 />
 
                 <div className="flex gap-2 mt-3 items-center">
-                  <input type="checkbox" {...registerQuote("agree")} required />
+                  <input
+                    type="checkbox"
+                    {...registerQuote("agree")}
+                    aria-label="I Agree that my data is collected and Stored"
+                    required
+                  />
                   <label className="cursor-pointer text-sm">
                     I Agree that my data is{" "}
                     <strong>collected and Stored.</strong>
@@ -268,6 +283,7 @@ export default function FormTabs({
                 type="hidden"
                 value={productName}
                 {...registerCheckout("product")}
+                aria-label="Product"
                 className="hale_input"
               />
 
@@ -276,6 +292,7 @@ export default function FormTabs({
                   <input
                     {...registerCheckout("name")}
                     className="hale_input"
+                    aria-label="Your Name"
                     placeholder="Your Name"
                     required
                   />
@@ -283,6 +300,7 @@ export default function FormTabs({
                     {...registerCheckout("email")}
                     type="email"
                     className="hale_input"
+                    aria-label="Email Address"
                     placeholder="Email Address"
                     required
                   />
@@ -293,6 +311,7 @@ export default function FormTabs({
                     <select
                       {...registerCheckout("dimension")}
                       className="hale_input h-full appearance-none"
+                      aria-label="Dimension"
                     >
                       <option value="5 x 4 x 1">5 x 4 x 1</option>
                       <option value="6 x 5 x 2">6 x 5 x 2</option>
@@ -304,6 +323,7 @@ export default function FormTabs({
                     <select
                       {...registerCheckout("box_stock")}
                       className="hale_input h-full appearance-none"
+                      aria-label="Box Stock"
                     >
                       <option value="Rigid">Rigid</option>
                       <option value="Foldable">Foldable</option>
@@ -318,6 +338,7 @@ export default function FormTabs({
                         handleQuantityChange(Number(e.target.value))
                       }
                       className="hale_input appearance-none"
+                      aria-label="Quantity"
                     >
                       <option value="10000">10000</option>
                       <option value="20000">20000</option>
@@ -329,6 +350,7 @@ export default function FormTabs({
                     <select
                       {...registerCheckout("printing")}
                       className="hale_input h-full appearance-none"
+                      aria-label="Printing"
                     >
                       <option value="outside_only">Outside only</option>
                       <option value="inside_outside">

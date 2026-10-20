@@ -59,6 +59,7 @@ function Qoute_Form() {
               type="text"
               {...register("name", { required: true })}
               id="name"
+              aria-label="Name"
               placeholder="Your Name"
             />
           </div>
@@ -74,6 +75,7 @@ function Qoute_Form() {
               type="tel"
               {...register("phone")}
               id="phone"
+              aria-label="Phone Number"
               placeholder="Phone  Number"
             />
           </div>
@@ -89,6 +91,7 @@ function Qoute_Form() {
               type="email"
               {...register("email", { required: true })}
               id="email"
+              aria-label="Email Address"
               placeholder="Email  Address"
             />
             {/* {errors.email && <span className='text-xs text-red-500'>This field is required</span>} */}
@@ -112,6 +115,7 @@ function Qoute_Form() {
             <select
               className="text-sm font-medium text-txt_Clr placeholder:text-txt_Clr cursor-pointer bg-white p-4 border border-[#CACACA] focus:border-secondary appearance-none outline-none rounded-full w-full"
               id="Colors"
+              aria-label="Colors"
               {...register("Colors", { required: true })}
             >
               <option value="Colors">Colors </option>
@@ -136,6 +140,7 @@ function Qoute_Form() {
               type="number"
               {...register("Length", { required: true })}
               id="Length"
+              aria-label="Length"
               placeholder="Length"
             />
           </div>
@@ -151,6 +156,7 @@ function Qoute_Form() {
               type="number"
               {...register("Width", { required: true })}
               id="Width"
+              aria-label="Width"
               placeholder="Width"
             />
           </div>
@@ -166,6 +172,7 @@ function Qoute_Form() {
               type="number"
               {...register("Depth", { required: true })}
               id="Depth"
+              aria-label="Depth"
               placeholder="Depth"
             />
           </div>
@@ -179,6 +186,7 @@ function Qoute_Form() {
             <select
               className="text-sm font-medium text-txt_Clr placeholder:text-txt_Clr bg-white p-4 border border-[#CACACA] focus:border-secondary appearance-none outline-none rounded-full cursor-pointer w-full"
               id="Unit"
+              aria-label="Select Unit"
               {...register("Unit", { required: true })}
             >
               <option value="Select Unit">Select Unit </option>
@@ -191,6 +199,7 @@ function Qoute_Form() {
           <textarea
             className="text-sm font-medium rounded-full text-txt_Clr placeholder:text-txt_Clr bg-white p-4 border border-[#CACACA] focus:border-secondary outline-none w-full"
             id="detail"
+            aria-label="Write Your Message"
             {...register("detail", { required: true })}
             rows={1}
             placeholder="Write Your Message..."

@@ -286,6 +286,7 @@ function Footer() {
               <Link
                 href="https://www.facebook.com/profile.php?id=61586916928562"
                 target="_blank"
+                aria-label="Facebook"
                 className="text-base inline-flex"
               >
                 <FaFacebookF className="text-title_Clr hover:text-primary" />
@@ -295,6 +296,7 @@ function Footer() {
               <Link
                 href="https://www.instagram.com/halepathpackaging.uk?igsh=MW1tY3pyczV2emdzNw%3D%3D"
                 target="_blank"
+                aria-label="Instagram"
                 className="text-base inline-flex"
               >
                 <FaInstagram className="text-title_Clr hover:text-primary" />
@@ -304,6 +306,7 @@ function Footer() {
               <Link
                 href="https://www.tiktok.com/@halepathpackaging?_r=1&_t=ZS-957Rlv6JhMV"
                 target="_blank"
+                aria-label="TikTok"
                 className="text-base inline-flex"
               >
                 <FaTiktok className="text-title_Clr hover:text-primary" />

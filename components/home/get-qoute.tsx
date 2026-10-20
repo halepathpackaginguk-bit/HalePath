@@ -74,6 +74,7 @@ function Get_Qoute() {
                   type="text"
                   name="fullname"
                   id="fullname"
+                  aria-label="Full Name"
                   placeholder="Full Name"
                 />
                 {/* {errors.name && <span className='text-xs text-red-500'>This field is required</span>} */}
@@ -90,6 +91,7 @@ function Get_Qoute() {
                   type="tel"
                   name="phone"
                   id="phone"
+                  aria-label="Your Contact"
                   placeholder="Your Contact"
                 />
                 {/* {errors.phone && <span className='text-xs text-red-500'>This field is required</span>} */}
@@ -108,6 +110,7 @@ function Get_Qoute() {
                   type="email"
                   name="email"
                   id="email"
+                  aria-label="Email Address"
                   placeholder="Email  Address"
                 />
                 {/* {errors.email && <span className='text-xs text-red-500'>This field is required</span>} */}
@@ -124,6 +127,7 @@ function Get_Qoute() {
                   type="text"
                   name="product"
                   id="product"
+                  aria-label="Cosmetics Packaging"
                   placeholder="Cosmetics Packaging"
                 />
                 {/* {errors.product && <span className='text-xs text-red-500'>This field is required</span>} */}
@@ -140,6 +144,7 @@ function Get_Qoute() {
                 className="hale_input !rounded-[19px] !min-h-[170px] md:pt-2"
                 id="message"
                 name="message"
+                aria-label="Your Message"
                 rows={3}
                 placeholder="Write Your Message..."
               ></textarea>
