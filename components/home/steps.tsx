@@ -15,9 +15,9 @@ const Steps = () => {
                         {`0${step.id}`}
                     </span>
                     <div>
-                        <h4 className="">
+                        <h3 className="">
                             {step.title}
-                        </h4>
+                        </h3>
                         <p className="text-sm font-light text-white">{step.description}</p>
                     </div>
                 </div>

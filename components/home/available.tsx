@@ -99,9 +99,9 @@ export default function AvailableWorldwide() {
                                     <div className="md:px-8 px-4 md:py-5.5 py-3 grid md:grid-cols-2 grid-cols-1 gap-5">
                                         {faq.content.map((item, i) => (
                                             <div key={i}>
-                                                <h4 className="text-base font-normal text-title_Clr mb-3">
+                                                <h3 className="text-base font-normal text-title_Clr mb-3">
                                                     {item.heading}
-                                                </h4>
+                                                </h3>
                                                 <p className="text-sm font-normal text-txt_Clr">
                                                     {item.text}
                                                 </p>

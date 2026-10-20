@@ -1,11 +1,16 @@
 "use client";
 import Slider from "react-slick";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 
 import MaskingImage from "../masking-Image";
+import { useInertSlickClones } from "@/lib/useInertSlickClones";
 
 export default function ProductSlider({ title, link, desc, productsRes }: any) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useInertSlickClones(containerRef);
+
   return (
     <section className="py-12">
       <div className="hale_container flex flex-col justify-center items-center">
@@ -18,7 +23,7 @@ export default function ProductSlider({ title, link, desc, productsRes }: any) {
         {title && <h2 className="h2">{title}</h2>}
         {desc && <p className="sm:text-lg text-sm font-normal text-txt_Clr text-center md:w-5/6 mx-auto">{desc}</p>}
       </div>
-      <div className="slider-container">
+      <div className="slider-container" ref={containerRef}>
         <Slider {...settings}>
           {productsRes?.map((item: any, idx: number) => {
             return <MaskingImage key={idx} data={item} />;

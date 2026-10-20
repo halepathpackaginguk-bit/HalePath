@@ -29,10 +29,10 @@ const WhatWeOffer = () => {
   return (
     <section className="pt-[60px] bg-[#F5F5F5]">
       <div className="hale_container flex flex-col justify-center items-center">
-        <h6 className="text-[#1C2E42] font-semibold flex gap-2 items-center">
+        <p className="text-[#1C2E42] font-semibold flex gap-2 items-center">
           Sustainable Products & Services
           <div className="sub_title_line"></div>
-        </h6>
+        </p>
         <h2 className="h2">
          Eco-Smart Packaging That Builds Stronger Brands and a Greener Future.
 
@@ -48,7 +48,7 @@ const WhatWeOffer = () => {
                   style={{ backgroundImage: `url('/images/eco/${idx + 1}.webp')` }} >
                   <div className="service_inner">
                     <div className="content">
-                      <h5 className="group">
+                      <h3 className="group">
                        {item.title}
                         <Image
                           src="/images/about-page/li_move-up-right.svg"
@@ -57,7 +57,7 @@ const WhatWeOffer = () => {
                           width={30}
                           height={30}
                         />
-                      </h5>
+                      </h3>
                       <p className="mt-3 text-white sm:text-sm text-xs">
                            {item.description}
                       </p>

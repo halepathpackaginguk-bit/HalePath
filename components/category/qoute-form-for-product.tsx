@@ -1,19 +1,10 @@
 "use client";
-import { getProductsData } from "@/lib/data/getProductsData";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { RiArrowDownSLine } from "react-icons/ri";
 
 function QouteFormForProduct() {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([])
-  
-  useEffect(()=>{
-    (async()=>{
-      const productsRes = await getProductsData(); // Using the GraphQL function
-      setProducts(productsRes)
-    })()
-  },[])
 
   const {
     register,

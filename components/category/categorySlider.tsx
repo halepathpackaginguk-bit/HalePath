@@ -2,11 +2,16 @@
 import Slider from "react-slick";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import MaskingImage from "../masking-Image";
+import { useInertSlickClones } from "@/lib/useInertSlickClones";
 
 export default function CategorySlider({ categoriesRes }: any) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useInertSlickClones(containerRef);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -51,7 +56,7 @@ export default function CategorySlider({ categoriesRes }: any) {
   return (
     <section className="bg-[#F5F5F5] py-10">
       <h2 className="h2">Our Latest Category</h2>
-      <div className="slider-container">
+      <div className="slider-container" ref={containerRef}>
         <Slider {...settings}>
           {categoriesRes.map((item: any, idx: number) => {
             const link = `/category/${item?.slug}`;

@@ -1,10 +1,16 @@
 "use client";
 import Image from "next/image";
+import { useRef } from "react";
 import Slider from "react-slick";
+import { useInertSlickClones } from "@/lib/useInertSlickClones";
 
 const brands = Array.from({ length: 19 }, (_, i) => i + 1);
 
 export default function Product_brand_slider() {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useInertSlickClones(containerRef);
+
     const settings = {
         slidesToShow: 10,
         slidesToScroll: 1,
@@ -46,7 +52,7 @@ export default function Product_brand_slider() {
     };
     return (
         <section className="py-16 bg-[#f5f5f5]">
-            <div className="w-full px-4">
+            <div className="w-full px-4" ref={containerRef}>
                 <div className="text-center mb-8">
                     <span className="text-secondary font-semibold text-base uppercase tracking-wider">Trusted Brands</span>
                     <h2 className="md:text-4xl text-2xl font-bold text-coff_black capitalize mt-1">Trusted by 10,000+ awesome brands

@@ -1,11 +1,16 @@
 'use client'
-import React from "react";
+import React, { useRef } from "react";
 import PackingBox from "./packingBox";
 import Slider from "react-slick";
 import MaskingImage from "../masking-Image";
 import Link from "next/link";
+import { useInertSlickClones } from "@/lib/useInertSlickClones";
 
 function Packaging_Style({ data, title, link, subtitle }: any) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useInertSlickClones(containerRef);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -46,7 +51,7 @@ function Packaging_Style({ data, title, link, subtitle }: any) {
   };
   return (
     <section id="box-by-material" className="py-16">
-      <div className="px-0">
+      <div className="px-0" ref={containerRef}>
         <div className="hale_container flex flex-col justify-center items-center">
           <h2 className="h2">
             {title}

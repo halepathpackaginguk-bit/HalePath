@@ -32,10 +32,10 @@ function Footer() {
     <footer ref={footerRef} className="pt-14  bg-[#f5f5f5]">
       <div className="hale_container grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-between 2xl:gap-5 md:gap-4 gap-5">
         <div>
-          <h6 className="footer_title">
+          <p className="footer_title">
             Company
             <span className=""></span>
-          </h6>
+          </p>
           <ul id="menu-company" className="flex flex-col gap-2.5">
             <li className="">
               <Link href="/about-us/" className="footer_link">
@@ -89,10 +89,10 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h6 className="footer_title">
+          <p className="footer_title">
             Innovation
             <span className=""></span>
-          </h6>
+          </p>
           <ul id="menu-innovation" className="flex flex-col gap-2.5">
             <li className="">
               <Link href="/category/innovation" className="footer_link">
@@ -127,10 +127,10 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h6 className="footer_title">
+          <p className="footer_title">
             Packaging Products
             <span className=""></span>
-          </h6>
+          </p>
           <ul id="menu-packaging-products" className="flex flex-col gap-2.5">
             <li className="">
               <Link href="/category/custom-rigid-boxes/" className="footer_link">
@@ -165,10 +165,10 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h6 className="footer_title">
+          <p className="footer_title">
             Services
             <span className=""></span>
-          </h6>
+          </p>
           <ul id="menu-services" className="flex flex-col gap-2.5">
             <li className="">
               <Link href="/category/commercial-printing/" className="footer_link">
@@ -193,10 +193,10 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h6 className="footer_title">
+          <p className="footer_title">
             Connect With Us
             <span className=""></span>
-          </h6>
+          </p>
           <ul className="flex flex-col gap-2.5">
             <li>5955 Alpha Rd Suite 102, Unit 5092 Dallas, TX 75240, United States</li>
             <li>
@@ -228,9 +228,9 @@ function Footer() {
       </div>
       <div className="hale_container flex md:flex-row flex-col md:items-center justify-between 2xl:gap-7 md:gap-4 gap-7 mt-7">
         <div>
-          <h6 className="text-base font-semibold text-title_Clr mb-6">
+          <p className="text-base font-semibold text-title_Clr mb-6">
             Where We’re Trusted
-          </h6>
+          </p>
           <div className="flex flex-wrap sm:flex-nowrap sm:gap-5 gap-2 items-center">
             <Image
               src="/images/google-reviws.png"
@@ -263,9 +263,9 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h6 className="text-base font-semibold text-title_Clr mb-6">
+          <p className="text-base font-semibold text-title_Clr mb-6">
             Our Logistics Partners
-          </h6>
+          </p>
           <div className="flex justify-end items-end">
             <Image
               src="/images/fedex.png"

@@ -1,7 +1,11 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getSearchProductsData } from "@/lib/data/getProductsData";
-import { Product } from "./searchForm";
+
+export interface Product {
+  id: string;
+  name: string;
+  slug: string;
+}
 
 interface SearchFormClientProps {
   initialProducts: Product[];
@@ -46,8 +50,11 @@ export default function SearchFormClient({
 
       setLoading(true);
       try {
-        const products = await getSearchProductsData(term);
-        setResults(products);
+        const res = await fetch(`/api/search?q=${encodeURIComponent(term)}`, {
+          signal: abortRef.current.signal,
+        });
+        const data = await res.json();
+        setResults(data.products || []);
         setShowResults(true);
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") return;

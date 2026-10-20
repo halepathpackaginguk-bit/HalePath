@@ -138,7 +138,7 @@ export default function SliderFull() {
               <div
                 className={`${slide.text} slider-content h-full bg-white/5 backdrop-blur-[10px] py-10 sm:p-10 p-5 rounded-lg`}
               >
-                <h6 className="animate-slide">Hale Path Packaging</h6>
+                <p className="animate-slide">Hale Path Packaging</p>
 
                 <h2 className="animate-slide delay-200">
                   {slide.title}
