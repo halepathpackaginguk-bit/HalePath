@@ -661,6 +661,14 @@ ul.career_list li {
 
 .styles-module_whatsappButton__tVits {
   left: 15px !important;
+  right: auto !important;
+}
+
+@media (min-width: 576px) {
+  .styles-module_whatsappChatBox__MdQ5U {
+    left: 15px !important;
+    right: auto !important;
+  }
 }
 
 .video-card {

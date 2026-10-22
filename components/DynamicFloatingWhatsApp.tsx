@@ -7,5 +7,5 @@ const FloatingWhatsAppWidget = dynamic(
 );
 
 export default function DynamicFloatingWhatsApp() {
-  return <FloatingWhatsAppWidget phoneNumber="18884328748" message="Hi, I need support!" />;
+  return <FloatingWhatsAppWidget phoneNumber="18884328748" />;
 }
