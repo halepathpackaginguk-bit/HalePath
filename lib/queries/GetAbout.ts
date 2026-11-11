@@ -87,7 +87,6 @@ export interface MediaNode {
   altText: string;
   mediaItemUrl: string;
 }
-
 export interface VideoPoster {
   node: MediaNode;
 }
