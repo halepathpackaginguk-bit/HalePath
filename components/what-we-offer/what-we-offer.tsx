@@ -29,10 +29,10 @@ const WhatWeOffer = () => {
   return (
     <section className="pt-[60px] bg-[#F5F5F5]">
       <div className="hale_container flex flex-col justify-center items-center">
-        <p className="text-[#1C2E42] font-semibold flex gap-2 items-center">
+        <div className="text-[#1C2E42] font-semibold flex gap-2 items-center">
           Sustainable Products & Services
           <div className="sub_title_line"></div>
-        </p>
+        </div>
         <h2 className="h2">
          Eco-Smart Packaging That Builds Stronger Brands and a Greener Future.
 

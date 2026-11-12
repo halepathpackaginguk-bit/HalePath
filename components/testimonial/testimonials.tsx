@@ -92,8 +92,14 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
                 <div className="group overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
 
                   {/* Quote */}
-                  <div className="flex h-60 items-center justify-center overflow-hidden bg-[#F1EDE7]">
-                    <Image src={testimonial.featuredImage?.node?.sourceUrl || "/images/default.jpg"} alt="feature" width="424" height="240" className="h-full w-full" />
+                  <div className="relative h-80 overflow-hidden bg-[#F1EDE7]">
+                    <Image
+                      src={testimonial.featuredImage?.node?.sourceUrl || "/images/default.jpg"}
+                      alt={testimonial.featuredImage?.node?.altText || "feature"}
+                      fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                   </div>
 
                   <div className="p-6">
