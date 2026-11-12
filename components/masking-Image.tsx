@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 
 const MaskingImage = ({ data }: any) => {
@@ -8,14 +7,15 @@ const MaskingImage = ({ data }: any) => {
   return (
     <div className="w-fit p-2">
       <Link href={link}>
-        <Image
+        <img
           src={
             data?.featuredImage?.node?.mediaItemUrl || "/images/placeholder.jpg"
           }
           alt={data?.name || "category1"}
           width={363}
           height={375}
-          sizes="(max-width: 600px) 92vw, (max-width: 1024px) 33vw, 20vw"
+          loading="lazy"
+          decoding="async"
           className="maskimage img-full"
         />
       </Link>
