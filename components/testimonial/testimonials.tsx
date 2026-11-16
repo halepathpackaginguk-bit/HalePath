@@ -77,7 +77,7 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
           </div>
 
           <a
-            href="#"
+            href="/customer-stories"
             className="border-secondary text-secondary hover:bg-secondary hover:text-white inline-flex w-fit rounded-full border px-7 py-3 font-medium transition-all duration-300"
           >
             View All Stories
@@ -92,11 +92,11 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
                 <div className="group overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
 
                   {/* Quote */}
-                  <div className="relative h-80 overflow-hidden bg-[#F1EDE7]">
+                  <div className="flex h-80 items-center justify-center overflow-hidden bg-[#F1EDE7]">
                     <img
                       src={testimonial.featuredImage?.node?.sourceUrl || "/images/default.jpg"}
                       alt={testimonial.featuredImage?.node?.altText || "feature"}
-                      className="h-full w-full object-cover"
+                      className="h-[300px] w-[300px] object-contain"
                     />
                   </div>
 
