@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { useRef } from "react";
 import { FaStar } from "react-icons/fa";
 import Slider, { Settings } from "react-slick";
@@ -93,12 +93,10 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
 
                   {/* Quote */}
                   <div className="relative h-80 overflow-hidden bg-[#F1EDE7]">
-                    <Image
+                    <img
                       src={testimonial.featuredImage?.node?.sourceUrl || "/images/default.jpg"}
                       alt={testimonial.featuredImage?.node?.altText || "feature"}
-                      fill
-                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
+                      className="h-full w-full object-cover"
                     />
                   </div>
 
