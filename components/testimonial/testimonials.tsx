@@ -29,7 +29,7 @@ const Testimonials = ({ testimonialsRes }: TestimonialsProps) => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings: Settings = {
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
     dots: false,
