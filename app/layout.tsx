@@ -46,10 +46,14 @@ export default function RootLayout({
       lang="en"
       className={`${poppinsBold.variable} ${poppinsMedium.variable} ${poppinsRegular.variable} h-full antialiased`}
     >
-      <meta
-        name="google-site-verification"
-        content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E"
-      />
+      <head>
+        <link rel="stylesheet" href="/slick.css" />
+        <link rel="stylesheet" href="/slick-theme.css" />
+        <meta
+          name="google-site-verification"
+          content="Zo5mNjrNMt6RbXa48ANu8c0muhtjEVe36VCZUq1jg2E"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <noscript>
           <iframe

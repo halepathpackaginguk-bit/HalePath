@@ -4,9 +4,6 @@ import React, { useMemo } from "react";
 import Slider from "react-slick";
 import MaskingImage from "../masking-Image";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const CenterSlider = ({ data }: any) => {
 
   // console.log("CenterSlider Data:", data); // Debugging log
