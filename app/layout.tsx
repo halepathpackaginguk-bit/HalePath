@@ -47,7 +47,10 @@ export default function RootLayout({
       className={`${poppinsBold.variable} ${poppinsMedium.variable} ${poppinsRegular.variable} h-full antialiased`}
     >
       <head>
+        {/* Slick CSS is served from /public to keep node_modules CSS out of the build pipeline. */}
+        {/* eslint-disable-next-line @next/next/no-css-tags -- static assets, not imported stylesheets */}
         <link rel="stylesheet" href="/slick.css" />
+        {/* eslint-disable-next-line @next/next/no-css-tags -- static assets, not imported stylesheets */}
         <link rel="stylesheet" href="/slick-theme.css" />
         <meta
           name="google-site-verification"

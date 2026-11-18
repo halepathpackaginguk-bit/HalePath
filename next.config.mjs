@@ -1,5 +1,3 @@
-import type { NextConfig } from "next";
-
 const redirectsList = [
   {
     source: "/custom-cbd-display-boxes",
@@ -57,7 +55,7 @@ const redirectsList = [
     source: "/sheet-mask-packaging",
     destination: "/sheet-mask-pouches",
   },
-   {
+  {
     source: "/nail-remover-boxes",
     destination: "/nail-polish-remover-boxes",
   },
@@ -65,21 +63,17 @@ const redirectsList = [
     source: "/flat-bottom-pouch-with-zipper-2",
     destination: "/flat-bottom-pouch-with-zipper",
   },
-
-    {
+  {
     source: "/custom-sports-card-packaging-2",
     destination: "/custom-sports-card-packaging",
   },
-
-    {
+  {
     source: "/category/vape-e-cigarette",
     destination: "/category/vape-e-cigarettes",
   },
-
-  
 ];
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -123,4 +117,5 @@ const nextConfig: NextConfig = {
     }));
   },
 };
+
 export default nextConfig;

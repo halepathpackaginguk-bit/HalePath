@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@apollo/client": "^4.1.7",
+    "@next/swc-wasm-nodejs": "16.4.6",
     "@digicroz/react-floating-whatsapp": "^1.0.2",
     "next": "16.4.6",
     "nodemailer": "^8.0.7",
