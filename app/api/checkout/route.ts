@@ -33,7 +33,6 @@ export async function POST(req: Request) {
         { status: 500 },
       );
     }
-
     const transporter = nodemailer.createTransport({
       host,
       port,
