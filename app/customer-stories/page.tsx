@@ -24,6 +24,7 @@ export default async function CustomerStoriesPage() {
       <PageBanner
         title="Customer Stories"
         description="Read what our customers have to say about working with Hale Path Packaging."
+        breadcrumbItems={[{ label: "Customer Stories", href: "/customer-stories" }]}
       />
       <section className="bg-[#F8F5F0] py-16">
         <div className="container mx-auto px-4">

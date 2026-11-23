@@ -5,6 +5,9 @@ import ProductTabs from "./productTabs";
 import CenterSlider from "../slider/center-slider";
 import Product_brand_slider from "./Product_brand_slider";
 import ProductVideos from "./ProductVideos";
+import Breadcrumb from "../breadcrumb";
+import { getProductBreadcrumbs } from "@/lib/breadcrumbs";
+import { PRICE_PER_UNIT_SCHEMA_VALUE } from "@/lib/pricing";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -26,7 +29,7 @@ const ProductTemplate = ({ data }: any) => {
     ...(imageUrl && { image: imageUrl }),
     offers: {
       "@type": "Offer",
-      price: "0.69",
+      price: PRICE_PER_UNIT_SCHEMA_VALUE,
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: `${baseUrl}/${product.slug}`,
@@ -41,6 +44,7 @@ const ProductTemplate = ({ data }: any) => {
           __html: JSON.stringify(productSchema),
         }}
       />
+      <Breadcrumb items={getProductBreadcrumbs(product)} />
       <main>
         <Banner data={product} />
         <Product_brand_slider />

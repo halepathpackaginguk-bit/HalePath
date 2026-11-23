@@ -22,6 +22,7 @@ const ThankYou = async () => {
       <PageBanner
         title="Thank You!"
         description="Your submission has been received successfully."
+        breadcrumbItems={[{ label: "Thank You", href: "/thank-you" }]}
       />
       <section className="py-20 text-center">
         <div className="hale_container">

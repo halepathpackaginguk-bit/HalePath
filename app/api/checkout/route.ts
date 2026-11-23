@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { PRICE_PER_UNIT_LABEL } from "@/lib/pricing";
 
 export async function POST(req: Request) {
   try {
@@ -11,7 +12,6 @@ export async function POST(req: Request) {
       box_stock,
       quantity,
       printing,
-      calculatedPrice,
       email,
       name,
     } = body;
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
 
                 <hr/>
 
-                <p><strong>Total Price:</strong> $${calculatedPrice}</p>
+                <p><strong>Price:</strong> ${PRICE_PER_UNIT_LABEL}</p>
             `,
     };
 

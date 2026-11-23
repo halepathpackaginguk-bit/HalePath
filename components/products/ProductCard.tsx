@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { PRICE_PER_UNIT_LABEL } from '@/lib/pricing';
 
 export default function ProductCard({ product }: { product: any }) {
   return (
@@ -22,9 +23,7 @@ export default function ProductCard({ product }: { product: any }) {
         )}
         <div className="p-4 flex-grow flex flex-col">
           <h3 className="font-semibold text-lg mb-2 flex-grow">{product.name}</h3>
-          {"price" in product && (
-            <p className="text-blue-600 font-medium">${product.price}</p>
-          )}
+          <p className="text-blue-600 font-medium">{PRICE_PER_UNIT_LABEL}</p>
         </div>
       </Link>
     </div>

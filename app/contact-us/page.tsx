@@ -27,6 +27,7 @@ const ContactUs = async () => {
       <PageBanner
         title="Contact Us"
         description="Have a question or need a custom packaging solution? We're here to help. Get in touch with our team today."
+        breadcrumbItems={[{ label: "Contact Us", href: "/contact-us" }]}
       />
       <Suspense fallback={null}>
         <Get_Qoute />

@@ -19,7 +19,7 @@ function Banner({ data }: any) {
             className="mt-1.5 text-lg font-normal text-title_Clr mb-5"
             dangerouslySetInnerHTML={{ __html: data?.shortDescription }}
           />
-          <FormTabs productName={data?.title} productPrice={650} />
+          <FormTabs productName={data?.title} />
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { buildSeo } from '@/lib/seo/generateSeo';
 import { generateTOCFromHTML } from '@/lib/toc';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import Breadcrumb from '@/components/breadcrumb';
 
 const Featured_Posts = dynamic(() => import('@/components/blog/featured-post'), { ssr: true });
 
@@ -32,6 +33,13 @@ export default async function Single
   const categoryEdge = post?.categories?.edges?.[0]?.node;
   const categoryName = categoryEdge?.name || "";
   const categoryUrl = categoryEdge?.slug ? `${baseUrl}/blog?category=${categoryEdge.slug}` : "";
+  const breadcrumbItems = [
+    { label: "Blog", href: "/blog" },
+    ...(categoryName && categoryEdge?.slug
+      ? [{ label: categoryName, href: `/blog?category=${categoryEdge.slug}` }]
+      : []),
+    { label: post?.title || "Blog Post", href: `/blog/${slug}` },
+  ];
   const wordCount = content.replace(/<[^>]*>/g, "").split(/\s+/).filter(Boolean).length;
   const description = post?.seo?.description || post?.excerpt?.replace(/<[^>]*>/g, "") || "";
   const imageUrl = post?.featuredImage?.node?.sourceUrl || "";
@@ -84,58 +92,13 @@ export default async function Single
     },
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": baseUrl,
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": `${baseUrl}/blog`,
-      },
-      ...(categoryName && categoryUrl
-        ? [
-            {
-              "@type": "ListItem" as const,
-              "position": 3,
-              "name": categoryName,
-              "item": categoryUrl,
-            },
-            {
-              "@type": "ListItem" as const,
-              "position": 4,
-              "name": post?.title || "",
-              "item": postUrl,
-            },
-          ]
-        : [
-            {
-              "@type": "ListItem" as const,
-              "position": 3,
-              "name": post?.title || "",
-              "item": postUrl,
-            },
-          ]),
-    ],
-  };
-
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20">
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-6">

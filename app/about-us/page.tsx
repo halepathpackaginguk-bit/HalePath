@@ -47,7 +47,11 @@ const featureproductsRes = [
 export default function AboutPage() {
   return (
     <>
-      <PageBanner title="About Us" description="Learn more about Hale Path Packaging — our story, our team, and our commitment to sustainable packaging solutions." />
+      <PageBanner
+        title="About Us"
+        description="Learn more about Hale Path Packaging — our story, our team, and our commitment to sustainable packaging solutions."
+        breadcrumbItems={[{ label: "About Us", href: "/about-us" }]}
+      />
       <section className="my-16">
         <div className="hale_container md:flex items-center gap-5 md:gap-10 flex-row">
           <figure className="md:w-1/2">

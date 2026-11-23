@@ -18,6 +18,7 @@ import MainContent from "@/components/main/main-content";
 import SliderFull from "@/components/slider/slider-full";
 import Testimonials from "@/components/testimonial/testimonials";
 import WhatWeOffer from "@/components/what-we-offer/what-we-offer";
+import Breadcrumb from "@/components/breadcrumb";
 
 export async function generateMetadata() {
   return buildSeo({
@@ -41,6 +42,7 @@ export default async function Home() {
 
   return (
     <>
+      <Breadcrumb items={[{ label: "Home", href: "/" }]} />
       <main className={``}>
         <MainSlider />
         <Product_brand_slider />

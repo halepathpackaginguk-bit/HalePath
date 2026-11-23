@@ -49,7 +49,13 @@ export const GET_PRODUCT_BY_SLUG = gql`
         }
       }
       ... on SimpleProduct {
-        price
+        productCategories {
+          nodes {
+            name
+            slug
+            uri
+          }
+        }
         faqs {
           faqsSections {
             title
@@ -165,7 +171,6 @@ export const GET_PRODUCTS_BY_CATEGORY = gql`
         name
         slug
         ... on SimpleProduct {
-          price
           featuredImage {
             node {
               mediaItemUrl

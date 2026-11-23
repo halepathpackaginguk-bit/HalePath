@@ -3,22 +3,20 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaClock, FaPencilAlt, FaTruck } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { PRICE_PER_UNIT_LABEL } from "@/lib/pricing";
 
 type Props = {
   productName: string;
-  productPrice: number;
   quoteFormClass?: string;
 };
 
 export default function FormTabs({
   productName,
-  productPrice,
   quoteFormClass = "container mx-auto mt-5 rounded-[19px] bg-[#CCCCCCB5]",
 }: Props) {
   const [activeTab, setActiveTab] = useState("tab1");
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(10000);
-  const [calculatedPrice, setCalculatedPrice] = useState(productPrice);
 
   const {
     register: registerQuote,
@@ -36,13 +34,6 @@ export default function FormTabs({
 
   const handleQuantityChange = (value: number) => {
     setQuantity(value);
-
-    const baseQuantity = 10000; // your base tier
-    const basePrice = productPrice;
-
-    const newPrice = (value / baseQuantity) * basePrice;
-
-    setCalculatedPrice(newPrice);
   };
   const handleQuoteSubmit = async (data: any) => {
     try {
@@ -91,7 +82,6 @@ export default function FormTabs({
         box_stock: data.box_stock,
         quantity: quantity,
         printing: data.printing,
-        calculatedPrice: calculatedPrice,
         name: data.name,
         email: data.email,
       };
@@ -362,8 +352,7 @@ export default function FormTabs({
                 </div>
 
                 <p style={{ marginTop: "20px", fontSize: "16px" }}>
-                  <strong>Price:</strong> ${calculatedPrice} for {quantity}{" "}
-                  items
+                  <strong>Price:</strong> {PRICE_PER_UNIT_LABEL}
                 </p>
               </div>
 

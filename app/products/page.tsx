@@ -15,7 +15,12 @@ const Products = async () => {
      const page = await getPageBySlug("products");
   return (
     <div>
-      <PageBanner page_info={page} title="Products" description={page?.seo?.description || "Explore our full range of custom packaging solutions."} />
+      <PageBanner
+        page_info={page}
+        title="Products"
+        description={page?.seo?.description || "Explore our full range of custom packaging solutions."}
+        breadcrumbItems={[{ label: "Products", href: "/products" }]}
+      />
       <CategoriesProducts productsRes={products} />
     </div>
   )

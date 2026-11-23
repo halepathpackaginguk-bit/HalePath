@@ -23,6 +23,7 @@ const GetQouteNow = async () => {
       <PageBanner
         title="Get a Quote"
         description="Ready to start your packaging project? Request a personalized quote today and our team will get back to you promptly."
+        breadcrumbItems={[{ label: "Get a Quote", href: "/get-quote-now" }]}
       />
       <Suspense fallback={null}>
         <Get_Qoute />

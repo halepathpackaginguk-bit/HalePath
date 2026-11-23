@@ -10,6 +10,8 @@ import { Suspense } from "react";
 import CategoryCard from "@/components/category/CategoryCard";
 import InfoBoxes from "@/components/category/InfoBoxes";
 import { NavLinks } from "@/const/navlinks";
+import Breadcrumb from "@/components/breadcrumb";
+import { getCategoryBreadcrumbs } from "@/lib/breadcrumbs";
 
 const CategoriesProducts = dynamic(() => import("@/components/category/Category-Products"), { ssr: true });
 const FormTabs = dynamic(() => import("@/components/formTabs"), { ssr: true });
@@ -41,20 +43,24 @@ export default async function CategoryPage({
 
   if (!category) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-4">Category Not Found</h1>
-        <p className="text-gray-600 mb-8">
-          The requested category could not be found.
-        </p>
-        <Link href="/" className="text-blue-600 hover:underline">
-          Return to Home
-        </Link>
-      </div>
+      <>
+        <Breadcrumb items={[{ label: "Category", href: `/category/${slug}` }]} />
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h1 className="text-3xl font-bold mb-4">Category Not Found</h1>
+          <p className="text-gray-600 mb-8">
+            The requested category could not be found.
+          </p>
+          <Link href="/" className="text-blue-600 hover:underline">
+            Return to Home
+          </Link>
+        </div>
+      </>
     );
   }
 
   return (
     <>
+      <Breadcrumb items={getCategoryBreadcrumbs(slug, category?.name, false)} />
       <main className="py-10 lg:py-20">
         <div className="hale_container grid items-center md:grid-cols-2 gap-4 md:gap-8 lg:gap-10 xl:gap-[70px]">
           <div className="h-full">
@@ -73,7 +79,7 @@ export default async function CategoryPage({
               dangerouslySetInnerHTML={{ __html: category?.description }}
             />
             <Suspense fallback={null}>
-              <FormTabs productName={category?.name} productPrice={650} />
+              <FormTabs productName={category?.name} />
             </Suspense>
           </div>
         </div>
