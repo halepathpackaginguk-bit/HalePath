@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import { getProductPath } from "@/lib/product-url";
 
 const MaskingImage = ({ data }: any) => {
-  const link = `/${data?.slug}`;
+  const link = getProductPath(data?.slug);
 
   return (
     <div className="w-fit p-2">

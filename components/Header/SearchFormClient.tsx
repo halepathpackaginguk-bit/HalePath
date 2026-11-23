@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
+import { getProductPath } from "@/lib/product-url";
 
 export interface Product {
   id: string;
@@ -111,7 +112,7 @@ export default function SearchFormClient({
               {results.slice(0, 10).map((product: Product) => (
                 <li key={product.id} className="border-b last:border-b-0">
                   <a
-                    href={`/${product.slug}`}
+                    href={getProductPath(product.slug)}
                     className="block p-3 hover:bg-gray-50 transition-colors"
                     onClick={() => setShowResults(false)}
                   >

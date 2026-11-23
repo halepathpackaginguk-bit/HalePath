@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { PRICE_PER_UNIT_LABEL } from '@/lib/pricing';
+import { getProductPath } from '@/lib/product-url';
 
 export default function ProductCard({ product }: { product: any }) {
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
-      <Link href={`/${product.slug}`} className="block flex-grow">
+      <Link href={getProductPath(product.slug)} className="block flex-grow">
         {product.image?.sourceUrl ? (
           <div className="aspect-square relative">
             <Image

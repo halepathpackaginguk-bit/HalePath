@@ -1,5 +1,6 @@
 import { NavLinks } from "@/const/navlinks";
 import type { BreadcrumbItem } from "@/components/breadcrumb";
+import { getProductPath } from "@/lib/product-url";
 
 type MenuItem = {
   name?: string;
@@ -19,12 +20,9 @@ type NavGroup = {
   submenu?: Submenu[];
 };
 
-type ProductWithCategory = {
+type ProductForBreadcrumb = {
   name?: string;
   slug?: string;
-  productCategories?: {
-    nodes?: Array<{ name?: string; slug?: string }>;
-  };
 };
 
 const normalizeLink = (link?: string) => (link || "").replace(/\/+$/, "");
@@ -48,7 +46,18 @@ export function getCategoryBreadcrumbs(
   includeProducts = true
 ): BreadcrumbItem[] {
   const target = normalizeLink(`/category/${slug}`);
-  const rootCrumb: BreadcrumbItem[] = includeProducts ? [productsCrumb] : [];
+
+  if (!includeProducts) {
+    return [
+      { label: "Category", href: "/products" },
+      {
+        label: fallbackName || humanizeSlug(slug),
+        href: `/category/${slug}`,
+      },
+    ];
+  }
+
+  const rootCrumb: BreadcrumbItem[] = [productsCrumb];
 
   for (const group of NavLinks as NavGroup[]) {
     const groupHref =
@@ -95,17 +104,12 @@ export function getCategoryBreadcrumbs(
   ];
 }
 
-/** Builds the trail for product detail pages using their first category. */
+/** Builds a simple Home > Products > product trail for product detail pages. */
 export function getProductBreadcrumbs(
-  product: ProductWithCategory
+  product: ProductForBreadcrumb
 ): BreadcrumbItem[] {
-  const category = product?.productCategories?.nodes?.[0];
-  const parentCrumbs: BreadcrumbItem[] = category?.slug
-    ? getCategoryBreadcrumbs(category.slug, category.name)
-    : [productsCrumb];
-
   return [
-    ...parentCrumbs,
-    { label: product?.name || "Product", href: `/${product?.slug || ""}` },
+    productsCrumb,
+    { label: product?.name || "Product", href: getProductPath(product?.slug) },
   ];
 }

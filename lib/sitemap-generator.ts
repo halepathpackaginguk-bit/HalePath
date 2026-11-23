@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "./apollo-client";
+import { getProductPath } from "./product-url";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.halepathpackaging.com";
@@ -122,7 +123,7 @@ export async function fetchDynamicUrls(): Promise<SitemapUrl[]> {
       data.products.nodes.forEach((product: Product) => {
         if (product.slug) {
           urls.push({
-            url: `${SITE_URL}/${product.slug}`,
+            url: `${SITE_URL}${getProductPath(product.slug)}`,
             lastModified: product.modified || product.date || today,
             changeFrequency: "daily",
             priority: 0.8,

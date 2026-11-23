@@ -8,6 +8,7 @@ import ProductVideos from "./ProductVideos";
 import Breadcrumb from "../breadcrumb";
 import { getProductBreadcrumbs } from "@/lib/breadcrumbs";
 import { PRICE_PER_UNIT_SCHEMA_VALUE } from "@/lib/pricing";
+import { getProductPath } from "@/lib/product-url";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -19,20 +20,21 @@ const ProductTemplate = ({ data }: any) => {
 
   const imageUrl =
     product?.featuredImage?.node?.mediaItemUrl || product?.image?.sourceUrl;
+  const productUrl = `${baseUrl}${getProductPath(product.slug)}`;
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.shortDescription?.replace(/<[^>]*>/g, "") || "",
-    url: `${baseUrl}/${product.slug}`,
+    url: productUrl,
     ...(imageUrl && { image: imageUrl }),
     offers: {
       "@type": "Offer",
       price: PRICE_PER_UNIT_SCHEMA_VALUE,
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
-      url: `${baseUrl}/${product.slug}`,
+      url: productUrl,
     },
   };
 

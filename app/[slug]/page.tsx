@@ -13,6 +13,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const result = await resolveSlug(slug);
   if (!result) return null;
+
   return buildSeo(result.data, slug);
 }
 

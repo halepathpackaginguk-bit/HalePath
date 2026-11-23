@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "../lib/apollo-client";
+import { getProductPath } from "../lib/product-url";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -252,8 +253,7 @@ async function generateProductSitemaps(): Promise<number> {
             ? new Date(product.date)
             : new Date();
 
-          // Fix: Add /product/ prefix to URL
-          const productUrl = `${SITE_URL}/${product.slug}`;
+          const productUrl = `${SITE_URL}${getProductPath(product.slug)}`;
 
           return `  <url>
     <loc>${escapeXml(productUrl)}</loc>

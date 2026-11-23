@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { getProductPath } from "@/lib/product-url";
 
 const CategoriesProducts = ({ productsRes }: any) => {
   const [visibleCount, setVisibleCount] = useState(15);
@@ -24,7 +25,7 @@ const CategoriesProducts = ({ productsRes }: any) => {
       <div className="hale_container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {productsRes?.slice(0, visibleCount).map((item: any, idx: number) => (
           <div key={idx} className="p-3">
-            <Link href={`/${item?.slug}`} className="inline-flex h-fit">
+            <Link href={getProductPath(item?.slug)} className="inline-flex h-fit">
               <img
                 src={
                   item?.featuredImage?.node?.mediaItemUrl ||
@@ -38,7 +39,7 @@ const CategoriesProducts = ({ productsRes }: any) => {
               />
             </Link>
             <h4 className="text-xl font-normal text-title_Clr text-center flex w-fit mx-auto mt-8">
-              <Link href={`/${item?.slug}`}>{item?.name}</Link>
+              <Link href={getProductPath(item?.slug)}>{item?.name}</Link>
             </h4>
           </div>
         ))}
